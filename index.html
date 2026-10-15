@@ -4,9 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="light dark" />
-    <meta name="description" content="Boswell Consulting Agency LLC: management consulting and research for health and human services organizations. Petersburg, Virginia." />
+    <meta name="description" content="Boswell Consulting Agency LLC: management consulting and research for health and human services. No consultation fee, no weeks of waiting. You pay only for the fix." />
     <link rel="icon" href="data:," />
-    <title>Boswell Consulting Agency</title>
+    <title>Boswell Consulting Agency | No Consultation Fee, No Weeks of Waiting</title>
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "VideoObject", "name": "The Boswell Consulting Agency Model: No Consultation Fee, No Weeks of Waiting", "description": "A short statement of the firm's asynchronous consulting model: send the problem in writing, the review is free, you pay only for the fix, and the deliverable comes back fast with a verification file.", "thumbnailUrl": "https://boswellconsultingagency.com/manifesto-poster.jpg", "contentUrl": "https://boswellconsultingagency.com/manifesto.mp4", "uploadDate": "2026-10-14", "duration": "PT0M29S"}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -109,6 +112,11 @@
       .hero .subhead { font-size: clamp(19px, 2.4vw, 24px); line-height: 1.45; color: var(--on-navy); margin: 0 0 16px; font-weight: 600; }
       .hero .support { color: var(--on-navy-soft); font-size: 17.5px; margin: 0 0 34px; max-width: 34em; }
       .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+      .hero-video { margin-top: 40px; max-width: 880px; }
+      .hero-video video { width: 100%; height: auto; display: block; border: 1px solid var(--line-dark); border-radius: 10px; background: #060d18; }
+      .hero-video figcaption { color: var(--on-navy-soft); font-size: 14.5px; margin-top: 10px; }
+      .hero-video details { margin-top: 8px; color: var(--on-navy-soft); font-size: 15px; max-width: 62ch; }
+      .hero-video summary { cursor: pointer; color: var(--on-navy); font-weight: 600; }
       .btn {
         display: inline-block; text-decoration: none; font-weight: 700; font-size: 15.5px;
         padding: 13px 26px; border-radius: 4px; transition: background 0.15s ease;
@@ -371,13 +379,24 @@
         <div class="wrap hero-inner">
           <div>
             <div class="hero-rule" aria-hidden="true"></div>
-            <h1>Boswell Consulting Agency</h1>
-            <p class="subhead">Management consulting and research for health and human services organizations.</p>
-            <p class="support">Written, verification-first consulting delivered by the principal. Every engagement is documented, sourced, and built so your team can act on it without a follow-up meeting.</p>
+            <p class="kicker" style="margin-bottom:14px;">Boswell Consulting Agency LLC, Petersburg, Virginia</p>
+            <h1>The days of paying a consultant top dollar and waiting weeks for deliverables are over.</h1>
+            <p class="subhead">Management consulting and research for health and human services organizations, delivered in writing by the principal.</p>
+            <p class="support">No consultation fee, and no weeks of waiting. Send the problem in writing. I review it free, and the deliverable comes back fast with a verification file showing every requirement it was checked against. You pay only for the fix, never for a conversation about your problem.</p>
             <div class="hero-actions">
               <a class="btn btn-brass" href="about.html#contact">Start a Conversation</a>
               <a class="btn btn-outline" href="services.html">View Services</a>
             </div>
+            <figure class="hero-video reveal" style="margin-left:0; margin-right:0;">
+              <video id="manifesto-video" autoplay muted loop playsinline controls preload="metadata" poster="manifesto-poster.jpg" aria-label="The Boswell Consulting Agency model: no consultation fee, no weeks of waiting">
+                <source src="manifesto.mp4" type="video/mp4" />
+              </video>
+              <figcaption>Under thirty seconds on how the model works. It plays silently; turn the sound on to hear it.</figcaption>
+              <details>
+                <summary>Read the transcript</summary>
+                <p>The days of paying a consultant top dollar and waiting weeks, sometimes months, for your deliverables are over. I am an asynchronous consultant. Send me the problem in writing. I review it first, free. No consultation fee. No meetings. No phone tag. If I can fix it, you pay for the fix, and the deliverable comes back fast, with a verification file showing every requirement it was checked against. If you are tired of paying to wait, work with somebody whose model is built to move.</p>
+              </details>
+            </figure>
           </div>
           
         </div>
@@ -421,6 +440,7 @@
               <li><strong>Your hours buy work</strong><span>Time goes into findings and documents, not into meetings about the work.</span></li>
               <li><strong>Scope cannot drift</strong><span>The engagement is defined in writing at the start, so what you asked for is exactly what gets delivered.</span></li>
               <li><strong>Easy to share</strong><span>Written findings forward cleanly to a partner, a lender, or your team, word for word as delivered.</span></li>
+              <li><strong>No fee, no waiting</strong><span>I review the problem in writing first, free. If I can fix it, the work comes back in days, not weeks, and you pay for the fix, never for a conversation about it.</span></li>
             </ul>
           </div>
         </div>
@@ -553,6 +573,25 @@
           revealEls.forEach(function (el) { io.observe(el); });
         } else {
           revealEls.forEach(function (el) { el.classList.add('in'); });
+        }
+      })();
+    </script>
+    <script>
+      (function () {
+        var v = document.getElementById('manifesto-video');
+        if (!v) return;
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          v.removeAttribute('autoplay');
+          v.pause();
+          return;
+        }
+        if ('IntersectionObserver' in window) {
+          var vo = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) { v.play().catch(function () {}); } else { v.pause(); }
+            });
+          }, { threshold: 0.25 });
+          vo.observe(v);
         }
       })();
     </script>
