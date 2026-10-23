@@ -4,8 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="light dark" />
-    <meta name="description" content="Boswell Consulting Agency LLC: management consulting and research for health and human services organizations. Petersburg, Virginia." />
-    <link rel="icon" href="data:," />
+    <meta name="description" content="Home care startup kits and operator toolkits from Boswell Consulting Agency: state licensing packs, EVV compliance tools, policy and correction writers, and calculators for agency owners." />
+    <meta property="og:title" content="Kits and Toolkits | Boswell Consulting Agency" />
+    <meta property="og:description" content="Home care startup kits and operator toolkits from Boswell Consulting Agency: state licensing packs, EVV compliance tools, policy and correction writers, and calculators for agency owners." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://boswellconsultingagency.com/kits.html" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <title>Kits and Toolkits | Boswell Consulting Agency</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -342,10 +346,25 @@
       .cta-band h2 { color: #fff; font-size: clamp(26px, 3vw, 34px); margin: 0 0 8px; font-weight: 600; line-height: 1.2; }
       .cta-band .cta-line { color: var(--on-navy-soft); margin: 0; max-width: 38em; font-size: 17.5px; }
       .cta-band-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+      /* ---------- Corporate template polish ---------- */
+      .site-nav { border-bottom: 2px solid var(--brass); }
+      .btn-primary { background: var(--navy-900); color: #fff; }
+      .btn-primary:hover { background: var(--navy-700); color: #fff; }
+      .section-head h1 { font-size: clamp(30px, 3.6vw, 40px); line-height: 1.15; margin: 0 0 14px; font-weight: 600; }
+      .about-copy h1 { font-size: clamp(28px, 3.4vw, 38px); margin: 0 0 16px; font-weight: 600; line-height: 1.2; }
+      section.navy h1 { color: #fff; }
+      .svc-panel, .case, .kit-card, .findings { border-radius: 6px; }
+      main > section + section { border-top: 1px solid var(--line); }
+      .footer-grid { grid-template-columns: 1.5fr 0.9fr 1.15fr 1.25fr; }
+      .footer-grid li { font-size: 15px; }
+      .footer-grid ul a { overflow-wrap: anywhere; }
+      @media (max-width: 960px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+      @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
     </style>
   </head>
   <body>
-    <header class="site-nav">
+        <header class="site-nav">
       <div class="nav-inner">
         <a class="brand" href="index.html" aria-label="Boswell Consulting Agency, home">
           <span class="brand-mark">B</span>
@@ -356,15 +375,15 @@
         </a>
         <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
         <nav class="nav-links" id="navLinks" aria-label="Primary">
-          <a href="services.html">Consulting Services</a>
-          <a href="index.html#work">Selected Work</a>
-          <a href="research.html">Research & Books</a>
-          <a href="research.html#book">The Book</a>
-          <a href="kits.html">Kits and Toolkits</a>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="kits.html">Kits</a>
+          <a href="research.html">Research</a>
           <a href="reviews.html">Reviews</a>
+          <a href="videos.html">Videos</a>
+          <a href="calculator.html">Calculator</a>
           <a href="teaming.html">Teaming</a>
-          <a href="videos.html">Video Library</a>
-          <a href="calculator.html">Financial Calculator</a><a href="about.html">About Dr. Boswell</a>
+          <a href="about.html">About</a>
           <a class="nav-cta" href="about.html#contact">Contact</a>
         </nav>
       </div>
@@ -374,7 +393,7 @@
         <div class="wrap">
           <div class="section-head reveal">
             <p class="kicker">Kits and Toolkits</p>
-            <h2>The operator catalog</h2>
+            <h1>The operator catalog</h1>
             <p>Ready-built kits and tools from the firm's consulting work, sold through the firm's Gumroad store. Select a product to view it in the store.</p>
           </div>
           <div class="kit-grid">
@@ -463,16 +482,13 @@
       </section>
 </main>
 
-    <footer>
+        <footer>
       <div class="wrap">
         <div class="footer-grid">
           <div>
             <h4>Boswell Consulting Agency LLC</h4>
-            <p>Management consulting and research for health and human services organizations. Petersburg, Virginia. Small business, minority owned. SAM.gov registered through October 9, 2027.</p>
-          </div>
-          <div>
-            <h4>Follow the Work</h4>
-            <ul>
+            <p>Management consulting and research for health and human services organizations. Petersburg, Virginia. Small business, minority owned.</p>
+            <ul style="margin-top:14px;">
               <li><a href="https://www.linkedin.com/in/devon-boswell-dba" target="_blank" rel="noopener">LinkedIn</a></li>
               <li><a href="https://www.youtube.com/@BoswellConsultingAgency" target="_blank" rel="noopener">YouTube</a></li>
               <li><a href="https://medium.com/@drboswell" target="_blank" rel="noopener">Medium</a></li>
@@ -482,21 +498,40 @@
             </ul>
           </div>
           <div>
-            <h4>On This Page</h4>
+            <h4>Pages</h4>
             <ul>
-              <li><a href="services.html">Consulting Services</a></li>
-              <li><a href="index.html#how-i-work">How I Work</a></li>
-              <li><a href="index.html#work">Selected Work</a></li>
-              <li><a href="research.html">Research & Books</a></li>
-              <li><a href="kits.html">Kits and Toolkits</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="kits.html">Kits</a></li>
+              <li><a href="research.html">Research</a></li>
               <li><a href="reviews.html">Reviews</a></li>
+              <li><a href="videos.html">Videos</a></li>
+              <li><a href="calculator.html">Calculator</a></li>
               <li><a href="teaming.html">Teaming</a></li>
-              <li><a href="about.html#contact">Contact</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="mailto:DrBoswell@boswellconsultingagency.com">DrBoswell@boswellconsultingagency.com</a></li>
+              <li><a href="tel:+18042991920">804-299-1920</a></li>
+              <li>Petersburg, Virginia</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Credentials</h4>
+            <ul>
+              <li>SAM.gov registered through October 9, 2027</li>
+              <li>UEI GBGFWCBHKZF4</li>
+              <li>CAGE 140F4</li>
+              <li>NAICS 541611, 541612, 541618, 541690</li>
+              <li>eVA vendor, Commonwealth of Virginia</li>
             </ul>
           </div>
         </div>
         <div class="footer-base">
-          <span>Boswell Consulting Agency LLC | SAM.gov registered | NAICS 541611, 541612, 541618, 541690 | UEI GBGFWCBHKZF4 | CAGE 140F4</span>
+          <span>Boswell Consulting Agency LLC</span>
           <span>&copy; 2026 Boswell Consulting Agency LLC</span>
         </div>
       </div>
@@ -518,14 +553,16 @@
         });
 
         var facade = document.getElementById('videoFacade');
-        facade.addEventListener('click', function () {
+        if (facade) {
+          facade.addEventListener('click', function () {
           var iframe = document.createElement('iframe');
           iframe.src = 'https://www.youtube-nocookie.com/embed/8zU4pm60nEo?autoplay=1&rel=0';
           iframe.title = 'Featured walkthrough: starting a home care agency in Texas';
           iframe.setAttribute('allow', 'accelerometer; autoplay; encrypted-media; picture-in-picture');
           iframe.setAttribute('allowfullscreen', '');
-          facade.replaceWith(iframe);
-        });
+            facade.replaceWith(iframe);
+          });
+        }
 
         var revealEls = document.querySelectorAll('.reveal');
         if ('IntersectionObserver' in window) {
