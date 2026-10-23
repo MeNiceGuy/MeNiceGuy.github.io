@@ -336,6 +336,12 @@
         .about-facts { grid-template-columns: 1fr; }
         body { font-size: 16px; }
       }
+
+      /* Closing CTA band */
+      .cta-band-inner { display: flex; align-items: center; justify-content: space-between; gap: 28px 48px; flex-wrap: wrap; }
+      .cta-band h2 { color: #fff; font-size: clamp(26px, 3vw, 34px); margin: 0 0 8px; font-weight: 600; line-height: 1.2; }
+      .cta-band .cta-line { color: var(--on-navy-soft); margin: 0; max-width: 38em; font-size: 17.5px; }
+      .cta-band-actions { display: flex; gap: 14px; flex-wrap: wrap; }
     </style>
   </head>
   <body>
@@ -430,7 +436,7 @@
           <p class="sub-note reveal">Working tools for agencies already operating.</p>
           <div class="tools-grid reveal">
             <a href="https://drboswell.gumroad.com/l/lldiwn" target="_blank" rel="noopener">Referral Source Tracker<small>Track where your clients actually come from</small></a>
-            <a href="https://drboswell.gumroad.com" target="_blank" rel="noopener">Payer Mix Calculator<small>See which payers carry your margin</small></a>
+            <a href="https://drboswell.gumroad.com/l/majzn" target="_blank" rel="noopener">Payer Mix Calculator<small>See which payers carry your margin</small></a>
             <a href="https://drboswell.gumroad.com/l/evv-compliance-guide" target="_blank" rel="noopener">EVV Compliance Guide<small>Electronic visit verification, state by state</small></a>
             <a href="https://drboswell.gumroad.com/l/plan-of-correction-writer" target="_blank" rel="noopener">Plan of Correction Writer<small>Answer a deficiency citation the right way</small></a>
           </div>
@@ -438,7 +444,24 @@
       </section>
 
       <!-- ============ VIDEOS ============ -->
-      </main>
+      
+      <!-- ============ NEXT STEP ============ -->
+      <section class="navy cta-band">
+        <div class="wrap">
+          <div class="cta-band-inner">
+            <div>
+              <p class="kicker">Next Step</p>
+              <h2>Send me the problem in writing</h2>
+              <p class="cta-line">I review it free, and you pay only for the fix. No consultation fee, and no call required at any point.</p>
+            </div>
+            <div class="cta-band-actions">
+              <a class="btn btn-brass" href="about.html#contact">Contact</a>
+              <a class="btn btn-outline" href="calculator.html">Free Financial Calculator</a>
+            </div>
+          </div>
+        </div>
+      </section>
+</main>
 
     <footer>
       <div class="wrap">

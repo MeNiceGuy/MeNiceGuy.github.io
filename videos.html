@@ -343,6 +343,12 @@
         .about-facts { grid-template-columns: 1fr; }
         body { font-size: 16px; }
       }
+
+      /* Closing CTA band */
+      .cta-band-inner { display: flex; align-items: center; justify-content: space-between; gap: 28px 48px; flex-wrap: wrap; }
+      .cta-band h2 { color: #fff; font-size: clamp(26px, 3vw, 34px); margin: 0 0 8px; font-weight: 600; line-height: 1.2; }
+      .cta-band .cta-line { color: var(--on-navy-soft); margin: 0; max-width: 38em; font-size: 17.5px; }
+      .cta-band-actions { display: flex; gap: 14px; flex-wrap: wrap; }
     </style>
   </head>
   <body>
@@ -442,12 +448,12 @@
             <div class="reveal">
               <h3 class="serif" style="font-size:21px; margin:0 0 10px;">More state walkthroughs</h3>
               <ul class="walk-list">
-                <li><a href="https://www.youtube.com/@BoswellConsultingAgency" target="_blank" rel="noopener">Arizona walkthrough <span>Watch &#8599;</span></a></li>
-                <li><a href="https://www.youtube.com/@BoswellConsultingAgency" target="_blank" rel="noopener">Michigan walkthrough <span>Watch &#8599;</span></a></li>
-                <li><a href="https://www.youtube.com/@BoswellConsultingAgency" target="_blank" rel="noopener">Florida walkthrough <span>Watch &#8599;</span></a></li>
-                <li><a href="https://www.youtube.com/@BoswellConsultingAgency" target="_blank" rel="noopener">Ohio walkthrough <span>Watch &#8599;</span></a></li>
-                <li><a href="https://www.youtube.com/@BoswellConsultingAgency" target="_blank" rel="noopener">Pennsylvania walkthrough <span>Watch &#8599;</span></a></li>
-                <li><a href="https://www.youtube.com/@BoswellConsultingAgency" target="_blank" rel="noopener">Georgia walkthrough <span>Watch &#8599;</span></a></li>
+                <li><a href="https://www.youtube.com/watch?v=0tG2_a9wD_s" target="_blank" rel="noopener">Arizona walkthrough <span>Watch &#8599;</span></a></li>
+                <li><a href="https://www.youtube.com/watch?v=es0no5rL6LM" target="_blank" rel="noopener">Michigan walkthrough <span>Watch &#8599;</span></a></li>
+                <li><a href="https://www.youtube.com/watch?v=utj0pWKuf_0" target="_blank" rel="noopener">Florida walkthrough <span>Watch &#8599;</span></a></li>
+                <li><a href="https://www.youtube.com/watch?v=fBGwdZstxcI" target="_blank" rel="noopener">Ohio walkthrough <span>Watch &#8599;</span></a></li>
+                <li><a href="https://www.youtube.com/watch?v=CAGaO8XQDYI" target="_blank" rel="noopener">Pennsylvania walkthrough <span>Watch &#8599;</span></a></li>
+                <li><a href="https://www.youtube.com/watch?v=t_C3QnEfhns" target="_blank" rel="noopener">Georgia walkthrough <span>Watch &#8599;</span></a></li>
               </ul>
               <p style="margin-top:20px;"><a href="https://www.youtube.com/@BoswellConsultingAgency" target="_blank" rel="noopener" style="color:var(--brass-bright); font-weight:700; text-decoration:none;">Visit the channel &#8599;</a></p>
             </div>
@@ -462,7 +468,7 @@
           <div class="section-head">
             <p class="kicker">More From the Channel</p>
             <h2>Cost, licensing, and operations explainers</h2>
-            <p>The channel carries state licensing walkthroughs for Arizona, Washington, Colorado, Michigan, Florida, and Massachusetts, alongside cost and operations breakdowns for owners. Four more walkthroughs follow this month: North Carolina on October 16, Wisconsin on October 18, Tennessee on October 20, and California on October 22, 2026.</p>
+            <p>The channel carries state licensing walkthroughs for Arizona, Washington, Colorado, Michigan, Florida, and Massachusetts, alongside cost and operations breakdowns for owners. The newest state walkthroughs, North Carolina, Wisconsin, Tennessee, and California, are published now, and all four sit in the License by State playlist above.</p>
           </div>
           <div class="svc-grid">
             <div class="svc-panel">
@@ -479,6 +485,23 @@
               <h3>Licensed But No Clients: Where Private-Pay Home Care Clients Come From</h3>
               <p>The referral channels that fill a census after the license arrives.</p>
               <p><a href="https://www.youtube.com/watch?v=eddewAz_Cgw">Watch on YouTube</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ NEXT STEP ============ -->
+      <section class="navy cta-band">
+        <div class="wrap">
+          <div class="cta-band-inner">
+            <div>
+              <p class="kicker">Next Step</p>
+              <h2>Send me the problem in writing</h2>
+              <p class="cta-line">I review it free, and you pay only for the fix. No consultation fee, and no call required at any point.</p>
+            </div>
+            <div class="cta-band-actions">
+              <a class="btn btn-brass" href="about.html#contact">Contact</a>
+              <a class="btn btn-outline" href="calculator.html">Free Financial Calculator</a>
             </div>
           </div>
         </div>
@@ -540,7 +563,7 @@
         var facade = document.getElementById('videoFacade');
         facade.addEventListener('click', function () {
           var iframe = document.createElement('iframe');
-          iframe.src = 'https://www.youtube-nocookie.com/embed/8zU4pm60nEo?autoplay=1&rel=0';
+          iframe.src = 'https://www.youtube-nocookie.com/embed/j0hIOoZY-KI?autoplay=1&rel=0';
           iframe.title = 'Featured walkthrough: starting a home care agency in Texas';
           iframe.setAttribute('allow', 'accelerometer; autoplay; encrypted-media; picture-in-picture');
           iframe.setAttribute('allowfullscreen', '');

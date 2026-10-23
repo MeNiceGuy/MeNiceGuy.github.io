@@ -336,6 +336,15 @@
         .about-facts { grid-template-columns: 1fr; }
         body { font-size: 16px; }
       }
+
+      .btn-primary { background: var(--navy-900); color: #fff; }
+      .btn-primary:hover { background: var(--navy-700); color: #fff; }
+
+      /* Closing CTA band */
+      .cta-band-inner { display: flex; align-items: center; justify-content: space-between; gap: 28px 48px; flex-wrap: wrap; }
+      .cta-band h2 { color: #fff; font-size: clamp(26px, 3vw, 34px); margin: 0 0 8px; font-weight: 600; line-height: 1.2; }
+      .cta-band .cta-line { color: var(--on-navy-soft); margin: 0; max-width: 38em; font-size: 17.5px; }
+      .cta-band-actions { display: flex; gap: 14px; flex-wrap: wrap; }
     </style>
   </head>
   <body>
@@ -407,6 +416,7 @@
             <h2>Start Your Home Care Agency</h2>
             <p><strong>The Operator's System for Licensing, Hiring, and Building a Profitable Non-Medical Home Care Business</strong></p>
             <p>By Dr. Devon Boswell, DBA. Launching November 1, 2026, in ebook, paperback, and hardcover. 160 pages.</p>
+            <p style="margin-top:20px;"><a class="btn btn-primary" href="https://www.amazon.com/dp/B0HMMS92JY" target="_blank" rel="noopener">Pre-order the Kindle edition on Amazon</a></p>
             <p>Most home care agencies do not fail because of licensing problems. They fail because the math was never done: a rate that sounds fine, caregiver pay the market demands, and no calculation of what an hour of care actually costs. This book prevents that. It walks an operator from entity and licensing through policies, enrollment, hiring, pricing, and the first clients, in the order the work actually has to happen, with the same verification standard applied throughout: every regulatory claim in the book is sourced. Chapter 12 presents my Capella University doctoral research on why some agencies adapt and others do not, a quantitative study of 68 home health agency managers.</p>
           </div>
           <div class="svc-grid">
@@ -426,7 +436,24 @@
       </section>
 
       <!-- ============ KITS ============ -->
-      </main>
+      
+      <!-- ============ NEXT STEP ============ -->
+      <section class="navy cta-band">
+        <div class="wrap">
+          <div class="cta-band-inner">
+            <div>
+              <p class="kicker">Next Step</p>
+              <h2>Send me the problem in writing</h2>
+              <p class="cta-line">I review it free, and you pay only for the fix. No consultation fee, and no call required at any point.</p>
+            </div>
+            <div class="cta-band-actions">
+              <a class="btn btn-brass" href="about.html#contact">Contact</a>
+              <a class="btn btn-outline" href="calculator.html">Free Financial Calculator</a>
+            </div>
+          </div>
+        </div>
+      </section>
+</main>
 
     <footer>
       <div class="wrap">

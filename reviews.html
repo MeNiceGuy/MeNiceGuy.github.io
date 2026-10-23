@@ -336,6 +336,12 @@
         .about-facts { grid-template-columns: 1fr; }
         body { font-size: 16px; }
       }
+
+      /* Closing CTA band */
+      .cta-band-inner { display: flex; align-items: center; justify-content: space-between; gap: 28px 48px; flex-wrap: wrap; }
+      .cta-band h2 { color: #fff; font-size: clamp(26px, 3vw, 34px); margin: 0 0 8px; font-weight: 600; line-height: 1.2; }
+      .cta-band .cta-line { color: var(--on-navy-soft); margin: 0; max-width: 38em; font-size: 17.5px; }
+      .cta-band-actions { display: flex; gap: 14px; flex-wrap: wrap; }
     </style>
   </head>
   <body>
@@ -373,6 +379,13 @@
           </div>
           <div class="work-cards">
             <article class="case reveal">
+              <p class="case-tag">Willie Zaragoza, Virginia</p>
+              <blockquote>
+                <p>"I ended up hiring Devon Boswell who exceeded my expectations tenfold. I highly recommend thank you Devon for everything!!!"</p>
+              </blockquote>
+              <p>A home care agency owner who hired Devon for her agency's licensing and policies work.</p>
+            </article>
+            <article class="case reveal">
               <p class="case-tag">Client, Virginia, Policies and Procedures</p>
               <blockquote>
                 <p>"I haven't looked at much, but what I saw, blew me away!"</p>
@@ -407,13 +420,6 @@
               <p>An agency owner, on checking a staffing platform worker's license, verification status, and expirations before confirming a shift, and keeping your own copies on file.</p>
             </article>
             <article class="case reveal">
-              <p class="case-tag">Willie Zaragoza, Virginia</p>
-              <blockquote>
-                <p>"I ended up hiring Devon Boswell who exceeded my expectations tenfold. I highly recommend thank you Devon for everything!!!"</p>
-              </blockquote>
-              <p>A home care agency owner who hired Devon for her agency's licensing and policies work.</p>
-            </article>
-            <article class="case reveal">
               <p class="case-tag">Maryland, Assisted Living</p>
               <blockquote>
                 <p>"Ok. Thank you as you do sound very knowledgeable. Just trying to determine what direction to go."</p>
@@ -440,7 +446,24 @@
           </div>
         </div>
       </section>
-      </main>
+      
+      <!-- ============ NEXT STEP ============ -->
+      <section class="navy cta-band">
+        <div class="wrap">
+          <div class="cta-band-inner">
+            <div>
+              <p class="kicker">Next Step</p>
+              <h2>Send me the problem in writing</h2>
+              <p class="cta-line">I review it free, and you pay only for the fix. No consultation fee, and no call required at any point.</p>
+            </div>
+            <div class="cta-band-actions">
+              <a class="btn btn-brass" href="about.html#contact">Contact</a>
+              <a class="btn btn-outline" href="research.html#book">See the Book</a>
+            </div>
+          </div>
+        </div>
+      </section>
+</main>
 
     <footer>
       <div class="wrap">
