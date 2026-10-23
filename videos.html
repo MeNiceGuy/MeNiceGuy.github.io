@@ -266,6 +266,13 @@
       .walk-list a:hover { color: #fff; }
       .walk-list a span { color: var(--brass-bright); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
 
+      /* Playlists */
+      .playlist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 40px; }
+      .playlist-block h3 { font-size: 23px; margin: 0 0 8px; font-weight: 600; }
+      .playlist-block .pl-desc { color: var(--ink-soft); margin: 0 0 18px; font-size: 16px; }
+      .playlist-block .pl-links { margin: 14px 0 0; font-size: 15.5px; }
+      .playlist-block .pl-tie { margin: 6px 0 0; font-size: 15.5px; color: var(--ink-soft); }
+
       /* About */
       .about-grid { display: grid; grid-template-columns: 320px 1fr; gap: 56px; align-items: start; }
       .about-photo img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: top center; border: 1px solid var(--line); }
@@ -308,7 +315,7 @@
       @media (max-width: 960px) {
         .hero-inner { grid-template-columns: 1fr; gap: 40px; padding: 60px 0 52px; }
         .hero-photo { max-width: 340px; }
-        .svc-grid, .work-cards, .kit-grid, .contact-grid, .video-grid, .research-grid, .work-grid, .about-grid, .book-grid { grid-template-columns: 1fr; }
+        .svc-grid, .work-cards, .kit-grid, .contact-grid, .video-grid, .playlist-grid, .research-grid, .work-grid, .about-grid, .book-grid { grid-template-columns: 1fr; }
         .book-cover { max-width: 300px; }
         .state-grid { grid-template-columns: repeat(3, 1fr); }
         .tools-grid { grid-template-columns: repeat(2, 1fr); }
@@ -362,7 +369,57 @@
       </div>
     </header>
 
-    <main id="top"><section class="navy" id="videos">
+    <main id="top">
+      <!-- ============ PLAYLISTS ============ -->
+      <section id="playlists">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker">Playlists</p>
+            <h2>Watch by topic</h2>
+            <p>The channel is organized into four playlists. Pick the question you are working on and watch the full set in order, right here or on YouTube.</p>
+          </div>
+          <div class="playlist-grid">
+            <div class="playlist-block">
+              <h3>Home Care Agency License by State</h3>
+              <p class="pl-desc">State by state licensing walkthroughs: what each state requires, what it charges, and how long it takes.</p>
+              <div class="video-frame">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLb_4gg8-VPhM" title="Home Care Agency License by State playlist" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <p class="pl-links"><a href="https://www.youtube.com/playlist?list=PLb_4gg8-VPhM" target="_blank" rel="noopener">Open this playlist on YouTube &#8599;</a></p>
+              <p class="pl-tie">Prefer it in writing? The states covered here also have step by step packs in the <a href="https://drboswell.gumroad.com" target="_blank" rel="noopener">Gumroad store</a>.</p>
+            </div>
+            <div class="playlist-block">
+              <h3>How to Start a Home Care Agency</h3>
+              <p class="pl-desc">The startup sequence in order: entity, licensing, policies, first clients.</p>
+              <div class="video-frame">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLHFpXBXdWTEQ" title="How to Start a Home Care Agency playlist" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <p class="pl-links"><a href="https://www.youtube.com/playlist?list=PLHFpXBXdWTEQ" target="_blank" rel="noopener">Open this playlist on YouTube &#8599;</a></p>
+              <p class="pl-tie">The full system behind this sequence is the book, <em>Start Your Home Care Agency: The Operator's System</em>. Kindle pre-order is live and print lands November 1: <a href="https://www.amazon.com/dp/B0HMMS92JY" target="_blank" rel="noopener">pre-order on Amazon</a>.</p>
+            </div>
+            <div class="playlist-block">
+              <h3>Home Care Agency Operations and Compliance</h3>
+              <p class="pl-desc">Running the agency day to day: EVV, audits, policies, and the systems that hold up in survey.</p>
+              <div class="video-frame">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLdObxjHUMTgY" title="Home Care Agency Operations and Compliance playlist" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <p class="pl-links"><a href="https://www.youtube.com/playlist?list=PLdObxjHUMTgY" target="_blank" rel="noopener">Open this playlist on YouTube &#8599;</a></p>
+              <p class="pl-tie">Put the same checks to work with the <a href="https://drboswell.gumroad.com" target="_blank" rel="noopener">Operations Audit Toolkit</a> on Gumroad.</p>
+            </div>
+            <div class="playlist-block">
+              <h3>Home Care Business Money: Rates, Margins, and Costs</h3>
+              <p class="pl-desc">Pricing, rates, margins, break-even, and the numbers an owner has to know.</p>
+              <div class="video-frame">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PLIDjfPS7gdMw" title="Home Care Business Money: Rates, Margins, and Costs playlist" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <p class="pl-links"><a href="https://www.youtube.com/playlist?list=PLIDjfPS7gdMw" target="_blank" rel="noopener">Open this playlist on YouTube &#8599;</a></p>
+              <p class="pl-tie">Run your own numbers first with the free <a href="calculator.html">Home Care Financial Calculator</a> on this site.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="navy" id="videos">
         <div class="wrap">
           <div class="section-head reveal">
             <p class="kicker">Videos</p>
