@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Petersburg City Public Schools - Division Data Snapshot, Fall 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#0f2a44;
+    --navy-2:#163a5c;
+    --navy-3:#1e4a73;
+    --ink:#17222e;
+    --muted:#4d5d6e;
+    --line:#d7dee6;
+    --paper:#ffffff;
+    --wash:#eef2f7;
+    --wash-2:#e2eaf2;
+    --va:#9db4c9;
+    --va-dark:#6e8aa5;
+    --good:#1d6b4a;
+    --good-bg:#e6f2ec;
+    --warn:#8a5a00;
+    --warn-bg:#fdf0d5;
+    --alert:#9c2b2e;
+    --alert-bg:#fbecec;
+    --gold:#b98a1d;
+    --radius:10px;
+    --shadow:0 1px 2px rgba(15,42,68,.06), 0 8px 24px rgba(15,42,68,.07);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --navy:#0a1c30;
+      --navy-2:#102a47;
+      --navy-3:#1e4a73;
+      --ink:#e8eef4;
+      --muted:#a9bccd;
+      --line:#2c435c;
+      --paper:#0d2239;
+      --wash:#122c49;
+      --wash-2:#183453;
+      --va:#5d7d99;
+      --va-dark:#7e9cb6;
+      --good:#5fc493;
+      --good-bg:#123527;
+      --warn:#e8b84b;
+      --warn-bg:#3a2f10;
+      --alert:#f08a8d;
+      --alert-bg:#3d1d1f;
+      --gold:#d9a92e;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--wash);
+    color:var(--ink);
+    font-family:"Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  button, select, summary, input:not([type="checkbox"],[type="radio"]){min-height:2.75rem}
+  a{color:var(--navy-3)}
+  @media (prefers-color-scheme: dark){ a{color:#8fb8dd} }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  /* ---------- Header ---------- */
+  .topbar{
+    background:var(--navy);
+    color:#fff;
+    padding:14px 0;
+  }
+  .topbar .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between}
+  .firm{font-weight:700;letter-spacing:.02em;font-size:.95rem}
+  .firm span{display:block;font-weight:400;font-size:.8rem;color:#b9cbdd;letter-spacing:.04em}
+  .sample-tag{
+    font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:7px 14px;color:#fff;white-space:nowrap;
+  }
+  .hero{
+    background:linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+    color:#fff;
+    padding:34px 0 40px;
+  }
+  .hero h1{
+    font-family:"Source Serif 4", Georgia, serif;
+    font-weight:700;
+    font-size:clamp(1.9rem, 4.5vw, 2.9rem);
+    line-height:1.12;
+    margin:0 0 12px;
+    max-width:22ch;
+  }
+  .hero .lede{font-size:1.06rem;color:#d3dfec;max-width:62ch;margin:0 0 18px}
+  .hero .lede strong{color:#fff}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:8px 26px;font-size:.88rem;color:#aebfd2;border-top:1px solid rgba(255,255,255,.22);padding-top:16px}
+  .hero-meta b{color:#fff;font-weight:600}
+
+  /* ---------- KPI strip ---------- */
+  .kpis{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+    margin:-26px auto 0;position:relative;z-index:2;
+  }
+  .kpi{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 18px 14px;box-shadow:var(--shadow);
+  }
+  .kpi .num{font-family:"Source Serif 4", Georgia, serif;font-size:2rem;font-weight:700;line-height:1;color:var(--navy)}
+  @media (prefers-color-scheme: dark){ .kpi .num{color:#fff} }
+  .kpi .lbl{font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:7px}
+  .kpi .sub{font-size:.85rem;color:var(--muted);margin-top:3px}
+  .kpi .sub .down{color:var(--alert);font-weight:600}
+  .kpi .sub .up{color:var(--good);font-weight:600}
+
+  /* ---------- Sections ---------- */
+  section{padding:38px 0 6px}
+  .sec-head{margin-bottom:18px}
+  .sec-kicker{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-3)}
+  @media (prefers-color-scheme: dark){ .sec-kicker{color:#8fb8dd} }
+  .sec-head h2{
+    font-family:"Source Serif 4", Georgia, serif;
+    font-size:clamp(1.45rem, 3vw, 1.9rem);font-weight:700;line-height:1.2;
+    margin:4px 0 6px;color:var(--navy);
+  }
+  @media (prefers-color-scheme: dark){ .sec-head h2{color:#fff} }
+  .sec-head p{margin:0;color:var(--muted);max-width:68ch}
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:24px;
+  }
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .grid-main{display:grid;grid-template-columns:1.55fr 1fr;gap:14px;align-items:start}
+
+  /* ---------- Paired bars ---------- */
+  .legend{display:flex;flex-wrap:wrap;gap:16px;font-size:.85rem;color:var(--muted);margin-bottom:16px}
+  .legend i{display:inline-block;width:14px;height:10px;border-radius:2px;margin-right:6px;vertical-align:baseline}
+  .sw-pbg{background:var(--navy-3)}
+  .sw-va{background:var(--va)}
+  .pair{padding:14px 0;border-top:1px solid var(--line)}
+  .pair:first-of-type{border-top:none;padding-top:2px}
+  .pair-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .pair-head h3{margin:0;font-size:1rem;font-weight:700}
+  .gap-chip{font-size:.8rem;font-weight:700;color:var(--alert);background:var(--alert-bg);border-radius:999px;padding:3px 10px;white-space:nowrap}
+  .bar-row{display:grid;grid-template-columns:86px 1fr 52px;align-items:center;gap:10px;margin-top:9px}
+  .bar-row .who{font-size:.82rem;color:var(--muted);font-weight:600}
+  .bar-track{height:16px;background:var(--wash-2);border-radius:4px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:4px;width:0;transition:width .9s cubic-bezier(.22,.8,.3,1)}
+  .fill-pbg{background:var(--navy-3)}
+  .fill-va{background:var(--va)}
+  .bar-val{font-weight:700;font-size:.95rem;text-align:right}
+  .bar-val small{font-weight:500;color:var(--muted);font-size:.75rem}
+
+  /* ---------- Trend ---------- */
+  table{border-collapse:collapse;width:100%;font-size:.93rem}
+  th,td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  thead th{font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--line)}
+  tbody tr:last-child td{border-bottom:none}
+  td.cur{font-weight:800;color:var(--navy)}
+  @media (prefers-color-scheme: dark){ td.cur{color:#fff} }
+  .delta{font-size:.8rem;font-weight:700;border-radius:999px;padding:2px 8px;white-space:nowrap}
+  .delta.up{color:var(--good);background:var(--good-bg)}
+  .delta.flat{color:var(--muted);background:var(--wash-2)}
+  .note{font-size:.86rem;color:var(--muted);margin-top:12px}
+  .note strong{color:var(--ink)}
+
+  /* ---------- Small stat blocks ---------- */
+  .stat-big{font-family:"Source Serif 4", Georgia, serif;font-size:2.4rem;font-weight:700;line-height:1;color:var(--navy)}
+  @media (prefers-color-scheme: dark){ .stat-big{color:#fff} }
+  .stat-lbl{font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:6px 0 10px}
+  .mini-track{height:12px;background:var(--wash-2);border-radius:4px;overflow:hidden;position:relative;margin-top:6px}
+  .mini-fill{height:100%;width:0;transition:width .9s cubic-bezier(.22,.8,.3,1)}
+  .mini-row{display:flex;justify-content:space-between;font-size:.85rem;margin-top:10px}
+  .mini-row b{font-weight:700}
+  .mini-row span{color:var(--muted)}
+
+  /* ---------- Accreditation ---------- */
+  .accr-list{list-style:none;margin:0;padding:0}
+  .accr-list li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .accr-list li:last-child{border-bottom:none}
+  .accr-list .sch{font-weight:600;font-size:.95rem}
+  .badge{font-size:.76rem;font-weight:800;letter-spacing:.03em;border-radius:999px;padding:4px 11px;white-space:nowrap}
+  .badge.full{color:var(--good);background:var(--good-bg)}
+  .badge.cond{color:var(--warn);background:var(--warn-bg)}
+
+  /* ---------- School picker ---------- */
+  .picker{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+  .pick-btn{
+    appearance:none;text-align:left;cursor:pointer;
+    background:var(--paper);border:1.5px solid var(--line);border-radius:var(--radius);
+    padding:13px 15px;font:inherit;color:var(--ink);
+    display:flex;flex-direction:column;gap:2px;min-height:64px;
+  }
+  .pick-btn .pn{font-weight:700;font-size:.97rem;line-height:1.25}
+  .pick-btn .pm{font-size:.8rem;color:var(--muted)}
+  .pick-btn:hover{border-color:var(--navy-3)}
+  .pick-btn[aria-pressed="true"]{border-color:var(--navy-3);background:var(--wash);box-shadow:inset 0 0 0 1px var(--navy-3)}
+  .pick-btn:focus-visible, a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .panel-head{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:flex-start;justify-content:space-between;border-bottom:2px solid var(--line);padding-bottom:16px;margin-bottom:18px}
+  .panel-head h3{font-family:"Source Serif 4", Georgia, serif;font-size:1.5rem;margin:0;line-height:1.2;color:var(--navy)}
+  @media (prefers-color-scheme: dark){ .panel-head h3{color:#fff} }
+  .panel-head .enroll{color:var(--muted);font-size:.92rem;margin-top:3px}
+  .panel-badges{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:.8rem;font-weight:700;border-radius:999px;padding:5px 12px;background:var(--wash-2);color:var(--ink);white-space:nowrap}
+  .chip.score{background:var(--navy);color:#fff}
+  .panel-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:26px}
+  .sol-row{margin-bottom:15px}
+  .sol-row .top{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:5px}
+  .sol-row .top b{font-weight:700}
+  .sol-track{height:18px;background:var(--wash-2);border-radius:4px;position:relative}
+  .sol-fill{height:100%;background:var(--navy-3);border-radius:4px;width:0;transition:width .7s cubic-bezier(.22,.8,.3,1)}
+  .div-marker{position:absolute;top:-4px;bottom:-4px;width:2.5px;background:var(--gold);border-radius:2px}
+  .div-marker::after{content:"division";position:absolute;top:-17px;left:50%;transform:translateX(-50%);font-size:.62rem;font-weight:700;letter-spacing:.04em;color:var(--gold);white-space:nowrap}
+  .sol-wrap{padding-top:20px}
+  .fact-list{list-style:none;margin:0;padding:0}
+  .fact-list li{padding:9px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:14px;font-size:.93rem}
+  .fact-list li:last-child{border-bottom:none}
+  .fact-list .k{color:var(--muted)}
+  .fact-list .v{font-weight:700;text-align:right}
+  .panel-note{margin-top:16px;background:var(--wash);border-radius:8px;padding:13px 15px;font-size:.9rem;color:var(--ink)}
+  .panel-note strong{font-weight:700}
+
+  /* ---------- Oversight ---------- */
+  .oversight{background:var(--navy);color:#fff;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+  .oversight h3{font-family:"Source Serif 4", Georgia, serif;font-size:1.35rem;margin:0 0 10px;line-height:1.25}
+  .oversight p{color:#d3dfec;margin:0 0 12px;max-width:70ch}
+  .oversight p strong{color:#fff}
+  .exit-box{
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.28);border-radius:8px;
+    padding:16px 18px;margin-top:16px;display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;justify-content:space-between;
+  }
+  .exit-box .cond{font-size:.95rem;max-width:52ch}
+  .exit-box .cond b{display:block;font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;color:#aebfd2;margin-bottom:3px}
+  .notmet{font-weight:800;font-size:1.05rem;background:#fff;color:var(--alert);border-radius:999px;padding:8px 18px;white-space:nowrap}
+  .funding{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px}
+  .funding .fcard{flex:1 1 240px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)}
+  .funding .amt{font-family:"Source Serif 4", Georgia, serif;font-size:1.7rem;font-weight:700;color:var(--navy);line-height:1.1}
+  @media (prefers-color-scheme: dark){ .funding .amt{color:#fff} }
+  .funding .flbl{font-size:.88rem;color:var(--muted);margin-top:5px}
+
+  /* ---------- Full pack ---------- */
+  .pack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .pack-item{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--navy-3);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+  .pack-item .n{font-size:.78rem;font-weight:800;letter-spacing:.08em;color:var(--navy-3);text-transform:uppercase}
+  @media (prefers-color-scheme: dark){ .pack-item .n{color:#8fb8dd} }
+  .pack-item h3{margin:6px 0 8px;font-size:1.05rem;line-height:1.3}
+  .pack-item p{margin:0;color:var(--muted);font-size:.92rem}
+  .builder{margin-top:14px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px 24px;box-shadow:var(--shadow);display:flex;flex-wrap:wrap;gap:8px 30px;align-items:baseline}
+  .builder h3{margin:0;font-size:1rem}
+  .builder p{margin:0;color:var(--muted);font-size:.93rem;flex:1 1 420px}
+
+  footer{margin-top:44px;background:var(--navy);color:#c6d4e3;padding:28px 0 34px;font-size:.86rem}
+  footer .src{max-width:78ch;margin:0}
+  footer .firmline{color:#fff;font-weight:700;margin-bottom:8px;font-size:.92rem}
+
+  @media (max-width:860px){
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .grid-2,.grid-main,.panel-grid{grid-template-columns:1fr}
+    .picker{grid-template-columns:repeat(2,1fr)}
+    .pack-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:520px){
+    .picker{grid-template-columns:1fr}
+    .bar-row{grid-template-columns:74px 1fr 46px}
+    .card{padding:18px}
+    .oversight{padding:20px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .bar-fill,.mini-fill,.sol-fill{transition:none}
+    html{scroll-behavior:auto}
+  }
+  @media print{
+    body{background:#fff}
+    .topbar,.hero,footer,.oversight{background:#fff;color:#000}
+    .hero h1,.hero .lede,.oversight h3,.oversight p,footer .src{color:#000}
+    .kpi,.card,.pack-item,.builder{box-shadow:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="firm">Boswell Consulting Agency LLC <span>Research, analysis, and reporting tools</span></div>
+    <div class="sample-tag">Sample deliverable</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Petersburg City Public Schools: Division Data Snapshot</h1>
+    <p class="lede">Fall 2026 edition. This page is a working sample of the <strong>Fall Accountability Reporting Pack</strong>: the division picture first, then every school on its own panel. Pick a school below and the panel rebuilds itself from that school's published figures. Everything here comes from public Virginia Department of Education data.</p>
+    <div class="hero-meta">
+      <div>Prepared <b>November 14, 2026</b></div>
+      <div>Data year <b>2025-26</b></div>
+      <div>Accreditation <b>fall 2026 release, for 2026-27</b></div>
+      <div>Coverage <b>division plus 6 profiled schools</b></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="kpis" aria-label="Division headline figures">
+    <div class="kpi">
+      <div class="num">4,544</div>
+      <div class="lbl">Students enrolled</div>
+      <div class="sub">Fall membership, 2025-26. Includes 437 pre-K students at Westview.</div>
+    </div>
+    <div class="kpi">
+      <div class="num">90%</div>
+      <div class="lbl">On-time graduation</div>
+      <div class="sub">Class of 2026. Virginia: 93.5%. <span class="down">Dropout rate 6%.</span></div>
+    </div>
+    <div class="kpi">
+      <div class="num">32.9%</div>
+      <div class="lbl">Chronically absent</div>
+      <div class="sub">Virginia: 12.9%. <span class="up">Improved from 37.8% in 2024-25.</span></div>
+    </div>
+    <div class="kpi">
+      <div class="num">4 of 6</div>
+      <div class="lbl">Schools fully accredited</div>
+      <div class="sub">2 schools conditionally accredited in the fall 2026 release.</div>
+    </div>
+  </div>
+
+  <!-- ============ DIVISION ============ -->
+  <section aria-labelledby="div-h">
+    <div class="sec-head">
+      <div class="sec-kicker">Section 1</div>
+      <h2 id="div-h">The division against Virginia</h2>
+      <p>Standards of Learning pass rates for all students, 2025-26. Petersburg trails the state by roughly 30 points in every tested subject, while its three-year trend is moving up in math and science.</p>
+    </div>
+
+    <div class="grid-main">
+      <div class="card">
+        <div class="legend">
+          <span><i class="sw-pbg"></i>Petersburg</span>
+          <span><i class="sw-va"></i>Virginia</span>
+          <span>Figures are percent of students passing.</span>
+        </div>
+
+        <div class="pair">
+          <div class="pair-head"><h3>Reading</h3><span class="gap-chip">31 points below Virginia</span></div>
+          <div class="bar-row"><span class="who">Petersburg</span><div class="bar-track"><div class="bar-fill fill-pbg" data-w="43"></div></div><span class="bar-val">43<small>%</small></span></div>
+          <div class="bar-row"><span class="who">Virginia</span><div class="bar-track"><div class="bar-fill fill-va" data-w="74"></div></div><span class="bar-val">74<small>%</small></span></div>
+        </div>
+
+        <div class="pair">
+          <div class="pair-head"><h3>Math</h3><span class="gap-chip">33 points below Virginia</span></div>
+          <div class="bar-row"><span class="who">Petersburg</span><div class="bar-track"><div class="bar-fill fill-pbg" data-w="40"></div></div><span class="bar-val">40<small>%</small></span></div>
+          <div class="bar-row"><span class="who">Virginia</span><div class="bar-track"><div class="bar-fill fill-va" data-w="73"></div></div><span class="bar-val">73<small>%</small></span></div>
+        </div>
+
+        <div class="pair">
+          <div class="pair-head"><h3>Science</h3><span class="gap-chip">30 points below Virginia</span></div>
+          <div class="bar-row"><span class="who">Petersburg</span><div class="bar-track"><div class="bar-fill fill-pbg" data-w="41"></div></div><span class="bar-val">41<small>%</small></span></div>
+          <div class="bar-row"><span class="who">Virginia</span><div class="bar-track"><div class="bar-fill fill-va" data-w="71"></div></div><span class="bar-val">71<small>%</small></span></div>
+        </div>
+
+        <p class="note"><strong>How to read this:</strong> the division rate blends grades 3 to 8 tests with high school end-of-course tests, exactly as VDOE publishes it on the division profile. The gap is the story; the trend table beside it shows whether the gap is closing.</p>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 4px;font-size:1.02rem">Three-year trend, Petersburg</h3>
+        <p class="note" style="margin:0 0 10px">SOL pass rates, percent passed.</p>
+        <table aria-label="Petersburg SOL pass rate trend">
+          <thead><tr><th scope="col">Subject</th><th scope="col">2023-24</th><th scope="col">2024-25</th><th scope="col">2025-26</th><th scope="col">Change</th></tr></thead>
+          <tbody>
+            <tr><td>Reading</td><td>43</td><td>42</td><td class="cur">43</td><td><span class="delta flat">Flat</span></td></tr>
+            <tr><td>Math</td><td>35</td><td>37</td><td class="cur">40</td><td><span class="delta up">+5 pts</span></td></tr>
+            <tr><td>Science</td><td>38</td><td>39</td><td class="cur">41</td><td><span class="delta up">+3 pts</span></td></tr>
+          </tbody>
+        </table>
+        <p class="note">Math has gained in both years. Reading has not moved in three years, which makes it the division's standing problem rather than a one-year dip.</p>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:14px">
+      <div class="card">
+        <div class="stat-big">32.9%</div>
+        <div class="stat-lbl">Chronic absenteeism, 2025-26</div>
+        <p style="margin:0 0 6px">Share of students absent 10% or more of the school year. Petersburg's rate is <strong>20.0 points above</strong> the Virginia rate of 12.9%.</p>
+        <div class="mini-row"><span>Petersburg</span><b>32.9%</b></div>
+        <div class="mini-track"><div class="mini-fill fill-pbg" data-w="32.9" style="background:var(--navy-3)"></div></div>
+        <div class="mini-row"><span>Virginia</span><b>12.9%</b></div>
+        <div class="mini-track"><div class="mini-fill" data-w="12.9" style="background:var(--va)"></div></div>
+        <p class="note">The direction is right: down from 37.8% in 2024-25 and 38.8% in 2023-24. At the current pace the division stays well above the state rate for years, so attendance remains a first-order finding, not a footnote.</p>
+      </div>
+
+      <div class="card">
+        <div class="stat-big">90%</div>
+        <div class="stat-lbl">On-time graduation, Class of 2026</div>
+        <p style="margin:0 0 6px">Four-year cohort graduation. Virginia graduated 93.5% on time, so Petersburg sits <strong>3.5 points below</strong> the state, with a 6% cohort dropout rate against 4.7% statewide.</p>
+        <div class="mini-row"><span>Petersburg</span><b>90%</b></div>
+        <div class="mini-track"><div class="mini-fill" data-w="90" style="background:var(--navy-3)"></div></div>
+        <div class="mini-row"><span>Virginia</span><b>93.5%</b></div>
+        <div class="mini-track"><div class="mini-fill" data-w="93.5" style="background:var(--va)"></div></div>
+        <p class="note">Graduation is the division's closest measure to the state line. The cohort was 291 students, with 263 graduates. Because Petersburg High is the only high school, the school and division figures are the same.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h3 style="margin:0 0 4px;font-size:1.02rem">Accreditation, fall 2026 release</h3>
+      <p class="note" style="margin:0 0 8px">Virginia accredits schools, not divisions, so there is no single division rating. The accurate picture is school by school: <strong>4 of 6 fully accredited, 2 conditionally accredited.</strong> Designations are in effect for 2026-27 and are calculated from 2025-26 data.</p>
+      <ul class="accr-list">
+        <li><span class="sch">Petersburg High School</span><span class="badge full">Fully Accredited</span></li>
+        <li><span class="sch">Cool Spring Elementary</span><span class="badge full">Fully Accredited</span></li>
+        <li><span class="sch">Walnut Hill Elementary</span><span class="badge full">Fully Accredited</span></li>
+        <li><span class="sch">Pleasants Lane Elementary</span><span class="badge full">Fully Accredited</span></li>
+        <li><span class="sch">Lakemont Elementary</span><span class="badge cond">Conditionally Accredited</span></li>
+        <li><span class="sch">Vernon Johns Middle School</span><span class="badge cond">Conditionally Accredited</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ SCHOOL PICKER ============ -->
+  <section aria-labelledby="sch-h">
+    <div class="sec-head">
+      <div class="sec-kicker">Section 2</div>
+      <h2 id="sch-h">Explore by school</h2>
+      <p>Select any school to see its full panel: enrollment, SOL pass rates against the division average, chronic absenteeism, accreditation, and its School Performance and Support Framework result. All figures are 2025-26 unless noted.</p>
+    </div>
+
+    <div class="picker" role="group" aria-label="Choose a school" id="picker"></div>
+
+    <div class="card" aria-live="polite">
+      <div class="panel-head">
+        <div>
+          <h3 id="p-name">Petersburg High School</h3>
+          <div class="enroll" id="p-enroll"></div>
+        </div>
+        <div class="panel-badges" id="p-badges"></div>
+      </div>
+      <div class="panel-grid">
+        <div>
+          <div style="font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)">SOL pass rates, percent passed</div>
+          <div class="sol-wrap" id="p-sol"></div>
+          <p class="note">Gold marker shows the division average for that subject (Reading 43, Math 40, Science 41), so each bar reads against the division as well as the scale.</p>
+        </div>
+        <div>
+          <ul class="fact-list" id="p-facts"></ul>
+          <div class="panel-note" id="p-note"></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="note" style="margin-top:12px">Westview Early Childhood Education Center serves pre-K and Head Start only and has no VDOE profile; its 437 students are inside the division total of 4,544. The six profiled schools sum to 4,107 students, and 4,107 plus 437 pre-K equals the division total.</p>
+  </section>
+
+  <!-- ============ OVERSIGHT ============ -->
+  <section aria-labelledby="ov-h">
+    <div class="sec-head">
+      <div class="sec-kicker">Section 3</div>
+      <h2 id="ov-h">State oversight status</h2>
+      <p>Why these numbers carry deadlines: the division reports under a state oversight agreement, and its published exit condition is written in terms of the accreditation results above.</p>
+    </div>
+
+    <div class="oversight">
+      <h3>Memorandum of Understanding with the Virginia Board of Education</h3>
+      <p>Petersburg City Public Schools operates under a Memorandum of Understanding with the Virginia Board of Education, <strong>in place since 2004 and last updated April 28, 2016</strong>. The division's data, accountability reporting, and state submissions run on that agreement's schedule whether or not any given seat in the division office is filled.</p>
+      <div class="exit-box">
+        <div class="cond"><b>Published exit condition</b>All schools in the division fully accredited. On the fall 2026 ratings, Lakemont Elementary and Vernon Johns Middle School are conditionally accredited.</div>
+        <div class="notmet">Condition not met</div>
+      </div>
+    </div>
+
+    <div class="funding">
+      <div class="fcard">
+        <div class="amt">$350,000 per year</div>
+        <div class="flbl">Petersburg Executive Leadership Recruitment Incentives in the state budget (HB30, Item 124), provided for FY2027 and FY2028 and conditioned on MOU metrics.</div>
+      </div>
+      <div class="fcard">
+        <div class="amt">2 schools</div>
+        <div class="flbl">stand between the division and its exit condition. Both are named in Section 1, and both get their own panel in Section 2.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FULL PACK ============ -->
+  <section aria-labelledby="pack-h">
+    <div class="sec-head">
+      <div class="sec-kicker">Beyond this snapshot</div>
+      <h2 id="pack-h">What the full Fall Accountability Reporting Pack adds</h2>
+      <p>This snapshot shows the pack's format and its public data layer. The three items below are part of the paid pack itself and are not shown on this page.</p>
+    </div>
+
+    <div class="pack-grid">
+      <div class="pack-item">
+        <div class="n">In the full pack</div>
+        <h3>Findings memo, mapped to the accountable office</h3>
+        <p>Each major gap in the data, the reading stall, the absenteeism rate, the two conditional accreditations, written up as a finding and mapped to the office responsible for it, so leadership can assign the work instead of debating the numbers.</p>
+      </div>
+      <div class="pack-item">
+        <div class="n">In the full pack</div>
+        <h3>Full MOU metrics compilation</h3>
+        <p>The division's Memorandum of Understanding metrics compiled against their targets in one place, cycle by cycle, in the form the state reporting expects, ready for review before each submission.</p>
+      </div>
+      <div class="pack-item">
+        <div class="n">In the full pack</div>
+        <h3>Priority actions for the next deadline</h3>
+        <p>A short, ordered actions page tied to the next reporting deadline: what has to move first, what it depends on, and what evidence will show it moved.</p>
+      </div>
+    </div>
+
+    <div class="builder">
+      <h3>How this was built</h3>
+      <p>My doctorate is in strategy and innovation. Alongside the research and analysis, I design and build the reporting tools themselves, and this snapshot is one of them, built for this division from its public data. Tools are built to run on public or aggregate data, so nothing here required division systems or student records. <span style="white-space:nowrap">Dr. Devon Boswell, DBA, Boswell Consulting Agency LLC.</span></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="firmline">Boswell Consulting Agency LLC</div>
+    <p class="src">Prepared by Boswell Consulting Agency LLC, November 14, 2026. Sources: Virginia Department of Education School Quality Profiles (2025-26 data; accreditation designations from the fall 2026 release); Virginia Board of Education agenda item, April 23, 2026; Virginia state budget HB30, Item 124. Built entirely from public aggregate data. No student records were used. Small counts are suppressed in VDOE reporting and none are estimated here.</p>
+  </div>
+</footer>
+
+<script>
+var DIV = { reading: 43, math: 40, science: 41 };
+
+var SCHOOLS = [
+  {
+    id: "phs",
+    name: "Petersburg High School",
+    short: "Petersburg High",
+    grades: "Grades 9 to 12",
+    enroll: 1219,
+    reading: 74, math: 63, science: 52,
+    absent: "38.6%",
+    grad: "90%",
+    accred: "Fully Accredited",
+    accredClass: "full",
+    spsf: "Meets Expectations",
+    score: "84.03",
+    note: "<strong>The division's strongest panel.</strong> The only school rated Meets Expectations, with the highest framework score in the division. Its reading rate of 74% is an end-of-course test rate, and its 90% graduation rate is the division figure, since it is the only high school. Its open problem is attendance: 38.6% chronically absent, the highest rate in the division."
+  },
+  {
+    id: "vjms",
+    name: "Vernon Johns Middle School",
+    short: "Vernon Johns Middle",
+    grades: "Grades 6 to 8",
+    enroll: 913,
+    reading: 37, math: 31, science: 36,
+    absent: "34.0%",
+    grad: null,
+    accred: "Conditionally Accredited",
+    accredClass: "cond",
+    spsf: "Approaching Expectations",
+    score: "67.26",
+    note: "<strong>One of the two schools holding the division's exit condition open.</strong> Every SOL rate sits below the division average, and math at 31% is the lowest middle school figure in the division. Note: grade 6 is taught at the Blandford site and reported under this school, so this panel covers both sites."
+  },
+  {
+    id: "cool",
+    name: "Cool Spring Elementary",
+    short: "Cool Spring Elementary",
+    grades: "Grades K to 5",
+    enroll: 546,
+    reading: 35, math: 34, science: 34,
+    absent: "25.3%",
+    grad: null,
+    accred: "Fully Accredited",
+    accredClass: "full",
+    spsf: "Approaching Expectations",
+    score: "69.1",
+    note: "<strong>Fully accredited, with scores still well under the state.</strong> Pass rates cluster in the mid 30s across all three subjects. Attendance at 25.3% chronically absent is the second lowest in the division, so this school's gap is instruction, not presence."
+  },
+  {
+    id: "lake",
+    name: "Lakemont Elementary",
+    short: "Lakemont Elementary",
+    grades: "Grades K to 5",
+    enroll: 372,
+    reading: 32, math: 34, science: 27,
+    absent: "30.1%",
+    grad: null,
+    accred: "Conditionally Accredited",
+    accredClass: "cond",
+    spsf: "Approaching Expectations",
+    score: "69.04",
+    note: "<strong>The division's most exposed school.</strong> Conditionally accredited and federally identified for Comprehensive Support and Improvement, the lowest-performing federal tier. Reading at 32% and science at 27% are the lowest elementary figures in the division. Together with Vernon Johns Middle, it keeps the MOU exit condition unmet."
+  },
+  {
+    id: "pleas",
+    name: "Pleasants Lane Elementary",
+    short: "Pleasants Lane Elementary",
+    grades: "Grades K to 5",
+    enroll: 515,
+    reading: 38, math: 32, science: 26,
+    absent: "36.1%",
+    grad: null,
+    accred: "Fully Accredited",
+    accredClass: "full",
+    spsf: "Approaching Expectations",
+    score: "65.65",
+    note: "<strong>The cycle's improvement story, with a warning attached.</strong> Pleasants Lane moved up to Fully Accredited from conditionally accredited in the prior cycle. Its framework score of 65.65 is still the lowest in the division, and 36.1% chronic absenteeism is the highest elementary rate, so the new designation is the one most at risk next cycle."
+  },
+  {
+    id: "walnut",
+    name: "Walnut Hill Elementary",
+    short: "Walnut Hill Elementary",
+    grades: "Grades K to 5",
+    enroll: 542,
+    reading: 52, math: 48, science: 48,
+    absent: "24.9%",
+    grad: null,
+    accred: "Fully Accredited",
+    accredClass: "full",
+    spsf: "Needs Intensive Support",
+    score: "75.71",
+    note: "<strong>The division's strongest elementary school, with a label that needs a footnote.</strong> Highest elementary SOL scores in the division and the lowest absenteeism at 24.9%. Its framework score of 75.71 is the highest elementary score in the division, yet its SPSF level reads Needs Intensive Support: the category reflects the federal support identification applied within the SPSF model, not the score alone."
+  }
+];
+
+var picker = document.getElementById("picker");
+SCHOOLS.forEach(function (s, i) {
+  var b = document.createElement("button");
+  b.type = "button";
+  b.className = "pick-btn";
+  b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+  b.innerHTML = '<span class="pn">' + s.short + "</span>" +
+    '<span class="pm">' + s.enroll.toLocaleString("en-US") + " students, " + s.accred + "</span>";
+  b.addEventListener("click", function () { selectSchool(s.id); });
+  picker.appendChild(b);
+});
+
+function fmt(n) { return n.toLocaleString("en-US"); }
+
+function solRow(label, value, divValue) {
+  return '<div class="sol-row">' +
+    '<div class="top"><b>' + label + '</b><span>' + value + '% passed</span></div>' +
+    '<div class="sol-track"><div class="sol-fill" data-w="' + value + '"></div>' +
+    '<div class="div-marker" style="left:' + divValue + '%"></div></div></div>';
+}
+
+function animateBars(scope) {
+  var fills = scope.querySelectorAll("[data-w]");
+  fills.forEach(function (el) { el.style.width = "0%"; });
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      fills.forEach(function (el) { el.style.width = el.getAttribute("data-w") + "%"; });
+    });
+  });
+}
+
+function selectSchool(id) {
+  var s = null;
+  SCHOOLS.forEach(function (x) { if (x.id === id) { s = x; } });
+  if (!s) { return; }
+  var btns = picker.querySelectorAll(".pick-btn");
+  btns.forEach(function (b, i) { b.setAttribute("aria-pressed", SCHOOLS[i].id === id ? "true" : "false"); });
+
+  document.getElementById("p-name").textContent = s.name;
+  document.getElementById("p-enroll").textContent = s.grades + "  ·  Fall membership 2025-26: " + fmt(s.enroll) + " students";
+
+  var badges = '<span class="badge ' + s.accredClass + '">' + s.accred + "</span>" +
+    '<span class="chip">SPSF: ' + s.spsf + "</span>" +
+    '<span class="chip score">Framework score ' + s.score + "</span>";
+  if (s.id === "lake") { badges += '<span class="chip">Federal: Comprehensive Support and Improvement</span>'; }
+  document.getElementById("p-badges").innerHTML = badges;
+
+  document.getElementById("p-sol").innerHTML =
+    solRow("Reading", s.reading, DIV.reading) +
+    solRow("Math", s.math, DIV.math) +
+    solRow("Science", s.science, DIV.science);
+
+  var facts =
+    '<li><span class="k">Chronic absenteeism</span><span class="v">' + s.absent + "</span></li>" +
+    '<li><span class="k">Accreditation</span><span class="v">' + s.accred + "</span></li>" +
+    '<li><span class="k">SPSF level</span><span class="v">' + s.spsf + "</span></li>" +
+    '<li><span class="k">Framework score</span><span class="v">' + s.score + "</span></li>";
+  if (s.grad) {
+    facts += '<li><span class="k">On-time graduation, Class of 2026</span><span class="v">' + s.grad + "</span></li>";
+  }
+  document.getElementById("p-facts").innerHTML = facts;
+  document.getElementById("p-note").innerHTML = s.note;
+
+  animateBars(document.getElementById("p-sol"));
+}
+
+selectSchool("phs");
+animateBars(document);
+</script>
+</body>
+</html>
