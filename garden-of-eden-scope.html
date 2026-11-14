@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="data:," />
+<title>Garden of Eden RVA - Operations Build: Scope and Delivery Schedule</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#0f2a44;
+    --navy-2:#163a5c;
+    --navy-3:#1e4a73;
+    --ink:#17222e;
+    --muted:#4d5d6e;
+    --line:#d7dee6;
+    --paper:#ffffff;
+    --wash:#eef2f7;
+    --wash-2:#e2eaf2;
+    --good:#1d6b4a;
+    --good-bg:#e6f2ec;
+    --gold:#b98a1d;
+    --radius:10px;
+    --shadow:0 1px 2px rgba(15,42,68,.06), 0 8px 24px rgba(15,42,68,.07);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --navy:#0a1c30;
+      --navy-2:#102a47;
+      --navy-3:#1e4a73;
+      --ink:#e8eef4;
+      --muted:#a9bccd;
+      --line:#2c435c;
+      --paper:#0d2239;
+      --wash:#122c49;
+      --wash-2:#183453;
+      --good:#5fc493;
+      --good-bg:#123527;
+      --gold:#d9a92e;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--wash);
+    color:var(--ink);
+    font-family:"Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--navy-3)}
+  @media (prefers-color-scheme: dark){ a{color:#8fb8dd} }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  .topbar{background:var(--navy);color:#fff;padding:14px 0}
+  .topbar .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between}
+  .brand{font-weight:800;letter-spacing:.02em}
+  .brand small{display:block;font-weight:500;color:#c7d5e4;font-size:.82rem;letter-spacing:.04em}
+  .topbar .tag{font-size:.9rem;color:#c7d5e4}
+  header.hero{padding:40px 0 8px}
+  h1{
+    font-family:"Source Serif 4", Georgia, serif;
+    font-size:2.1rem;line-height:1.15;margin:0 0 10px;color:var(--navy);
+  }
+  @media (prefers-color-scheme: dark){ h1{color:#dcebf8} }
+  .lede{font-size:1.08rem;color:var(--muted);max-width:46rem;margin:0 0 6px}
+  .prepared{font-size:.92rem;color:var(--muted);margin:0 0 26px}
+  section{padding:22px 0}
+  h2{
+    font-family:"Source Serif 4", Georgia, serif;
+    font-size:1.45rem;margin:0 0 6px;color:var(--navy);
+  }
+  @media (prefers-color-scheme: dark){ h2{color:#dcebf8} }
+  .sub{color:var(--muted);margin:0 0 18px;max-width:46rem}
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:22px 24px;
+    margin:0 0 16px;
+  }
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:720px){ .split{grid-template-columns:1fr} }
+  .split .card{margin:0}
+  .card h3{margin:0 0 8px;font-size:1.05rem}
+  .card p{margin:0 0 10px}
+  .card p:last-child{margin-bottom:0}
+  .card ul{margin:6px 0 0;padding-left:1.2rem}
+  .card li{margin:0 0 6px}
+  .module{display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:start}
+  @media (max-width:560px){ .module{grid-template-columns:1fr} }
+  .wk{
+    background:var(--navy);color:#fff;border-radius:8px;text-align:center;
+    padding:10px 6px;font-weight:700;font-size:.85rem;line-height:1.3;
+  }
+  .wk span{display:block;font-size:1.25rem;font-weight:800}
+  .module h3{margin:0 0 6px;font-size:1.08rem}
+  .module p{margin:0 0 8px}
+  .layers{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .chip{
+    font-size:.78rem;font-weight:600;padding:3px 10px;border-radius:999px;
+    background:var(--wash-2);color:var(--navy-2);
+  }
+  @media (prefers-color-scheme: dark){ .chip{color:#c7d5e4} }
+  .chip.good{background:var(--good-bg);color:var(--good)}
+  .fees{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media (max-width:720px){ .fees{grid-template-columns:1fr} }
+  .fee{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 22px}
+  .fee .num{font-family:"Source Serif 4", Georgia, serif;font-size:1.9rem;font-weight:700;color:var(--navy)}
+  @media (prefers-color-scheme: dark){ .fee .num{color:#dcebf8} }
+  .fee .lbl{font-weight:700;margin:2px 0 6px}
+  .fee p{margin:0;color:var(--muted);font-size:.95rem}
+  .note{font-size:.92rem;color:var(--muted)}
+  .cta{background:var(--navy);color:#fff;border-radius:var(--radius);padding:26px 28px;margin:8px 0 30px}
+  .cta h2{color:#fff;margin-bottom:8px}
+  .cta p{margin:0 0 8px;color:#dbe6f2;max-width:44rem}
+  .cta p:last-child{margin-bottom:0}
+  footer{border-top:1px solid var(--line);padding:20px 0 34px;color:var(--muted);font-size:.9rem}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3G8066FF2X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3G8066FF2X');
+</script>
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand">BOSWELL CONSULTING AGENCY LLC<small>STRATEGY AND OPERATIONS SYSTEMS</small></div>
+    <div class="tag">Detailed scope, prepared for the owners' review</div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>The Operations Build for Garden of Eden RVA</h1>
+    <p class="lede">The detailed scope behind my letter of November 13, 2026: the building half of your Practice Manager posting, produced as one finished system, mapped module by module to the posting itself, with the delivery schedule and the fee set out in full.</p>
+    <p class="prepared">Prepared for the owners of Garden of Eden RVA. Everything on this page is decided from this document, in writing. No meeting is required at any stage.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>The split</h2>
+    <p class="sub">Your posting bundles two different kinds of work into one salary. This build takes one half. Your in-office hire keeps the other, and starts on day one running a finished system instead of spending six months trying to build one while the phones ring.</p>
+    <div class="split">
+      <div class="card">
+        <h3>The building work, in this scope</h3>
+        <ul>
+          <li>Policies, procedures, and workflows</li>
+          <li>Compliance documentation and the compliance calendar</li>
+          <li>Staff structure: roles, handbook, onboarding, evaluations</li>
+          <li>Records processes and credentialing files</li>
+          <li>Written patient experience and wellness program standards</li>
+          <li>The marketing plan and physician onboarding program</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>The presence work, stays with your hire</h3>
+        <ul>
+          <li>Daily supervision of staff</li>
+          <li>Phones, scheduling, and intake</li>
+          <li>Handling patients in the moment</li>
+          <li>Billing and revenue cycle</li>
+          <li>Work inside your EHR and practice systems</li>
+          <li>Payroll processing and payer contracting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>The build, in delivery order</h2>
+    <p class="sub">Six modules, delivered in sequence, one per week across six weeks from the signed agreement. Each module arrives complete, with its verification file, and questions and review are handled in writing as each lands.</p>
+
+    <div class="card module">
+      <div class="wk">Week<span>1</span></div>
+      <div>
+        <h3>1. Policies, Procedures, and Workflows</h3>
+        <p>The full set your first section calls for, built at once against the federal and Virginia requirements that apply to the practice, not against office habit. The office starts from one finished standard instead of a binder that is always half written.</p>
+        <div class="layers"><span class="chip">Federal requirements</span><span class="chip">Virginia requirements</span><span class="chip good">Verification file included</span></div>
+      </div>
+    </div>
+
+    <div class="card module">
+      <div class="wk">Week<span>2</span></div>
+      <div>
+        <h3>2. The Compliance System</h3>
+        <p>Both layers, matched to the current rule. The federal layer: HIPAA privacy, security, and breach notification; OSHA worker safety; federal wage and hour and payroll record rules; and the federal employment, accessibility, and nondiscrimination requirements. Virginia adds its own practice, employment, record, and wage payment requirements on top. A compliance calendar is built into the system, so compliance runs on schedule instead of being assembled in a panic when someone asks for it.</p>
+        <div class="layers"><span class="chip">HIPAA</span><span class="chip">OSHA</span><span class="chip">Wage and hour</span><span class="chip">Virginia layer</span><span class="chip good">Compliance calendar included</span></div>
+      </div>
+    </div>
+
+    <div class="card module">
+      <div class="wk">Week<span>3</span></div>
+      <div>
+        <h3>3. Staff Structure and HR Documents</h3>
+        <p>Role descriptions and written expectations for every position, the employee handbook and HR records structure, onboarding materials, and evaluation templates. Written expectations from an outside hand carry a weight an in-house manager's do not: nobody can claim the standard was invented during a conflict, and your lead enforces a system instead of authoring and defending their own.</p>
+        <div class="layers"><span class="chip">Role descriptions</span><span class="chip">Handbook</span><span class="chip">Onboarding</span><span class="chip">Evaluations</span></div>
+      </div>
+    </div>
+
+    <div class="card module">
+      <div class="wk">Week<span>4</span></div>
+      <div>
+        <h3>4. Records and Credentialing Files</h3>
+        <p>The medical records processes and the credentialing files and tracking, documented so the record of who is cleared to do what, and where every record lives, is never carried in one person's memory. This is the layer where gaps surface latest and cost most when an inspector or a complaint finds them first.</p>
+        <div class="layers"><span class="chip">Records processes</span><span class="chip">Credentialing files</span><span class="chip">Tracking</span><span class="chip good">Verification file included</span></div>
+      </div>
+    </div>
+
+    <div class="card module">
+      <div class="wk">Week<span>5</span></div>
+      <div>
+        <h3>5. Patient Experience and Wellness Program Standards</h3>
+        <p>The daily service stays your office's, in person. The written layer is in this build: communication standards, service recovery steps, and the administrative systems behind the wellness services, written as documented programs a new hire can run. Wellness and lifestyle services cannot scale on memory and habit; they scale on documented programs.</p>
+        <div class="layers"><span class="chip">Communication standards</span><span class="chip">Service recovery</span><span class="chip">Program documents</span></div>
+      </div>
+    </div>
+
+    <div class="card module">
+      <div class="wk">Week<span>6</span></div>
+      <div>
+        <h3>6. Growth Documents</h3>
+        <p>Your ninth section is strategy work outright: the marketing plan and the physician onboarding and marketing program, written as a plan the practice executes rather than a side duty of a manager hired to run a front office. Strategy and innovation is my doctorate and my practice.</p>
+        <div class="layers"><span class="chip">Marketing plan</span><span class="chip">Physician onboarding program</span></div>
+      </div>
+    </div>
+
+    <p class="note">Every deliverable carries a verification file showing the sources it was built from, federal and state rules and the practice's own requirements, so the owners check the work instead of trusting it. That standard is the same one described in my November 13 letter.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>The fee, and what it replaces</h2>
+    <p class="sub">The fee comes out of the $80,000 already budgeted for the posting, not on top of it.</p>
+    <div class="fees">
+      <div class="fee">
+        <div class="num">$12,500</div>
+        <div class="lbl">One-time build fee</div>
+        <p>Paid once for the full six-module system, verification files included. No retainer, no hourly billing.</p>
+      </div>
+      <div class="fee">
+        <div class="num">$67,500</div>
+        <div class="lbl">Remains for the in-office hire</div>
+        <p>The Bureau of Labor Statistics puts the median for first-line supervisors of office and administrative staff in the Richmond metro at $64,530, and Richmond practices are posting clinic operations roles at $60,000 to $70,000. The split does not ask you to hire cheaper help.</p>
+      </div>
+      <div class="fee">
+        <div class="num">$25,000</div>
+        <div class="lbl">Freed over three years</div>
+        <p>Your plan costs $80,000 a year, every year: $240,000 over three years. This structure costs $80,000 in year one and $67,500 a year after: $215,000, with the practice owning the system outright. Over five years the freed amount is $50,000, before payroll taxes, which fall entirely on the salary side and widen the gap further.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>How the work is performed</h2>
+    <div class="card">
+      <p>The build is produced remotely and delivered in writing, module by module, on the schedule above. Questions, review, and direction are handled in writing. No presentations, no on-site meetings, and no access to your EHR or practice systems is needed at any stage, because the document work never required it.</p>
+      <p>The practice owns all of it. When the in-office role turns over, and it will, the system stays and the next lead steps into it. Nothing walks out the door. The system includes a review calendar: a full review once a year, the OSHA exposure control plan reviewed annually, and updates whenever a federal or Virginia rule, a service, or the way the practice operates changes. Your in-office lead runs that calendar as part of the role, using the sources and verification structure built into the documents.</p>
+    </div>
+    <div class="cta">
+      <h2>To start</h2>
+      <p>Reply to my email and say the word. The agreement is a short written document, the first module lands one week from signing, and the full system is in the practice's hands in six weeks.</p>
+      <p>If the posting has already been filled or the structure is not a fit, no reply is needed, and nothing further follows from me.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Dr. Devon Boswell, DBA<br />Boswell Consulting Agency LLC<br />DrBoswell@boswellconsultingagency.com | boswellconsultingagency.com</div>
+    <div>SAM.gov UEI GBGFWCBHKZF4 | CAGE 140F4<br />Prepared November 2026</div>
+  </div>
+</footer>
+</body>
+</html>
