@@ -281,6 +281,12 @@
     .hero h1,.hero .lede,.oversight h3,.oversight p,footer .src{color:#000}
     .kpi,.card,.pack-item,.builder{box-shadow:none}
   }
+  tr.hl td{background:var(--wash);font-weight:700}
+  .tracker{margin-top:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.28);border-radius:8px;padding:16px 18px}
+  .track-bar{height:14px;background:rgba(255,255,255,.18);border-radius:4px;overflow:hidden;margin:10px 0 8px}
+  .track-fill{height:100%;width:66.7%;background:#7bc47f}
+  .tracker .tcap{font-size:.9rem;color:#d3dfec}
+  .tracker .tcap b{color:#fff}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3G8066FF2X"></script>
@@ -303,7 +309,7 @@
 <header class="hero">
   <div class="wrap">
     <h1>Petersburg City Public Schools: Division Data Snapshot</h1>
-    <p class="lede">Fall 2026 edition. This page is a working sample of the <strong>Fall Accountability Reporting Pack</strong>: the division picture first, then every school on its own panel. Pick a school below and the panel rebuilds itself from that school's published figures. Everything here comes from public Virginia Department of Education data.</p>
+    <p class="lede">Fall 2026 edition. This page is a working sample of the <strong>Fall Accountability Reporting Pack</strong>: the division picture first, then its standing among peer divisions, every school on its own panel, and three years of attendance. Pick a school below and the panel rebuilds itself from that school's published figures. Everything here comes from public Virginia Department of Education data.</p>
     <div class="hero-meta">
       <div>Prepared <b>November 14, 2026</b></div>
       <div>Data year <b>2025-26</b></div>
@@ -428,10 +434,36 @@
     </div>
   </section>
 
+  <!-- ============ PEERS ============ -->
+  <section aria-labelledby="peer-h">
+    <div class="sec-head">
+      <div class="sec-kicker">Section 2</div>
+      <h2 id="peer-h">How Petersburg compares with its peers</h2>
+      <p>The same published measures for four comparable Virginia divisions and the state, 2025-26. Richmond City is the only other division that still meets the Board of Education's MOU criteria.</p>
+    </div>
+    <div class="card">
+      <div style="overflow-x:auto">
+      <table aria-label="Peer division benchmark, 2025-26">
+        <thead><tr><th scope="col">Division</th><th scope="col">Students</th><th scope="col">Reading</th><th scope="col">Math</th><th scope="col">Science</th><th scope="col">Absent 10%+</th><th scope="col">Graduation</th><th scope="col">Fully accredited</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td>Petersburg City</td><td>4,544</td><td>43</td><td>40</td><td>41</td><td>32.9%</td><td>90%</td><td>4 of 6</td></tr>
+          <tr><td>Richmond City</td><td>21,554</td><td>54</td><td>51</td><td>50</td><td>21.1%</td><td>85%</td><td>43 of 43</td></tr>
+          <tr><td>Hopewell City</td><td>3,835</td><td>55</td><td>52</td><td>54</td><td>18.3%</td><td>84%</td><td>5 of 5</td></tr>
+          <tr><td>Danville City</td><td>5,473</td><td>61</td><td>59</td><td>50</td><td>9.6%</td><td>86%</td><td>10 of 11</td></tr>
+          <tr><td>Newport News City</td><td>25,367</td><td>64</td><td>63</td><td>60</td><td>16.6%</td><td>98%</td><td>37 of 37</td></tr>
+          <tr><td>Virginia</td><td>1,246,544</td><td>74</td><td>73</td><td>71</td><td>12.9%</td><td>93.5%</td><td>n/a</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="note"><strong>Reading the table:</strong> Petersburg posts the lowest pass rates and the highest chronic absenteeism in this group, and two of its six schools are conditionally accredited, the largest share here. Two notes on oversight: Richmond's schools are all fully accredited and it still meets the MOU criteria, because those criteria run on federal support identifications, a system separate from accreditation. Danville City sat under an MOU until the Board of Education released it in June 2026.</p>
+      <p class="note">Pass rates are percent of students passing, all students, 2025-26. Graduation is the Class of 2026 on-time rate as published. Accredited counts are the schools listed in each division's VDOE profile, fall 2026 release.</p>
+    </div>
+  </section>
+
   <!-- ============ SCHOOL PICKER ============ -->
   <section aria-labelledby="sch-h">
     <div class="sec-head">
-      <div class="sec-kicker">Section 2</div>
+      <div class="sec-kicker">Section 3</div>
       <h2 id="sch-h">Explore by school</h2>
       <p>Select any school to see its full panel: enrollment, SOL pass rates against the division average, chronic absenteeism, accreditation, and its School Performance and Support Framework result. All figures are 2025-26 unless noted.</p>
     </div>
@@ -462,10 +494,37 @@
     <p class="note" style="margin-top:12px">Westview Early Childhood Education Center serves pre-K and Head Start only and has no VDOE profile; its 437 students are inside the division total of 4,544. The six profiled schools sum to 4,107 students, and 4,107 plus 437 pre-K equals the division total.</p>
   </section>
 
+  <!-- ============ ATTENDANCE ============ -->
+  <section aria-labelledby="att-h">
+    <div class="sec-head">
+      <div class="sec-kicker">Section 4</div>
+      <h2 id="att-h">Chronic absenteeism: three years, school by school</h2>
+      <p>Share of students absent 10 percent or more of the school year. The division rate has fallen two years running, and the largest drops came at the high school and the middle school. It remains about two and a half times the state rate.</p>
+    </div>
+    <div class="card">
+      <div style="overflow-x:auto">
+      <table aria-label="Chronic absenteeism by school, three years">
+        <thead><tr><th scope="col">School</th><th scope="col">2023-24</th><th scope="col">2024-25</th><th scope="col">2025-26</th><th scope="col">Change, 2 yrs</th></tr></thead>
+        <tbody>
+          <tr><td>Petersburg High School</td><td>46.6%</td><td>46.5%</td><td class="cur">38.6%</td><td><span class="delta up">-8.0 pts</span></td></tr>
+          <tr><td>Vernon Johns Middle School</td><td>39.8%</td><td>42.4%</td><td class="cur">34.0%</td><td><span class="delta up">-5.8 pts</span></td></tr>
+          <tr><td>Pleasants Lane Elementary</td><td>45.7%</td><td>44.2%</td><td class="cur">36.1%</td><td><span class="delta up">-9.6 pts</span></td></tr>
+          <tr><td>Lakemont Elementary</td><td>33.4%</td><td>29.1%</td><td class="cur">30.1%</td><td><span class="delta up">-3.3 pts</span></td></tr>
+          <tr><td>Cool Spring Elementary</td><td>27.3%</td><td>25.9%</td><td class="cur">25.3%</td><td><span class="delta up">-2.0 pts</span></td></tr>
+          <tr><td>Walnut Hill Elementary</td><td>29.8%</td><td>24.4%</td><td class="cur">24.9%</td><td><span class="delta up">-4.9 pts</span></td></tr>
+          <tr class="hl"><td>Petersburg City, division</td><td>38.8%</td><td>37.8%</td><td class="cur">32.9%</td><td><span class="delta up">-5.9 pts</span></td></tr>
+          <tr><td>Virginia</td><td>15.7%</td><td>14.7%</td><td class="cur">12.9%</td><td><span class="delta up">-2.8 pts</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="note">Four of the six schools improved in 2025-26. Lakemont (29.1% to 30.1%) and Walnut Hill (24.4% to 24.9%) ticked up slightly. Rates are computed from the student counts VDOE publishes in each profile and match the profile charts.</p>
+    </div>
+  </section>
+
   <!-- ============ OVERSIGHT ============ -->
   <section aria-labelledby="ov-h">
     <div class="sec-head">
-      <div class="sec-kicker">Section 3</div>
+      <div class="sec-kicker">Section 5</div>
       <h2 id="ov-h">State oversight status</h2>
       <p>Why these numbers carry deadlines: the division reports under a state oversight agreement, and its published exit condition is written in terms of the accreditation results above.</p>
     </div>
@@ -477,6 +536,11 @@
         <div class="cond"><b>Published exit condition</b>All schools in the division fully accredited. On the fall 2026 ratings, Lakemont Elementary and Vernon Johns Middle School are conditionally accredited.</div>
         <div class="notmet">Condition not met</div>
       </div>
+      <div class="tracker">
+        <div style="font-size:.78rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#aebfd2">Exit condition tracker, fall 2026 ratings</div>
+        <div class="track-bar"><div class="track-fill"></div></div>
+        <div class="tcap"><b>4 of 6 schools fully accredited.</b> Met: Petersburg High, Cool Spring, Walnut Hill, Pleasants Lane. Outstanding: <b>Lakemont Elementary</b> and <b>Vernon Johns Middle School</b>, both conditionally accredited.</div>
+      </div>
     </div>
 
     <div class="funding">
@@ -486,7 +550,7 @@
       </div>
       <div class="fcard">
         <div class="amt">2 schools</div>
-        <div class="flbl">stand between the division and its exit condition. Both are named in Section 1, and both get their own panel in Section 2.</div>
+        <div class="flbl">stand between the division and its exit condition. Both are named in Section 1, and both get their own panel in Section 3.</div>
       </div>
     </div>
   </section>
@@ -528,7 +592,7 @@
 <footer>
   <div class="wrap">
     <div class="firmline">Boswell Consulting Agency LLC</div>
-    <p class="src">Prepared by Boswell Consulting Agency LLC, November 14, 2026. Sources: Virginia Department of Education School Quality Profiles (2025-26 data; accreditation designations from the fall 2026 release); Virginia Board of Education agenda item, April 23, 2026; Virginia state budget HB30, Item 124. Built entirely from public aggregate data. No student records were used. Small counts are suppressed in VDOE reporting and none are estimated here.</p>
+    <p class="src">Prepared by Boswell Consulting Agency LLC, November 14, 2026. Sources: Virginia Department of Education School Quality Profiles (2025-26 data; accreditation designations from the fall 2026 release); Virginia Board of Education agenda item, April 23, 2026; Virginia state budget HB30, Item 124. Peer division and attendance history: VDOE School Quality Profiles for Richmond City, Danville City, Hopewell City, and Newport News City and for each Petersburg school; VDOE news release on MOU releases, June 2026. Built entirely from public aggregate data. No student records were used. Small counts are suppressed in VDOE reporting and none are estimated here.</p>
   </div>
 </footer>
 
