@@ -582,6 +582,14 @@
         function money(n) { return n === null || !isFinite(n) ? "" : "$" + n.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
         function num(n, d) { return n === null || !isFinite(n) ? "" : n.toLocaleString("en-US", {minimumFractionDigits: d, maximumFractionDigits: d}); }
         function set(id, txt) { var e = document.getElementById(id); if (e) e.textContent = txt; }
+        var toolUsedFired = false;
+        try { toolUsedFired = sessionStorage.getItem("tool_used_calculator") === "1"; } catch (e) {}
+        function markToolUsed(valid) {
+          if (!valid || toolUsedFired) return;
+          toolUsedFired = true;
+          try { sessionStorage.setItem("tool_used_calculator", "1"); } catch (e) {}
+          if (typeof gtag === "function") gtag("event", "tool_used", { tool_name: "calculator" });
+        }
         function calc() {
           var pay = v("rb_pay"), burden = v("rb_burden"), other = v("rb_other"),
               overhead = v("rb_overhead"), hours = v("rb_hours"), target = v("rb_target"),
@@ -613,6 +621,7 @@
           set("be_rev", (behours === null || brate === null) ? "" : money(behours * brate));
           set("be_clients", (behours === null || chrs === null || chrs === 0) ? "" : num(behours / chrs, 1) + " steady clients");
           set("be_week", behours === null ? "" : num(behours / 4.33, 1) + " hours per week");
+          markToolUsed(truecost !== null || needed !== null || marginpct !== null || behours !== null);
         }
         var inputs = document.querySelectorAll("#rateForm input, #beForm input");
         inputs.forEach(function (el) { el.addEventListener("input", calc); });
