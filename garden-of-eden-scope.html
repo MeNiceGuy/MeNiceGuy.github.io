@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light dark" />
 <meta name="robots" content="noindex, nofollow" />
+<meta property="og:title" content="The Operations Build for Garden of Eden RVA - Scope and Delivery Schedule" />
+<meta property="og:description" content="The building half of your Practice Manager posting, produced as one finished system: six modules in delivery order, a finished sample policy, a documentation readiness check, and the fee in full." />
 <link rel="icon" href="data:," />
 <title>Garden of Eden RVA - Operations Build: Scope and Delivery Schedule</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,6 +25,10 @@
     --wash-2:#e2eaf2;
     --good:#1d6b4a;
     --good-bg:#e6f2ec;
+    --warn:#8a5a00;
+    --warn-bg:#fdf0d5;
+    --alert:#9c2b2e;
+    --alert-bg:#fbecec;
     --gold:#b98a1d;
     --radius:10px;
     --shadow:0 1px 2px rgba(15,42,68,.06), 0 8px 24px rgba(15,42,68,.07);
@@ -40,6 +46,10 @@
       --wash-2:#183453;
       --good:#5fc493;
       --good-bg:#123527;
+      --warn:#e8b84b;
+      --warn-bg:#3a2f10;
+      --alert:#f08a8d;
+      --alert-bg:#3d1d1f;
       --gold:#d9a92e;
       --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
     }
@@ -109,6 +119,11 @@
   }
   @media (prefers-color-scheme: dark){ .chip{color:#c7d5e4} }
   .chip.good{background:var(--good-bg);color:var(--good)}
+  details.doclist{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+  details.doclist summary{cursor:pointer;font-weight:600;min-height:2.2rem;color:var(--navy-3)}
+  @media (prefers-color-scheme: dark){ details.doclist summary{color:#8fb8dd} }
+  details.doclist ul{margin:8px 0 2px;padding-left:1.2rem}
+  details.doclist li{margin:0 0 5px}
   .fees{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   @media (max-width:720px){ .fees{grid-template-columns:1fr} }
   .fee{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 22px}
@@ -117,6 +132,21 @@
   .fee .lbl{font-weight:700;margin:2px 0 6px}
   .fee p{margin:0;color:var(--muted);font-size:.95rem}
   .note{font-size:.92rem;color:var(--muted)}
+  fieldset.q{
+    border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--paper);box-shadow:var(--shadow);
+    padding:16px 20px;margin:0 0 12px;
+  }
+  fieldset.q legend{font-weight:600;padding:0 6px;max-width:100%}
+  fieldset.q .opts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:6px}
+  fieldset.q label{display:inline-flex;align-items:center;gap:7px;min-height:2.4rem;cursor:pointer;font-weight:500}
+  fieldset.q input[type="radio"]{width:1.15rem;height:1.15rem;accent-color:var(--navy-3)}
+  .qmod{font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  #quiz-result{display:none}
+  #quiz-result.show{display:block}
+  .tally{font-weight:700;margin:0 0 8px}
+  .gaplist{margin:6px 0 0;padding-left:1.2rem}
+  .gaplist li{margin:0 0 5px}
   .cta{background:var(--navy);color:#fff;border-radius:var(--radius);padding:26px 28px;margin:8px 0 30px}
   .cta h2{color:#fff;margin-bottom:8px}
   .cta p{margin:0 0 8px;color:#dbe6f2;max-width:44rem}
@@ -134,6 +164,7 @@
 </script>
 </head>
 <body>
+<!-- TEMPLATE V1 (2026-11-14): prospect scope page. Per-prospect data lives in the hero, the split, the six modules, the sample, and the fee figures. Structure, readiness check, and tracking are shared across prospects. -->
 <div class="topbar">
   <div class="wrap">
     <div class="brand">BOSWELL CONSULTING AGENCY LLC<small>STRATEGY AND OPERATIONS SYSTEMS</small></div>
@@ -149,7 +180,7 @@
   </div>
 </header>
 
-<section>
+<section id="split" data-track="split">
   <div class="wrap">
     <h2>The split</h2>
     <p class="sub">Your posting bundles two different kinds of work into one salary. This build takes one half. Your in-office hire keeps the other, and starts on day one running a finished system instead of spending six months trying to build one while the phones ring.</p>
@@ -180,10 +211,10 @@
   </div>
 </section>
 
-<section>
+<section id="modules" data-track="modules">
   <div class="wrap">
     <h2>The build, in delivery order</h2>
-    <p class="sub">Six modules, delivered in sequence, one per week across six weeks from the signed agreement. Each module arrives complete, with its verification file, and questions and review are handled in writing as each lands.</p>
+    <p class="sub">Six modules, delivered in sequence, one per week across six weeks from the signed agreement. Each module arrives complete, with its verification file, and questions and review are handled in writing as each lands. Open any module to see the documents it delivers.</p>
 
     <div class="card module">
       <div class="wk">Week<span>1</span></div>
@@ -191,6 +222,14 @@
         <h3>1. Policies, Procedures, and Workflows</h3>
         <p>The full set your first section calls for, built at once against the federal and Virginia requirements that apply to the practice, not against office habit. The office starts from one finished standard instead of a binder that is always half written.</p>
         <div class="layers"><span class="chip">Federal requirements</span><span class="chip">Virginia requirements</span><span class="chip good">Verification file included</span></div>
+        <details class="doclist">
+          <summary>Documents in this module</summary>
+          <ul>
+            <li>The policy and procedure set for the whole office, in one standard format</li>
+            <li>Written workflow procedures for each core office function</li>
+            <li>The forms and templates the procedures call for, so the written standard and the paperwork match</li>
+          </ul>
+        </details>
       </div>
     </div>
 
@@ -200,6 +239,15 @@
         <h3>2. The Compliance System</h3>
         <p>Both layers, matched to the current rule. The federal layer: HIPAA privacy, security, and breach notification; OSHA worker safety; federal wage and hour and payroll record rules; and the federal employment, accessibility, and nondiscrimination requirements. Virginia adds its own practice, employment, record, and wage payment requirements on top. A compliance calendar is built into the system, so compliance runs on schedule instead of being assembled in a panic when someone asks for it.</p>
         <div class="layers"><span class="chip">HIPAA</span><span class="chip">OSHA</span><span class="chip">Wage and hour</span><span class="chip">Virginia layer</span><span class="chip good">Compliance calendar included</span></div>
+        <details class="doclist">
+          <summary>Documents in this module</summary>
+          <ul>
+            <li>HIPAA privacy policy, security policy, and breach notification procedure</li>
+            <li>OSHA safety program, including the exposure control plan</li>
+            <li>Wage payment and payroll record documents, including the separation pay policy shown finished below</li>
+            <li>The compliance calendar: every required review, training, and deadline, on a schedule the office runs</li>
+          </ul>
+        </details>
       </div>
     </div>
 
@@ -209,6 +257,15 @@
         <h3>3. Staff Structure and HR Documents</h3>
         <p>Role descriptions and written expectations for every position, the employee handbook and HR records structure, onboarding materials, and evaluation templates. Written expectations from an outside hand carry a weight an in-house manager's do not: nobody can claim the standard was invented during a conflict, and your lead enforces a system instead of authoring and defending their own.</p>
         <div class="layers"><span class="chip">Role descriptions</span><span class="chip">Handbook</span><span class="chip">Onboarding</span><span class="chip">Evaluations</span></div>
+        <details class="doclist">
+          <summary>Documents in this module</summary>
+          <ul>
+            <li>Role descriptions with written expectations for every position</li>
+            <li>The employee handbook and the HR records structure behind it</li>
+            <li>Onboarding materials for new hires, in the order a first week actually runs</li>
+            <li>Evaluation templates and corrective action documentation</li>
+          </ul>
+        </details>
       </div>
     </div>
 
@@ -218,6 +275,14 @@
         <h3>4. Records and Credentialing Files</h3>
         <p>The medical records processes and the credentialing files and tracking, documented so the record of who is cleared to do what, and where every record lives, is never carried in one person's memory. This is the layer where gaps surface latest and cost most when an inspector or a complaint finds them first.</p>
         <div class="layers"><span class="chip">Records processes</span><span class="chip">Credentialing files</span><span class="chip">Tracking</span><span class="chip good">Verification file included</span></div>
+        <details class="doclist">
+          <summary>Documents in this module</summary>
+          <ul>
+            <li>Medical records process documents: creation, storage, access, and release</li>
+            <li>The credentialing file structure for every clinician</li>
+            <li>The licensure and credential tracking log, with expirations visible before they lapse</li>
+          </ul>
+        </details>
       </div>
     </div>
 
@@ -227,6 +292,14 @@
         <h3>5. Patient Experience and Wellness Program Standards</h3>
         <p>The daily service stays your office's, in person. The written layer is in this build: communication standards, service recovery steps, and the administrative systems behind the wellness services, written as documented programs a new hire can run. Wellness and lifestyle services cannot scale on memory and habit; they scale on documented programs.</p>
         <div class="layers"><span class="chip">Communication standards</span><span class="chip">Service recovery</span><span class="chip">Program documents</span></div>
+        <details class="doclist">
+          <summary>Documents in this module</summary>
+          <ul>
+            <li>Written communication standards for the front office</li>
+            <li>Service recovery steps, so a bad day is handled the same way every time</li>
+            <li>Program documents for the wellness services, written so a new hire can run each one</li>
+          </ul>
+        </details>
       </div>
     </div>
 
@@ -236,6 +309,14 @@
         <h3>6. Growth Documents</h3>
         <p>Your ninth section is strategy work outright: the marketing plan and the physician onboarding and marketing program, written as a plan the practice executes rather than a side duty of a manager hired to run a front office. Strategy and innovation is my doctorate and my practice.</p>
         <div class="layers"><span class="chip">Marketing plan</span><span class="chip">Physician onboarding program</span></div>
+        <details class="doclist">
+          <summary>Documents in this module</summary>
+          <ul>
+            <li>The marketing plan for the practice</li>
+            <li>The physician onboarding and marketing program</li>
+            <li>Referral relationship documents the plan runs on</li>
+          </ul>
+        </details>
       </div>
     </div>
 
@@ -243,7 +324,7 @@
   </div>
 </section>
 
-<section>
+<section id="sample" data-track="sample">
   <div class="wrap">
     <h2>One piece of the build, shown finished</h2>
     <p class="sub">A scope is a promise. This is the product. Below is the wage payment policy from Module 2, complete as it would arrive, written for the exact ground my May 2026 letter came from. It protects the employee's pay and the owners' position at the same time, because in the practice's own experience both failures lived in the same missing document.</p>
@@ -269,7 +350,118 @@
   </div>
 </section>
 
-<section>
+<section id="readiness" data-track="readiness">
+  <div class="wrap">
+    <h2>The readiness check</h2>
+    <p class="sub">Twelve questions, the same six modules, answered for the practice as it stands today. Nothing you answer is sent anywhere: the scoring happens on this page, in front of you. Only the finished count is recorded in my site statistics, never your answers.</p>
+    <form id="quiz" autocomplete="off">
+      <fieldset class="q" data-module="Module 1, Policies and Workflows">
+        <legend><span class="qmod">Module 1</span><br />Do you have a written policy and procedure set that covers how the office actually runs, day to day?</legend>
+        <div class="opts">
+          <label><input type="radio" name="q1" value="yes" /> Yes, written</label>
+          <label><input type="radio" name="q1" value="partly" /> Partly</label>
+          <label><input type="radio" name="q1" value="no" /> No</label>
+        </div>
+      </fieldset>
+      <fieldset class="q" data-module="Module 1, Policies and Workflows">
+        <legend><span class="qmod">Module 1</span><br />When a staff member is unsure how something is done, is there a written procedure they can open instead of asking a manager?</legend>
+        <div class="opts">
+          <label><input type="radio" name="q2" value="yes" /> Yes, written</label>
+          <label><input type="radio" name="q2" value="partly" /> Partly</label>
+          <label><input type="radio" name="q2" value="no" /> No</label>
+        </div>
+      </fieldset>
+      <fieldset class="q" data-module="Module 2, The Compliance System">
+        <legend><span class="qmod">Module 2</span><br />Is there a written HIPAA policy set, privacy, security, and breach notification, that a new hire is trained on?</legend>
+        <div class="opts">
+          <label><input type="radio" name="q3" value="yes" /> Yes, written</label>
+          <label><input type="radio" name="q3" value="partly" /> Partly</label>
+          <label><input type="radio" name="q3" value="no" /> No</label>
+        </div>
+      </fieldset>
+      <fieldset class="q" data-module="Module 2, The Compliance System">
+        <legend><span class="qmod">Module 2</span><br />Do you have a compliance calendar that shows when each required review, training, and deadline comes due?</legend>
+        <div class="opts">
+          <label><input type="radio" name="q4" value="yes" /> Yes, written</label>
+          <label><input type="radio" name="q4" value="partly" /> Partly</label>
+          <label><input type="radio" name="q4" value="no" /> No</label>
+        </div>
+      </fieldset>
+      <fieldset class="q" data-module="Module 3, Staff Structure and HR">
+        <legend><span class="qmod">Module 3</span><br />Does every position have a written role description, with the expectations stated in writing?</legend>
+        <div class="opts">
+          <label><input type="radio" name="q5" value="yes" /> Yes, written</label>
+          <label><input type="radio" name="q5" value="partly" /> Partly</label>
+          <label><input type="radio" name="q5" value="no" /> No</label>
+        </div>
+      </fieldset>
+      <fieldset class="q" data-module="Module 3, Staff Structure and HR">
+        <legend><span class="qmod">Module 3</span><br />Do you have a current employee handbook, with written onboarding materials and evaluation documents?</legend>
+        <div class="opts">
+          <label><input type="radio" name="q6" value="yes" /> Yes, written</label>
+          <label><input type="radio" name="q6" value="partly" /> Partly</label>
+          <label><input type="radio" name="q6" value="no" /> No</label>
+        </div>
+      </fieldset>
+      <fieldset class="q" data-module="Module 4, Records and Credentialing">
+        <legend><span class="qmod">Module 4</span><br />Is there a written process for how medical records are created, stored, accessed, and released?</legend>
+        <div class="opts">
+          <label><input type="radio" name="q7" value="yes" /> Yes, written</label>
+          <label><input type="radio" name="q7" value="partly" /> Partly</label>
+          <label><input type="radio" name="q7" value="no" /> No</label>
+        </div>
+      </fieldset>
+      <fieldset class="q" data-module="Module 4, Records and Credentialing">
+        <legend><span class="qmod">Module 4</span><br />Is credentialing for every clinician tracked in writing, with license expirations visible before they lapse?</legend>
+        <div class="opts">
+          <label><input type="radio" name="q8" value="yes" /> Yes, written</label>
+          <label><input type="radio" name="q8" value="partly" /> Partly</label>
+          <label><input type="radio" name="q8" value="no" /> No</label>
+        </div>
+      </fieldset>
+      <fieldset class="q" data-module="Module 5, Patient Experience and Wellness">
+        <legend><span class="qmod">Module 5</span><br />Are the front office communication standards and the service recovery steps written down?</legend>
+        <div class="opts">
+          <label><input type="radio" name="q9" value="yes" /> Yes, written</label>
+          <label><input type="radio" name="q9" value="partly" /> Partly</label>
+          <label><input type="radio" name="q9" value="no" /> No</label>
+        </div>
+      </fieldset>
+      <fieldset class="q" data-module="Module 5, Patient Experience and Wellness">
+        <legend><span class="qmod">Module 5</span><br />Are the wellness services documented as programs a new hire could run from the document alone?</legend>
+        <div class="opts">
+          <label><input type="radio" name="q10" value="yes" /> Yes, written</label>
+          <label><input type="radio" name="q10" value="partly" /> Partly</label>
+          <label><input type="radio" name="q10" value="no" /> No</label>
+        </div>
+      </fieldset>
+      <fieldset class="q" data-module="Module 6, Growth Documents">
+        <legend><span class="qmod">Module 6</span><br />Do you have a written marketing plan for the practice?</legend>
+        <div class="opts">
+          <label><input type="radio" name="q11" value="yes" /> Yes, written</label>
+          <label><input type="radio" name="q11" value="partly" /> Partly</label>
+          <label><input type="radio" name="q11" value="no" /> No</label>
+        </div>
+      </fieldset>
+      <fieldset class="q" data-module="Module 6, Growth Documents">
+        <legend><span class="qmod">Module 6</span><br />Is there a written physician onboarding and marketing program?</legend>
+        <div class="opts">
+          <label><input type="radio" name="q12" value="yes" /> Yes, written</label>
+          <label><input type="radio" name="q12" value="partly" /> Partly</label>
+          <label><input type="radio" name="q12" value="no" /> No</label>
+        </div>
+      </fieldset>
+    </form>
+    <div class="card" id="quiz-result" aria-live="polite">
+      <p class="tally" id="quiz-tally"></p>
+      <div id="quiz-gaps"></div>
+      <p style="margin-top:12px">Every item on your list is a document in the build above, delivered in the order shown. The fee does not change with your score; the build covers all six modules either way.</p>
+    </div>
+    <p class="note" id="quiz-progress">Answered: 0 of 12. Your result appears here when all twelve are answered.</p>
+  </div>
+</section>
+
+<section id="fees" data-track="fees">
   <div class="wrap">
     <h2>The fee, and what it replaces</h2>
     <p class="sub">The fee comes out of the $80,000 already budgeted for the posting, not on top of it.</p>
@@ -293,7 +485,7 @@
   </div>
 </section>
 
-<section>
+<section id="how" data-track="how">
   <div class="wrap">
     <h2>How the work is performed</h2>
     <div class="card">
@@ -314,5 +506,74 @@
     <div>SAM.gov UEI GBGFWCBHKZF4 | CAGE 140F4<br />Prepared November 2026</div>
   </div>
 </footer>
+
+<script>
+(function(){
+  // Section read tracking: one event per section, fired when half the section has been seen.
+  if ('IntersectionObserver' in window) {
+    var seen = {};
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) {
+          var name = e.target.getAttribute('data-track');
+          if (name && !seen[name]) {
+            seen[name] = true;
+            gtag('event', 'section_view', { section_name: name, page: 'garden_of_eden_scope' });
+          }
+        }
+      });
+    }, { threshold: 0.35 });
+    document.querySelectorAll('[data-track]').forEach(function(el){ io.observe(el); });
+  }
+
+  // Readiness check: scoring happens entirely on this page.
+  var form = document.getElementById('quiz');
+  var progress = document.getElementById('quiz-progress');
+  var result = document.getElementById('quiz-result');
+  var tally = document.getElementById('quiz-tally');
+  var gaps = document.getElementById('quiz-gaps');
+  var started = false, completed = false;
+  var TOTAL = 12;
+
+  function shortLabel(fieldset){
+    var legend = fieldset.querySelector('legend');
+    var text = legend.textContent.replace(/\s+/g, ' ').trim();
+    var mod = fieldset.getAttribute('data-module');
+    return mod + ': ' + text.replace(/^Module \d+/, '').trim();
+  }
+
+  form.addEventListener('change', function(){
+    if (!started) { started = true; gtag('event', 'readiness_start', { page: 'garden_of_eden_scope' }); }
+    var answered = 0, yes = 0;
+    var openGaps = [], partials = [];
+    form.querySelectorAll('fieldset.q').forEach(function(fs){
+      var checked = fs.querySelector('input[type="radio"]:checked');
+      if (checked) {
+        answered++;
+        if (checked.value === 'yes') { yes++; }
+        else if (checked.value === 'no') { openGaps.push(shortLabel(fs)); }
+        else { partials.push(shortLabel(fs)); }
+      }
+    });
+    progress.textContent = 'Answered: ' + answered + ' of ' + TOTAL + (answered === TOTAL ? '.' : '. Your result appears here when all twelve are answered.');
+    if (answered === TOTAL) {
+      tally.textContent = 'Your count: ' + yes + ' of ' + TOTAL + ' covered in writing.';
+      var html = '';
+      if (openGaps.length) {
+        html += '<p style="margin:0"><strong>Open gaps, nothing written:</strong></p><ul class="gaplist">' + openGaps.map(function(t){ return '<li>' + t + '</li>'; }).join('') + '</ul>';
+      }
+      if (partials.length) {
+        html += '<p style="margin:12px 0 0"><strong>Partly written, the rest carried in memory:</strong></p><ul class="gaplist">' + partials.map(function(t){ return '<li>' + t + '</li>'; }).join('') + '</ul>';
+      }
+      if (!openGaps.length && !partials.length) {
+        html = '<p style="margin:0">Every item is written. In that case the build is not for you, and this page has done its job by showing it.</p>';
+      }
+      gaps.innerHTML = html;
+      result.classList.add('show');
+      if (!completed) { completed = true; gtag('event', 'readiness_complete', { page: 'garden_of_eden_scope', covered_count: yes }); }
+    }
+  });
+})();
+</script>
 </body>
 </html>
