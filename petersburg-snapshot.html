@@ -311,10 +311,14 @@
   .print-btn:hover{background:var(--navy-3)}
   .print-btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
   .print-only{display:none}
+  .cover{margin:26px 0 4px}
+  .cover img{width:100%;height:auto;display:block;border-radius:10px}
   @media (max-width:860px){ .comp-row{grid-template-columns:92px 1fr 84px} }
   @media print{
     .picker,.toolbar,.sample-tag{display:none !important}
     .print-only{display:block !important}
+    .cover{margin:0 0 12px;break-after:page}
+    .cover img{border-radius:0}
     section{padding:20px 0 0}
     .card,.kpi,.pack-item,.builder,.fcard{break-inside:avoid}
     a{color:#000}
@@ -369,6 +373,10 @@
 </header>
 
 <main class="wrap">
+
+  <figure class="cover">
+    <img src="petersburg-snapshot-cover.png" alt="Cover: Petersburg City Public Schools, Division Data Snapshot, Fall 2026 Edition, Boswell Consulting Agency LLC" width="2400" height="1260">
+  </figure>
 
   <div class="kpis" aria-label="Division headline figures">
     <div class="kpi">
@@ -870,7 +878,7 @@
   <div class="wrap">
     <div class="firmline">Boswell Consulting Agency LLC</div>
     <p class="src">Prepared by Boswell Consulting Agency LLC. First published November 14, 2026; updated November 15, 2026. Sources: Virginia Department of Education School Quality Profiles (2025-26 data; accreditation designations and framework scores from the fall 2026 release); VDOE School Summary Report 2026, Lakemont Elementary; VDOE School Performance and Support Framework overview; 8VAC20-132-300; VDOE Education Update, October 8, 2026; Virginia Board of Education agenda item, April 23, 2026, and June 25, 2026 meeting action; Virginia state budget HB30, Item 124. Peer division and attendance history: VDOE School Quality Profiles for Richmond City, Danville City, Hopewell City, and Newport News City and for each Petersburg school. Built entirely from public aggregate data. No student records were used. Small counts are suppressed in VDOE reporting and none are estimated here.</p>
-    <p class="src" style="margin-top:10px"><strong style="color:#fff">Update log.</strong> November 15, 2026: added results by student group, English learner progress against the state target, measured gap-to-target panels for the two conditionally accredited schools, the statewide fall 2026 context, the current MOU division list, and a print-ready summary of all six schools. November 14, 2026: first edition, division, peers, school panels, attendance history, and oversight status.</p>
+    <p class="src" style="margin-top:10px"><strong style="color:#fff">Update log.</strong> November 15, 2026: added results by student group, English learner progress against the state target, measured gap-to-target panels for the two conditionally accredited schools, the statewide fall 2026 context, the current MOU division list, a print-ready summary of all six schools, and a designed cover. November 14, 2026: first edition, division, peers, school panels, attendance history, and oversight status.</p>
   </div>
 </footer>
 
