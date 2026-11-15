@@ -319,6 +319,16 @@
     .card,.kpi,.pack-item,.builder,.fcard{break-inside:avoid}
     a{color:#000}
   }
+  /* ---------- Subgroup chart + trend chart ---------- */
+  .sg-row{display:grid;grid-template-columns:172px 1fr 44px;gap:10px;align-items:center;margin-top:9px;font-size:.88rem}
+  .sg-row .gl{color:var(--muted);font-weight:600;text-align:right}
+  .sg-track{position:relative;height:16px;background:var(--wash-2);border-radius:4px}
+  .sg-fill{height:100%;background:var(--navy-3);border-radius:4px;width:0;transition:width .9s cubic-bezier(.22,.8,.3,1)}
+  .sg-avg{position:absolute;top:-3px;bottom:-3px;width:3px;background:var(--gold);border-radius:2px}
+  .sg-row .gv{font-weight:700}
+  @media (prefers-reduced-motion: reduce){ .sg-fill{transition:none} }
+  @media (max-width:640px){ .sg-row{grid-template-columns:120px 1fr 40px;font-size:.8rem} }
+  .trend-svg{width:100%;height:auto;display:block}
   tr.hl td{background:var(--wash);font-weight:700}
   .tracker{margin-top:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.28);border-radius:8px;padding:16px 18px}
   .track-bar{height:14px;background:rgba(255,255,255,.18);border-radius:4px;overflow:hidden;margin:10px 0 8px}
@@ -501,6 +511,22 @@
       </table>
       </div>
       <p class="note">Percent of students passing, 2025-26. Groups that rest on very small numbers of tested students are published by VDOE but are not tabled here, because a handful of students swings those rates. Foster care results are suppressed by VDOE at every level. Suppressed counts are never estimated.</p>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h3 style="margin:0 0 4px;font-size:1.02rem">Reading pass rate by student group, pictured</h3>
+      <p class="note" style="margin:0 0 6px">The gold tick on every bar marks the all-students rate, 43%. Bars to the right of the tick beat the division average; bars to the left trail it.</p>
+      <div class="sg-row"><span class="gl">White</span><div class="sg-track"><div class="sg-fill" data-w="64"></div><div class="sg-avg" style="left:43%"></div></div><span class="gv">64%</span></div>
+      <div class="sg-row"><span class="gl">Multiple Races</span><div class="sg-track"><div class="sg-fill" data-w="52"></div><div class="sg-avg" style="left:43%"></div></div><span class="gv">52%</span></div>
+      <div class="sg-row"><span class="gl">Not Economically Disadvantaged</span><div class="sg-track"><div class="sg-fill" data-w="50"></div><div class="sg-avg" style="left:43%"></div></div><span class="gv">50%</span></div>
+      <div class="sg-row"><span class="gl">Students without Disabilities</span><div class="sg-track"><div class="sg-fill" data-w="45"></div><div class="sg-avg" style="left:43%"></div></div><span class="gv">45%</span></div>
+      <div class="sg-row"><span class="gl">Hispanic</span><div class="sg-track"><div class="sg-fill" data-w="44"></div><div class="sg-avg" style="left:43%"></div></div><span class="gv">44%</span></div>
+      <div class="sg-row"><span class="gl">Black</span><div class="sg-track"><div class="sg-fill" data-w="42"></div><div class="sg-avg" style="left:43%"></div></div><span class="gv">42%</span></div>
+      <div class="sg-row"><span class="gl">Economically Disadvantaged</span><div class="sg-track"><div class="sg-fill" data-w="40"></div><div class="sg-avg" style="left:43%"></div></div><span class="gv">40%</span></div>
+      <div class="sg-row"><span class="gl">Homeless</span><div class="sg-track"><div class="sg-fill" data-w="34"></div><div class="sg-avg" style="left:43%"></div></div><span class="gv">34%</span></div>
+      <div class="sg-row"><span class="gl">Students with Disabilities</span><div class="sg-track"><div class="sg-fill" data-w="28"></div><div class="sg-avg" style="left:43%"></div></div><span class="gv">28%</span></div>
+      <div class="sg-row"><span class="gl">English Learners</span><div class="sg-track"><div class="sg-fill" data-w="27"></div><div class="sg-avg" style="left:43%"></div></div><span class="gv">27%</span></div>
+      <p class="note">Same figures as the table above, sorted high to low. The two groups furthest below the line, students with disabilities and English learners, are also the two groups whose progress measures the state tracks most closely, which is why they get their own panels elsewhere on this page.</p>
     </div>
 
     <div class="grid-2" style="margin-top:14px">
@@ -697,6 +723,32 @@
       <div class="sec-kicker">Section 6</div>
       <h2 id="att-h">Chronic absenteeism: three years, school by school</h2>
       <p>Share of students absent 10 percent or more of the school year. The division rate has fallen two years running, and the largest drops came at the high school and the middle school. It remains about two and a half times the state rate.</p>
+    </div>
+    <div class="card" style="margin-bottom:14px">
+      <h3 style="margin:0 0 4px;font-size:1.02rem">The trend, pictured</h3>
+      <p class="note" style="margin:0 0 8px"><span style="display:inline-block;width:22px;height:4px;background:var(--navy-3);border-radius:2px;vertical-align:middle;margin-right:6px"></span>Petersburg City&nbsp;&nbsp;&nbsp;<span style="display:inline-block;width:22px;height:4px;background:var(--gold);border-radius:2px;vertical-align:middle;margin-right:6px"></span>Virginia. Share of students absent 10% or more of the year.</p>
+      <svg class="trend-svg" viewBox="0 0 360 226" role="img" aria-label="Line chart: Petersburg chronic absenteeism fell from 38.8 percent in 2023-24 to 37.8 percent in 2024-25 to 32.9 percent in 2025-26. Virginia fell from 15.7 to 14.7 to 12.9 percent over the same years.">
+        <g stroke="#e3ddd0" stroke-width="1">
+          <line x1="40" y1="196" x2="330" y2="196"/><line x1="40" y1="140" x2="330" y2="140"/><line x1="40" y1="84" x2="330" y2="84"/><line x1="40" y1="28" x2="330" y2="28"/>
+        </g>
+        <g font-size="9" fill="#5c6672" text-anchor="end">
+          <text x="35" y="199">0</text><text x="35" y="143">15</text><text x="35" y="87">30</text><text x="35" y="31">45</text>
+        </g>
+        <polyline points="44,51.1 180,54.9 316,73.2" fill="none" stroke="#1b4a73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="44,137.4 180,141.1 316,147.8" fill="none" stroke="#c9a227" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <g fill="#1b4a73"><circle cx="44" cy="51.1" r="3.5"/><circle cx="180" cy="54.9" r="3.5"/><circle cx="316" cy="73.2" r="3.5"/></g>
+        <g fill="#c9a227"><circle cx="44" cy="137.4" r="3.5"/><circle cx="180" cy="141.1" r="3.5"/><circle cx="316" cy="147.8" r="3.5"/></g>
+        <g font-size="10.5" font-weight="700" fill="#12283f" text-anchor="middle">
+          <text x="44" y="42">38.8%</text><text x="180" y="46">37.8%</text><text x="316" y="64">32.9%</text>
+        </g>
+        <g font-size="10.5" font-weight="700" fill="#8a6d1c" text-anchor="middle">
+          <text x="44" y="153">15.7%</text><text x="180" y="157">14.7%</text><text x="316" y="163">12.9%</text>
+        </g>
+        <g font-size="10" fill="#5c6672" text-anchor="middle">
+          <text x="44" y="214">2023-24</text><text x="180" y="214">2024-25</text><text x="316" y="214">2025-26</text>
+        </g>
+      </svg>
+      <p class="note">Both lines fall, and Petersburg's falls faster, down 5.9 points in two years against Virginia's 2.8. The gap between the lines is the finding: at the current pace the division stays well above the state rate for years. Same figures as the table below.</p>
     </div>
     <div class="card">
       <div style="overflow-x:auto">
