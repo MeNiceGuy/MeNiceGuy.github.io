@@ -1,0 +1,69 @@
+School,Student group,Reading,Math,Science
+Petersburg High School,All Students,74,63,52
+Petersburg High School,Black,72,62,51
+Petersburg High School,Hispanic,77,63,53
+Petersburg High School,White,100,75,57
+Petersburg High School,Multiple Races,SUPPRESSED,100,SUPPRESSED
+Petersburg High School,Economically Disadvantaged,70,62,49
+Petersburg High School,Not Economically Disadvantaged,83,65,57
+Petersburg High School,Students with Disabilities,44,49,30
+Petersburg High School,Students without Disabilities,78,65,54
+Petersburg High School,English Learners,67,61,41
+Petersburg High School,Homeless,69,50,25
+Vernon Johns Middle School,All Students,37,31,36
+Vernon Johns Middle School,Black,34,29,35
+Vernon Johns Middle School,Hispanic,40,32,43
+Vernon Johns Middle School,White,61,48,SUPPRESSED
+Vernon Johns Middle School,Multiple Races,SUPPRESSED,SUPPRESSED,SUPPRESSED
+Vernon Johns Middle School,Economically Disadvantaged,34,29,35
+Vernon Johns Middle School,Not Economically Disadvantaged,42,37,40
+Vernon Johns Middle School,Students with Disabilities,27,18,27
+Vernon Johns Middle School,Students without Disabilities,38,33,38
+Vernon Johns Middle School,English Learners,15,19,12
+Vernon Johns Middle School,Homeless,25,15,36
+Cool Spring Elementary,All Students,35,34,34
+Cool Spring Elementary,Black,33,33,29
+Cool Spring Elementary,Hispanic,34,37,SUPPRESSED
+Cool Spring Elementary,White,SUPPRESSED,SUPPRESSED,100
+Cool Spring Elementary,Multiple Races,SUPPRESSED,SUPPRESSED,ABSENT
+Cool Spring Elementary,Economically Disadvantaged,31,32,24
+Cool Spring Elementary,Not Economically Disadvantaged,43,40,65
+Cool Spring Elementary,Students with Disabilities,6,6,SUPPRESSED
+Cool Spring Elementary,Students without Disabilities,37,36,36
+Cool Spring Elementary,English Learners,20,32,SUPPRESSED
+Cool Spring Elementary,Homeless,SUPPRESSED,SUPPRESSED,SUPPRESSED
+Lakemont Elementary,All Students,32,34,27
+Lakemont Elementary,Black,27,24,24
+Lakemont Elementary,Hispanic,35,52,SUPPRESSED
+Lakemont Elementary,White,64,50,100
+Lakemont Elementary,Multiple Races,SUPPRESSED,100,ABSENT
+Lakemont Elementary,Economically Disadvantaged,31,31,23
+Lakemont Elementary,Not Economically Disadvantaged,36,46,40
+Lakemont Elementary,Students with Disabilities,25,15,SUPPRESSED
+Lakemont Elementary,Students without Disabilities,33,36,26
+Lakemont Elementary,English Learners,29,55,SUPPRESSED
+Lakemont Elementary,Homeless,18,18,SUPPRESSED
+Pleasants Lane Elementary,All Students,38,32,26
+Pleasants Lane Elementary,Black,38,31,22
+Pleasants Lane Elementary,Hispanic,32,34,31
+Pleasants Lane Elementary,White,50,SUPPRESSED,SUPPRESSED
+Pleasants Lane Elementary,Multiple Races,SUPPRESSED,100,SUPPRESSED
+Pleasants Lane Elementary,Economically Disadvantaged,34,30,25
+Pleasants Lane Elementary,Not Economically Disadvantaged,44,36,26
+Pleasants Lane Elementary,Students with Disabilities,23,14,17
+Pleasants Lane Elementary,Students without Disabilities,39,35,27
+Pleasants Lane Elementary,English Learners,28,34,17
+Pleasants Lane Elementary,Homeless,19,13,SUPPRESSED
+Walnut Hill Elementary,All Students,52,48,48
+Walnut Hill Elementary,Black,50,45,46
+Walnut Hill Elementary,Hispanic,67,71,SUPPRESSED
+Walnut Hill Elementary,White,SUPPRESSED,SUPPRESSED,100
+Walnut Hill Elementary,Multiple Races,ABSENT,ABSENT,ABSENT
+Walnut Hill Elementary,Economically Disadvantaged,47,43,40
+Walnut Hill Elementary,Not Economically Disadvantaged,64,61,63
+Walnut Hill Elementary,Students with Disabilities,25,12,14
+Walnut Hill Elementary,Students without Disabilities,55,54,54
+Walnut Hill Elementary,English Learners,60,90,SUPPRESSED
+Walnut Hill Elementary,Homeless,50,50,SUPPRESSED
+Note,"Percent of students passing, 2025-26. SUPPRESSED: group below the state reporting threshold. ABSENT: no row published for that group and subject.",,,
+Source,"Virginia Department of Education, School Quality Profiles, Assessments tables by student group, retrieved November 15, 2026",,,
