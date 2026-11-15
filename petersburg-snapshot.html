@@ -281,6 +281,44 @@
     .hero h1,.hero .lede,.oversight h3,.oversight p,footer .src{color:#000}
     .kpi,.card,.pack-item,.builder{box-shadow:none}
   }
+  /* ---------- Gap to target ---------- */
+  .band-scale{position:relative;height:30px;border-radius:6px;overflow:hidden;display:flex;margin:16px 0 4px}
+  .band-scale span{display:flex;align-items:center;justify-content:center;font-size:.64rem;font-weight:800;letter-spacing:.02em;color:#fff;text-align:center;padding:0 4px;line-height:1.15;overflow:hidden}
+  .band-scale .b-nis{flex:65 1 0;background:#9c2b2e}
+  .band-scale .b-app{flex:15 1 0;background:#c07f10}
+  .band-scale .b-meet{flex:10 1 0;background:#1d6b4a}
+  .band-scale .b-dist{flex:10 1 0;background:#14532d}
+  .band-marker{position:absolute;top:-2px;bottom:-2px;width:4px;background:var(--ink);border:1.5px solid #fff;border-radius:2px;transform:translateX(-50%)}
+  .band-cap{font-size:.82rem;color:var(--muted);margin:0 0 6px}
+  .band-cap b{color:var(--ink)}
+  .comp-row{display:grid;grid-template-columns:104px 1fr 96px;gap:10px;align-items:center;margin-top:11px;font-size:.9rem}
+  .comp-row .ck{color:var(--muted);font-weight:600}
+  .comp-row .cv{font-weight:700;text-align:right}
+  .comp-track{height:14px;background:var(--wash-2);border-radius:4px;overflow:hidden}
+  .comp-fill{height:100%;background:var(--navy-3);border-radius:4px;width:0;transition:width .9s cubic-bezier(.22,.8,.3,1)}
+  @media (prefers-reduced-motion: reduce){ .comp-fill{transition:none} }
+  .model-bar{display:flex;height:16px;border-radius:4px;overflow:hidden;margin-top:8px}
+  .model-bar span{display:block;height:100%}
+  .model-cap{font-size:.85rem;color:var(--muted);margin-top:7px}
+  .src-line{font-size:.83rem;color:var(--muted);margin-top:14px;max-width:78ch}
+  .src-line a{font-weight:600}
+  .gap-pts{font-size:.85rem;font-weight:800;color:var(--alert);background:var(--alert-bg);border-radius:999px;padding:4px 12px;white-space:nowrap}
+  .toolbar{display:flex;justify-content:flex-end;margin:22px 0 2px}
+  .print-btn{
+    appearance:none;cursor:pointer;font:inherit;font-weight:700;font-size:.92rem;
+    background:var(--navy);color:#fff;border:none;border-radius:999px;padding:12px 22px;min-height:2.75rem;
+  }
+  .print-btn:hover{background:var(--navy-3)}
+  .print-btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .print-only{display:none}
+  @media (max-width:860px){ .comp-row{grid-template-columns:92px 1fr 84px} }
+  @media print{
+    .picker,.toolbar,.sample-tag{display:none !important}
+    .print-only{display:block !important}
+    section{padding:20px 0 0}
+    .card,.kpi,.pack-item,.builder,.fcard{break-inside:avoid}
+    a{color:#000}
+  }
   tr.hl td{background:var(--wash);font-weight:700}
   .tracker{margin-top:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.28);border-radius:8px;padding:16px 18px}
   .track-bar{height:14px;background:rgba(255,255,255,.18);border-radius:4px;overflow:hidden;margin:10px 0 8px}
@@ -309,9 +347,10 @@
 <header class="hero">
   <div class="wrap">
     <h1>Petersburg City Public Schools: Division Data Snapshot</h1>
-    <p class="lede">Fall 2026 edition. This page is a working sample of the <strong>Fall Accountability Reporting Pack</strong>: the division picture first, then its standing among peer divisions, every school on its own panel, and three years of attendance. Pick a school below and the panel rebuilds itself from that school's published figures. Everything here comes from public Virginia Department of Education data.</p>
+    <p class="lede">Fall 2026 edition. This page is a working sample of the <strong>Fall Accountability Reporting Pack</strong>: the division picture first, then results by student group, the measured distance each flagged school sits from the state's performance line, its standing among peer divisions, every school on its own panel, and three years of attendance. Pick a school below and the panel rebuilds itself from that school's published figures. Everything here comes from public Virginia Department of Education data.</p>
     <div class="hero-meta">
       <div>Prepared <b>November 14, 2026</b></div>
+      <div>Updated <b>November 15, 2026</b></div>
       <div>Data year <b>2025-26</b></div>
       <div>Accreditation <b>fall 2026 release, for 2026-27</b></div>
       <div>Coverage <b>division plus 6 profiled schools</b></div>
@@ -434,10 +473,168 @@
     </div>
   </section>
 
+  <!-- ============ STUDENT GROUPS ============ -->
+  <section aria-labelledby="grp-h">
+    <div class="sec-head">
+      <div class="sec-kicker">Section 2</div>
+      <h2 id="grp-h">Results by student group</h2>
+      <p>A division average hides where the work is. VDOE publishes pass rates by student group on the same division profile; this is the 2025-26 picture with the average taken apart.</p>
+    </div>
+
+    <div class="card">
+      <div style="overflow-x:auto">
+      <table aria-label="SOL pass rates by student group, Petersburg City, 2025-26">
+        <thead><tr><th scope="col">Student group</th><th scope="col">Reading</th><th scope="col">Math</th><th scope="col">Science</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td>All students</td><td>43</td><td>40</td><td>41</td></tr>
+          <tr><td>Black</td><td>42</td><td>38</td><td>39</td></tr>
+          <tr><td>Hispanic</td><td>44</td><td>43</td><td>47</td></tr>
+          <tr><td>White</td><td>64</td><td>55</td><td>53</td></tr>
+          <tr><td>Multiple Races</td><td>52</td><td>60</td><td>50</td></tr>
+          <tr><td>Economically Disadvantaged</td><td>40</td><td>37</td><td>38</td></tr>
+          <tr><td>Not Economically Disadvantaged</td><td>50</td><td>46</td><td>49</td></tr>
+          <tr><td>Students with Disabilities</td><td>28</td><td>24</td><td>24</td></tr>
+          <tr><td>Students without Disabilities</td><td>45</td><td>42</td><td>44</td></tr>
+          <tr><td>English Learners</td><td>27</td><td>40</td><td>26</td></tr>
+          <tr><td>Homeless</td><td>34</td><td>27</td><td>25</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="note">Percent of students passing, 2025-26. Groups that rest on very small numbers of tested students are published by VDOE but are not tabled here, because a handful of students swings those rates. Foster care results are suppressed by VDOE at every level. Suppressed counts are never estimated.</p>
+    </div>
+
+    <div class="grid-2" style="margin-top:14px">
+      <div class="card">
+        <h3 style="margin:0 0 8px;font-size:1.02rem">The widest gap runs on disability status</h3>
+        <ul class="fact-list">
+          <li><span class="k">Reading, with vs. without disabilities</span><span class="v">28% vs. 45%</span></li>
+          <li><span class="k">Math</span><span class="v">24% vs. 42%</span></li>
+          <li><span class="k">Science</span><span class="v">24% vs. 44%</span></li>
+        </ul>
+        <p class="note">The gap is 17 to 20 points in every subject, so it is a standing condition of the division's results, not a one-test artifact. Any honest improvement plan for this division runs through special education outcomes first.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 8px;font-size:1.02rem">Findings that cut the other way</h3>
+        <ul class="fact-list">
+          <li><span class="k">English learners, math pass rate</span><span class="v">40%, equal to all students</span></li>
+          <li><span class="k">Graduation, students with disabilities</span><span class="v">100% (39 of 39)</span></li>
+          <li><span class="k">Graduation, English learners</span><span class="v">100% (15 of 15)</span></li>
+          <li><span class="k">Graduation, Black students</span><span class="v">91%</span></li>
+          <li><span class="k">Graduation, homeless students</span><span class="v">76% (16 of 21)</span></li>
+        </ul>
+        <p class="note">The high school finishes the students it gets, including every senior with a disability and every English learner senior in the Class of 2026. The exception is homeless students, who post pass rates near the bottom in every subject (34% reading, 27% math, 25% science) and a 10% cohort dropout rate.</p>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:14px">
+      <div class="card">
+        <h3 style="margin:0 0 8px;font-size:1.02rem">English learner progress, against the state target</h3>
+        <div class="stat-big">40%</div>
+        <div class="stat-lbl">Making progress toward English proficiency, division</div>
+        <p style="margin:0 0 6px">The state annual target is <strong>58%</strong>. Petersburg's English learners making progress: 120 of 297. Only 3% attained proficiency in the year (13 of 387).</p>
+        <ul class="fact-list" style="margin-top:8px">
+          <li><span class="k">Walnut Hill Elementary</span><span class="v">56%</span></li>
+          <li><span class="k">Cool Spring Elementary</span><span class="v">46%</span></li>
+          <li><span class="k">Lakemont Elementary</span><span class="v">46%</span></li>
+          <li><span class="k">Pleasants Lane Elementary</span><span class="v">42%</span></li>
+          <li><span class="k">Petersburg High School</span><span class="v">41%</span></li>
+          <li><span class="k">Vernon Johns Middle School</span><span class="v">28%</span></li>
+        </ul>
+        <p class="note">Every school sits below the target, and the middle school sits furthest below it, at half the target rate. This measure also feeds each school's state performance score, so it is a lever, not a side statistic.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 8px;font-size:1.02rem">Attendance, by group</h3>
+        <div class="stat-big">124 of 244</div>
+        <div class="stat-lbl">Homeless students chronically absent, 2025-26</div>
+        <p style="margin:0">More than half of the division's homeless students missed 10% or more of the school year, the heaviest split of any published group. The division overall: 1,298 of 3,945 students. Students with disabilities: 171 of 453. English learners post the lightest split of the large groups, 105 of 459.</p>
+        <p class="note">Counts are as VDOE publishes them in the division profile's absenteeism by subgroup table. Attendance work aimed at homeless students is the single highest-yield attendance move in this division's data.</p>
+      </div>
+    </div>
+
+    <p class="src-line">Source: Virginia Department of Education, <a href="https://schoolquality.virginia.gov/divisions/petersburg-city-public-schools">School Quality Profiles, Petersburg City division profile</a>: test results by student group, English Learner Progress and Proficiency, absenteeism by subgroup, and Class of 2026 cohort tables, 2025-26. Retrieved November 15, 2026.</p>
+  </section>
+
+  <!-- ============ ROAD TO FULL ACCREDITATION ============ -->
+  <section aria-labelledby="gap-h">
+    <div class="sec-head">
+      <div class="sec-kicker">Section 3</div>
+      <h2 id="gap-h">The road to full accreditation, measured</h2>
+      <p>Since September 2024, Virginia runs accreditation and performance as two separate systems. Accreditation is a compliance designation. Performance is the School Performance and Support Framework, a 100-point score, and the line that matters is 80 points: Meets Expectations. VDOE reports 99.7% of Virginia schools fully accredited in the fall 2026 release. Petersburg holds two of the exceptions, and both are also federally identified for Comprehensive Support and Improvement. This is exactly how far each one sits from the line, and what its score is made of.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:14px">
+      <div style="font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)">The performance bands, all Virginia schools</div>
+      <div class="band-scale" aria-hidden="true">
+        <span class="b-nis">Needs Intensive Support, under 65</span>
+        <span class="b-app">Approaching, 65 to 79</span>
+        <span class="b-meet">Meets, 80 to 89</span>
+        <span class="b-dist">Distinguished, 90+</span>
+      </div>
+      <p class="band-cap">A school within half a point of a band edge receives the higher designation. A federal Targeted Support identification lowers a school's displayed category by one level, which is why Walnut Hill Elementary shows 75.71 points with a Needs Intensive Support level in Section 1.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap">
+          <h3 style="margin:0;font-size:1.1rem">Lakemont Elementary</h3>
+          <span class="gap-pts">10.96 points to Meets Expectations</span>
+        </div>
+        <div class="band-scale" aria-hidden="true">
+          <span class="b-nis"></span><span class="b-app"></span><span class="b-meet"></span><span class="b-dist"></span>
+          <div class="band-marker" style="left:69.04%"></div>
+        </div>
+        <p class="band-cap"><b>Framework score 69.04</b> of 100, Approaching Expectations. Conditionally Accredited, and federally identified for Comprehensive Support and Improvement.</p>
+        <div class="comp-row"><span class="ck">Mastery</span><div class="comp-track"><div class="comp-fill" data-w="66.7"></div></div><span class="cv">43.36 of 65</span></div>
+        <div class="comp-row"><span class="ck">Growth</span><div class="comp-track"><div class="comp-fill" data-w="74.7"></div></div><span class="cv">18.68 of 25</span></div>
+        <div class="comp-row"><span class="ck">Readiness</span><div class="comp-track"><div class="comp-fill" data-w="69.9"></div></div><span class="cv">6.99 of 10</span></div>
+        <ul class="fact-list" style="margin-top:14px">
+          <li><span class="k">Mastery index, reading / math / science</span><span class="v">70.02 / 66.02 / 81.91</span></li>
+          <li><span class="k">Growth index, reading / math</span><span class="v">76.73 / 72.77</span></li>
+          <li><span class="k">English learner growth index, reading / math</span><span class="v">92.85 / 82.14</span></li>
+          <li><span class="k">Mastery index, students with disabilities, reading / math</span><span class="v">51.31 / 46.05</span></li>
+          <li><span class="k">Chronic absenteeism (the readiness input)</span><span class="v">30.05%</span></li>
+        </ul>
+        <p class="note"><strong>How to read this school:</strong> growth is not its problem. Growth is its strongest component, and its English learners post the highest growth indexes in the building. The drag is the level students start from, mastery at two thirds of its points, disability outcomes running well below the schoolwide mastery mark, and nearly one in three students chronically absent. Under the accreditation benchmarks Virginia repealed in 2024, a 30.05% absenteeism rate would have sat in the lowest level on that indicator; the current system folds it into readiness points instead.</p>
+        <p class="note"><strong>The second gap has no published number.</strong> As a Comprehensive Support school, Lakemont's route back to Fully Accredited also runs through the state regulation (8VAC20-132-300): satisfactory compliance evidence, plus demonstrating the school is no longer among the lowest-performing 5 percent of schools statewide. VDOE does not publish the score at that cutoff, so no honest figure exists for that distance. Anyone who quotes one is guessing.</p>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap">
+          <h3 style="margin:0;font-size:1.1rem">Vernon Johns Middle School</h3>
+          <span class="gap-pts">12.74 points to Meets Expectations</span>
+        </div>
+        <div class="band-scale" aria-hidden="true">
+          <span class="b-nis"></span><span class="b-app"></span><span class="b-meet"></span><span class="b-dist"></span>
+          <div class="band-marker" style="left:67.26%"></div>
+        </div>
+        <p class="band-cap"><b>Framework score 67.26</b> of 100, Approaching Expectations. Conditionally Accredited, and federally identified for Comprehensive Support and Improvement. The larger of the division's two gaps.</p>
+        <div style="font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:12px">How the middle school score is built</div>
+        <div class="model-bar" aria-hidden="true">
+          <span style="flex:60 1 0;background:var(--navy-3)"></span>
+          <span style="flex:20 1 0;background:var(--va-dark)"></span>
+          <span style="flex:20 1 0;background:var(--va)"></span>
+        </div>
+        <p class="model-cap">Mastery 60 points, Growth 20 points, Readiness 20 points (chronic absenteeism plus advanced coursework). Elementary schools are weighted Mastery 65, Growth 25, Readiness 10.</p>
+        <ul class="fact-list" style="margin-top:10px">
+          <li><span class="k">SOL pass rates, reading / math / science</span><span class="v">37 / 31 / 36</span></li>
+          <li><span class="k">Division averages, same subjects</span><span class="v">43 / 40 / 41</span></li>
+          <li><span class="k">Chronic absenteeism</span><span class="v">34.0%</span></li>
+          <li><span class="k">English learner progress</span><span class="v">28% (target 58%)</span></li>
+          <li><span class="k">Reading pass rate, English learners</span><span class="v">15%</span></li>
+          <li><span class="k">Math pass rate, students with disabilities</span><span class="v">18%</span></li>
+        </ul>
+        <p class="note"><strong>How to read this school:</strong> every published input sits on the wrong side of the division average, in the division's only middle school, covering both the main site and the grade 6 academy at Blandford. Math at 31% is the lowest math figure in the division, one in three students is chronically absent, and English learner progress runs at half the state target. There is no single broken indicator here; the score is what across-the-board inputs produce.</p>
+        <p class="note">These two schools are the whole distance between Petersburg and its MOU exit condition in Section 7. When either one's designation changes, the exit tracker changes with it.</p>
+      </div>
+    </div>
+
+    <p class="src-line">Sources: Virginia Department of Education, <a href="https://schoolquality.virginia.gov/divisions/petersburg-city-public-schools">School Quality Profiles, Petersburg City division summary table</a> (scores and designations, fall 2026 release); VDOE School Summary Report 2026, Lakemont Elementary (component detail); <a href="https://www.doe.virginia.gov/state-board-data-funding/accreditation-accountability/school-performance-and-support-framework/spsf-overview">VDOE School Performance and Support Framework overview</a> (performance bands); <a href="https://law.lis.virginia.gov/admincode/title8/agency20/chapter132/section300/">8VAC20-132-300</a> (accreditation rules); VDOE Education Update, October 8, 2026 (99.7% statewide). Data current as of the fall 2026 releases; retrieved November 15, 2026.</p>
+  </section>
+
   <!-- ============ PEERS ============ -->
   <section aria-labelledby="peer-h">
     <div class="sec-head">
-      <div class="sec-kicker">Section 2</div>
+      <div class="sec-kicker">Section 4</div>
       <h2 id="peer-h">How Petersburg compares with its peers</h2>
       <p>The same published measures for four comparable Virginia divisions and the state, 2025-26. Richmond City is the only other division that still meets the Board of Education's MOU criteria.</p>
     </div>
@@ -463,7 +660,7 @@
   <!-- ============ SCHOOL PICKER ============ -->
   <section aria-labelledby="sch-h">
     <div class="sec-head">
-      <div class="sec-kicker">Section 3</div>
+      <div class="sec-kicker">Section 5</div>
       <h2 id="sch-h">Explore by school</h2>
       <p>Select any school to see its full panel: enrollment, SOL pass rates against the division average, chronic absenteeism, accreditation, and its School Performance and Support Framework result. All figures are 2025-26 unless noted.</p>
     </div>
@@ -497,7 +694,7 @@
   <!-- ============ ATTENDANCE ============ -->
   <section aria-labelledby="att-h">
     <div class="sec-head">
-      <div class="sec-kicker">Section 4</div>
+      <div class="sec-kicker">Section 6</div>
       <h2 id="att-h">Chronic absenteeism: three years, school by school</h2>
       <p>Share of students absent 10 percent or more of the school year. The division rate has fallen two years running, and the largest drops came at the high school and the middle school. It remains about two and a half times the state rate.</p>
     </div>
@@ -524,7 +721,7 @@
   <!-- ============ OVERSIGHT ============ -->
   <section aria-labelledby="ov-h">
     <div class="sec-head">
-      <div class="sec-kicker">Section 5</div>
+      <div class="sec-kicker">Section 7</div>
       <h2 id="ov-h">State oversight status</h2>
       <p>Why these numbers carry deadlines: the division reports under a state oversight agreement, and its published exit condition is written in terms of the accreditation results above.</p>
     </div>
@@ -532,6 +729,7 @@
     <div class="oversight">
       <h3>Memorandum of Understanding with the Virginia Board of Education</h3>
       <p>Petersburg City Public Schools operates under a Memorandum of Understanding with the Virginia Board of Education, <strong>in place since 2004 and last updated April 28, 2016</strong>. The division's data, accountability reporting, and state submissions run on that agreement's schedule whether or not any given seat in the division office is filled.</p>
+      <p>Petersburg is one of only two Virginia divisions still under an MOU. The Board of Education released Danville City, Greensville County, and Prince Edward County on June 25, 2026, and no Board action through October 2026 changed Petersburg's or Richmond City's status. Franklin City was told in April 2026 that it will be required to enter an MOU; no executed agreement for Franklin appears in VDOE's published record.</p>
       <div class="exit-box">
         <div class="cond"><b>Published exit condition</b>All schools in the division fully accredited. On the fall 2026 ratings, Lakemont Elementary and Vernon Johns Middle School are conditionally accredited.</div>
         <div class="notmet">Condition not met</div>
@@ -587,12 +785,40 @@
     </div>
   </section>
 
+  <div class="toolbar">
+    <button type="button" class="print-btn" onclick="window.print()">Print or save a board copy (PDF)</button>
+  </div>
+
+  <!-- ============ PRINT-ONLY SUMMARY ============ -->
+  <section class="print-only" aria-hidden="true">
+    <div class="sec-head">
+      <div class="sec-kicker">Print summary</div>
+      <h2>All six schools, one page</h2>
+      <p>Petersburg City Public Schools, fall 2026 edition. SOL pass rates, chronic absenteeism, and English learner progress are 2025-26; framework scores and accreditation are the fall 2026 release. Full interactive edition: boswellconsultingagency.com/petersburg-snapshot.html</p>
+    </div>
+    <div class="card">
+      <table aria-label="All schools summary">
+        <thead><tr><th scope="col">School</th><th scope="col">Students</th><th scope="col">Reading</th><th scope="col">Math</th><th scope="col">Science</th><th scope="col">Absent 10%+</th><th scope="col">EL progress</th><th scope="col">SPSF score</th><th scope="col">SPSF level</th><th scope="col">Accreditation</th></tr></thead>
+        <tbody>
+          <tr><td>Petersburg High School</td><td>1,219</td><td>74</td><td>63</td><td>52</td><td>38.6%</td><td>41%</td><td>84.03</td><td>Meets Expectations</td><td>Fully Accredited</td></tr>
+          <tr><td>Vernon Johns Middle School</td><td>913</td><td>37</td><td>31</td><td>36</td><td>34.0%</td><td>28%</td><td>67.26</td><td>Approaching Expectations</td><td>Conditionally Accredited</td></tr>
+          <tr><td>Cool Spring Elementary</td><td>546</td><td>35</td><td>34</td><td>34</td><td>25.3%</td><td>46%</td><td>69.1</td><td>Approaching Expectations</td><td>Fully Accredited</td></tr>
+          <tr><td>Lakemont Elementary</td><td>372</td><td>32</td><td>34</td><td>27</td><td>30.1%</td><td>46%</td><td>69.04</td><td>Approaching Expectations</td><td>Conditionally Accredited</td></tr>
+          <tr><td>Pleasants Lane Elementary</td><td>515</td><td>38</td><td>32</td><td>26</td><td>36.1%</td><td>42%</td><td>65.65</td><td>Approaching Expectations</td><td>Fully Accredited</td></tr>
+          <tr><td>Walnut Hill Elementary</td><td>542</td><td>52</td><td>48</td><td>48</td><td>24.9%</td><td>56%</td><td>75.71</td><td>Needs Intensive Support</td><td>Fully Accredited</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Distance to Meets Expectations (80 points): Lakemont Elementary 10.96 points; Vernon Johns Middle School 12.74 points. Both schools are federally identified for Comprehensive Support and Improvement. Division totals: 4,544 students including 437 pre-K at Westview Early Childhood Education Center; on-time graduation 90% (Virginia 93.5%); chronic absenteeism 32.9% (Virginia 12.9%).</p>
+    </div>
+  </section>
+
 </main>
 
 <footer>
   <div class="wrap">
     <div class="firmline">Boswell Consulting Agency LLC</div>
-    <p class="src">Prepared by Boswell Consulting Agency LLC, November 14, 2026. Sources: Virginia Department of Education School Quality Profiles (2025-26 data; accreditation designations from the fall 2026 release); Virginia Board of Education agenda item, April 23, 2026; Virginia state budget HB30, Item 124. Peer division and attendance history: VDOE School Quality Profiles for Richmond City, Danville City, Hopewell City, and Newport News City and for each Petersburg school; VDOE news release on MOU releases, June 2026. Built entirely from public aggregate data. No student records were used. Small counts are suppressed in VDOE reporting and none are estimated here.</p>
+    <p class="src">Prepared by Boswell Consulting Agency LLC. First published November 14, 2026; updated November 15, 2026. Sources: Virginia Department of Education School Quality Profiles (2025-26 data; accreditation designations and framework scores from the fall 2026 release); VDOE School Summary Report 2026, Lakemont Elementary; VDOE School Performance and Support Framework overview; 8VAC20-132-300; VDOE Education Update, October 8, 2026; Virginia Board of Education agenda item, April 23, 2026, and June 25, 2026 meeting action; Virginia state budget HB30, Item 124. Peer division and attendance history: VDOE School Quality Profiles for Richmond City, Danville City, Hopewell City, and Newport News City and for each Petersburg school. Built entirely from public aggregate data. No student records were used. Small counts are suppressed in VDOE reporting and none are estimated here.</p>
+    <p class="src" style="margin-top:10px"><strong style="color:#fff">Update log.</strong> November 15, 2026: added results by student group, English learner progress against the state target, measured gap-to-target panels for the two conditionally accredited schools, the statewide fall 2026 context, the current MOU division list, and a print-ready summary of all six schools. November 14, 2026: first edition, division, peers, school panels, attendance history, and oversight status.</p>
   </div>
 </footer>
 
@@ -628,7 +854,7 @@ var SCHOOLS = [
     accredClass: "cond",
     spsf: "Approaching Expectations",
     score: "67.26",
-    note: "<strong>One of the two schools holding the division's exit condition open.</strong> Every SOL rate sits below the division average, and math at 31% is the lowest middle school figure in the division. Note: grade 6 is taught at the Blandford site and reported under this school, so this panel covers both sites."
+    note: "<strong>One of the two schools holding the division's exit condition open.</strong> Every SOL rate sits below the division average, and math at 31% is the lowest math figure in the division. Note: grade 6 is taught at the Blandford site and reported under this school, so this panel covers both sites."
   },
   {
     id: "cool",
@@ -658,7 +884,7 @@ var SCHOOLS = [
     accredClass: "cond",
     spsf: "Approaching Expectations",
     score: "69.04",
-    note: "<strong>The division's most exposed school.</strong> Conditionally accredited and federally identified for Comprehensive Support and Improvement, the lowest-performing federal tier. Reading at 32% and science at 27% are the lowest elementary figures in the division. Together with Vernon Johns Middle, it keeps the MOU exit condition unmet."
+    note: "<strong>The division's most exposed school.</strong> Conditionally accredited and federally identified for Comprehensive Support and Improvement, the lowest-performing federal tier. Reading at 32% is the lowest elementary reading figure in the division, and its science rate of 27% sits near the bottom. Together with Vernon Johns Middle, it keeps the MOU exit condition unmet. <strong>Growth is not its problem:</strong> growth is its strongest framework component, and its English learners post growth indexes of 92.85 in reading and 82.14 in math. Section 3 measures its full distance to the line."
   },
   {
     id: "pleas",
@@ -691,6 +917,15 @@ var SCHOOLS = [
     note: "<strong>The division's strongest elementary school, with a label that needs a footnote.</strong> Highest elementary SOL scores in the division and the lowest absenteeism at 24.9%. Its framework score of 75.71 is the highest elementary score in the division, yet its SPSF level reads Needs Intensive Support: the category reflects the federal support identification applied within the SPSF model, not the score alone."
   }
 ];
+
+var EXTRA = {
+  phs:    { elp: "41%", gap: null },
+  vjms:   { elp: "28%", gap: "12.74 points to Meets Expectations" },
+  cool:   { elp: "46%", gap: null },
+  lake:   { elp: "46%", gap: "10.96 points to Meets Expectations" },
+  pleas:  { elp: "42%", gap: null },
+  walnut: { elp: "56%", gap: null }
+};
 
 var picker = document.getElementById("picker");
 SCHOOLS.forEach(function (s, i) {
@@ -736,7 +971,7 @@ function selectSchool(id) {
   var badges = '<span class="badge ' + s.accredClass + '">' + s.accred + "</span>" +
     '<span class="chip">SPSF: ' + s.spsf + "</span>" +
     '<span class="chip score">Framework score ' + s.score + "</span>";
-  if (s.id === "lake") { badges += '<span class="chip">Federal: Comprehensive Support and Improvement</span>'; }
+  if (s.id === "lake" || s.id === "vjms") { badges += '<span class="chip">Federal: Comprehensive Support and Improvement</span>'; }
   document.getElementById("p-badges").innerHTML = badges;
 
   document.getElementById("p-sol").innerHTML =
@@ -748,7 +983,11 @@ function selectSchool(id) {
     '<li><span class="k">Chronic absenteeism</span><span class="v">' + s.absent + "</span></li>" +
     '<li><span class="k">Accreditation</span><span class="v">' + s.accred + "</span></li>" +
     '<li><span class="k">SPSF level</span><span class="v">' + s.spsf + "</span></li>" +
-    '<li><span class="k">Framework score</span><span class="v">' + s.score + "</span></li>";
+    '<li><span class="k">Framework score</span><span class="v">' + s.score + "</span></li>" +
+    '<li><span class="k">English learner progress</span><span class="v">' + EXTRA[s.id].elp + ' making progress (target 58%)</span></li>';
+  if (EXTRA[s.id].gap) {
+    facts += '<li><span class="k">Distance to Meets Expectations</span><span class="v">' + EXTRA[s.id].gap + "</span></li>";
+  }
   if (s.grad) {
     facts += '<li><span class="k">On-time graduation, Class of 2026</span><span class="v">' + s.grad + "</span></li>";
   }
