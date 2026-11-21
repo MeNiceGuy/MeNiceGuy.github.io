@@ -96,7 +96,7 @@
   <div class="form__group">
     <label for="br_futa">Federal unemployment (FUTA) effective rate (%)</label>
     <input type="number" id="br_futa" min="0" step="0.1" value="0.6">
-    <p class="form__hint">FUTA is 6.0% on the first $7,000 of pay, with a credit of up to 5.4% for state taxes paid, which leaves 0.6% in most states. Employers in FUTA credit reduction states pay more; raise this number if that is you.</p>
+    <p class="form__hint" id="br_futa_hint">FUTA is 6.0% on the first $7,000 of pay, with a credit of up to 5.4% for state taxes paid, which leaves 0.6% in most states. Employers in FUTA credit reduction states pay more; raise this number if that is you.</p>
   </div>
   <div class="form__group">
     <label for="br_comp">Workers compensation (% of pay)</label>
@@ -149,7 +149,7 @@
 <p>Most bill rate math takes the pay rate and adds a flat burden percentage. That overstates your taxes, because three of the four payroll taxes stop during the year. Social Security stops at the federal wage cap ($184,500 for 2026). Federal unemployment tax applies only to the first $7,000 a worker earns. State unemployment tax applies only up to your state's wage base, which runs from $7,000 to $78,200 depending on the state. This calculator annualizes the worker's pay first, applies each tax up to its own cap, and only then converts the result back into a cost per hour. The burden percentage it shows is the one your payroll actually produces over a full year.</p>
 <p>Worked example, at the numbers the page opens with: a Virginia worker at $18.00 an hour, 40 hours a week, earns $37,440 a year. Employer taxes come to $3,106 for the year, a true burden of 8.3% of pay, not the 15% or 20% a flat guess would load on. With workers comp at an illustrative 4%, the loaded cost is $20.21 an hour, and a 30% target margin needs a bill rate of $28.88.</p>
 <h2>Sources and limits</h2>
-<p>Federal figures: Social Security Administration, 2026 wage base and rates; Internal Revenue Service, FUTA rate and credit. State unemployment rates and wage bases: U.S. Department of Labor, Significant Provisions of State Unemployment Insurance Laws, effective January 2026, showing each state's new employer rate. Nebraska's wage base follows the Nebraska Department of Labor (the standard base is $9,000; the $24,000 base applies only to category 20 employers). California's employment training tax follows the California Employment Development Department. State figures last verified November 21, 2026.</p>
+<p>Federal figures: <a href="https://www.ssa.gov/oact/cola/cbb.html">Social Security Administration</a>, 2026 wage base and rates; <a href="https://www.irs.gov/taxtopics/tc759">Internal Revenue Service</a>, FUTA rate, credit, and credit reduction states. State unemployment rates and wage bases: U.S. Department of Labor, <a href="https://oui.doleta.gov/unemploy/content/sigpros/2020-2029/January2026.pdf">Significant Provisions of State Unemployment Insurance Laws</a>, effective January 2026, showing each state's new employer rate. Nebraska's wage base follows the <a href="https://dol.nebraska.gov/UITax/UnemploymentInsuranceTax/CombinedTaxRates">Nebraska Department of Labor</a> (the standard base is $9,000; the $24,000 base applies only to category 20 employers). Rhode Island's standard wage base is $30,800, per the <a href="https://dlt.ri.gov/press-releases/2026-tax-rates-unemployment-insurance-and-temporary-disability-insurance">Rhode Island Department of Labor and Training</a>; its $32,300 base applies only to employers at the highest tax rate. Michigan's base rises to $9,500 for delinquent employers. California's employment training tax follows the <a href="https://edd.ca.gov/en/Payroll_Taxes/rates_and_withholding">California Employment Development Department</a>, and California is a FUTA credit reduction state for 2026, so the federal unemployment rate above defaults to 2.1% there instead of 0.6%. All figures last verified November 21, 2026.</p>
 <p>Know the limits before you quote a rate from this page. The state rates shown are new employer rates; once your state experience-rates your agency, your assigned rate is the accurate one, so replace it above. Seven states (Louisiana, Minnesota, Montana, New Mexico, Utah, Washington, Wyoming) assign new employers an industry average rate instead of a fixed one, so the rate field opens blank there and waits for your number. The Department of Labor table does not include state surtaxes or local payroll taxes; if your state or city adds one, fold it into Other employer costs. Workers compensation is priced by your insurer by class code, and no table can stand in for your policy. This tool is general information for planning, not tax or legal advice, and it is not a guaranteed figure for any specific agency.</p>
 <p>When the math says a client's offered rate leaves no margin, the fix is a system, not a squeeze on the worker. That is the work I do with agencies: pricing, policy, and the paperwork behind both, at <a href="/services.html">Boswell Consulting Agency services</a>. The other free tools, including the CMS self-audit, are on the <a href="/tools.html">free tools page</a>.</p>
 </div>
@@ -233,7 +233,7 @@
     MS: [1.0, 14000], MO: [2.376, 9000], MT: [null, 47300], NE: [1.25, 9000],
     NV: [2.95, 43700], NH: [2.7, 14000], NJ: [2.8, 44800], NM: [null, 34800],
     NY: [4.025, 17600], NC: [1.0, 34200], ND: [1.0, 46600], OH: [2.7, 9000],
-    OK: [1.5, 25000], OR: [2.4, 56700], PA: [3.822, 10000], RI: [1.0, 32300],
+    OK: [1.5, 25000], OR: [2.4, 56700], PA: [3.822, 10000], RI: [1.0, 30800],
     SC: [1.0, 14000], SD: [1.2, 15000], TN: [2.7, 7000], TX: [2.7, 9000],
     UT: [null, 50700], VT: [1.0, 15400], VA: [2.5, 8000], WA: [null, 78200],
     WV: [2.7, 9500], WI: [2.5, 14000], WY: [null, 33800]
@@ -270,9 +270,17 @@
   function money(v) {
     return '$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
+  var futaAuto = '0.6';
+  var FUTA_HINT_DEFAULT = 'FUTA is 6.0% on the first $7,000 of pay, with a credit of up to 5.4% for state taxes paid, which leaves 0.6% in most states. Employers in FUTA credit reduction states pay more; raise this number if that is you.';
+  var FUTA_HINT_CA = 'California is a FUTA credit reduction state for 2026: the credit for state taxes paid is cut by 1.5%, so the effective FUTA rate is 2.1% on the first $7,000 of pay. This field set itself to 2.1%; change it if your situation differs.';
   function setState() {
     var code = sel.value;
     var row = SUTA[code];
+    var futaEl = document.getElementById('br_futa');
+    var futaTarget = code === 'CA' ? '2.1' : '0.6';
+    if (futaEl.value === futaAuto || futaEl.value === '') futaEl.value = futaTarget;
+    futaAuto = futaTarget;
+    document.getElementById('br_futa_hint').textContent = code === 'CA' ? FUTA_HINT_CA : FUTA_HINT_DEFAULT;
     document.getElementById('br_suta_base').value = row[1];
     var rateEl = document.getElementById('br_suta_rate');
     var hint = document.getElementById('br_suta_hint');
