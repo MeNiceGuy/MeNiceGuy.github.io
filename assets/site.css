@@ -372,13 +372,30 @@ tr:nth-child(even) td { background: var(--paper); }
 .article-list p { margin: 0.4rem 0 0; color: var(--ink-soft); }
 .article-list .article-list__meta { font-size: 0.85rem; color: var(--brass-700); font-weight: 600; }
 
-.state-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.75rem; }
+.state-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(235px, 1fr)); gap: 0.85rem; }
 .state-grid a {
-  display: block; padding: 0.85rem 1rem;
-  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+  display: block; padding: 1rem 1.1rem;
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg);
   color: var(--navy-900); font-weight: 500; text-decoration: none;
+  transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
 }
-.state-grid a:hover { border-color: var(--brass-600); color: var(--brass-700); }
+.state-grid a:hover { border-color: var(--brass-600); color: var(--navy-900); box-shadow: var(--shadow); transform: translateY(-2px); }
+.state-grid a strong { display: block; font-family: var(--font-display); font-size: 1.18rem; font-weight: 600; line-height: 1.25; }
+.state-grid a span { display: block; margin-top: 0.3rem; color: var(--ink-muted); font-size: 0.92rem; font-weight: 400; }
+.state-grid a[data-state] { display: grid; grid-template-columns: 46px 1fr; column-gap: 0.95rem; align-items: center; }
+.state-grid a[data-state]::before {
+  content: attr(data-state); grid-row: 1 / span 2;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--navy-800); color: var(--brass-400);
+  font-family: var(--font-display); font-size: 1.02rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.state-grid a[data-state] strong, .state-grid a[data-state] span { grid-column: 2; }
+.state-picker { background: var(--navy-800); border-radius: var(--radius-lg); padding: 1.4rem; margin: 0 0 1.4rem; box-shadow: var(--shadow); }
+.state-picker label { display: block; color: var(--brass-400); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.65rem; }
+.state-picker__row { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+.state-picker select { flex: 1 1 240px; padding: 0.8rem 1rem; border-radius: var(--radius); border: 1px solid var(--line-dark); background: var(--white); color: var(--ink); font: inherit; }
+.state-picker .btn { flex: none; }
 
 /* ---------- 14. Forms ---------- */
 .form { max-width: 34rem; }
