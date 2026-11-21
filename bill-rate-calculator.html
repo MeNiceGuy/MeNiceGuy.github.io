@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3G8066FF2X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3G8066FF2X');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Free bill rate calculator for home care, home health, and staffing agency owners. Builds your true employer burden from federal and state payroll taxes, with the wage caps applied, then shows the bill rate your target margin requires.">
+<title>Bill Rate Calculator | Boswell Consulting Agency</title>
+<link rel="canonical" href="https://boswellconsultingagency.com/bill-rate-calculator.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+  @media (max-width: 900px) { .calc-grid { grid-template-columns: 1fr; } }
+  .calc-results { background: var(--navy-800); color: var(--paper); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow); }
+  .calc-results h3 { color: var(--paper); margin-top: 0; }
+  .calc-results table { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+  .calc-results td { padding: 0.35rem 0; border-bottom: 1px solid var(--line-dark); vertical-align: top; }
+  .calc-results td:last-child { text-align: right; font-weight: 600; white-space: nowrap; }
+  .calc-results tr.total td { border-bottom: none; border-top: 2px solid var(--brass-400); font-size: 1.08rem; padding-top: 0.6rem; }
+  .calc-results .big-rate { font-family: var(--font-display); font-size: 2.2rem; color: var(--brass-300); line-height: 1.1; }
+  .calc-note { font-size: 0.88rem; color: var(--brass-300); min-height: 1.2em; }
+  .calc-results .ok { color: #9fd48a; font-weight: 700; }
+  .calc-results .bad { color: #f0a35e; font-weight: 700; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header" id="top">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Boswell Consulting Agency LLC, home">
+      <span class="brand__mark" aria-hidden="true">B</span>
+      <span>
+        <span class="brand__name">Boswell Consulting Agency LLC</span>
+        <span class="brand__tag">Strategy and Innovation</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle__bars" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/kits.html">Generator</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/tools.html" aria-current="page">Free Tools</a></li>
+        <li><a href="/articles/">Library</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a class="btn btn--primary" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="page-hero"><div class="container"><span class="eyebrow">Free tool</span><h1>Bill rate calculator</h1><p>For home care, home health, and staffing agency owners setting an hourly bill rate. It builds your real employer burden from the actual payroll taxes, federal and state, applies the wage caps the way payroll does, and then shows the bill rate your target margin requires. Everything calculates as you type, and nothing you enter leaves your browser.</p></div></section>
+
+<section class="section"><div class="container">
+<div class="calc-grid">
+<div>
+<form class="form" id="brcForm" onsubmit="return false;">
+  <div class="form__group">
+    <label for="br_state">State where the worker is employed</label>
+    <select id="br_state"></select>
+    <p class="form__hint">Sets your state unemployment (SUTA) starting rate and wage base from the U.S. Department of Labor table below. Both stay editable, because your own rate notice beats any table.</p>
+  </div>
+  <div class="form__group">
+    <label for="br_pay">Worker pay rate ($ per hour)</label>
+    <input type="number" id="br_pay" min="0" step="0.01" value="18">
+  </div>
+  <div class="form__group">
+    <label for="br_hours">Paid hours per week</label>
+    <input type="number" id="br_hours" min="0" step="0.5" value="40">
+    <p class="form__hint">The calculator annualizes these hours, because unemployment and Social Security taxes stop at their wage caps partway through the year for most workers.</p>
+  </div>
+  <div class="form__group">
+    <label for="br_suta_rate">State unemployment rate (%)</label>
+    <input type="number" id="br_suta_rate" min="0" step="0.001" placeholder="From your state rate notice">
+    <p class="form__hint" id="br_suta_hint">New employer rate for the selected state.</p>
+  </div>
+  <div class="form__group">
+    <label for="br_suta_base">State unemployment wage base ($ per year)</label>
+    <input type="number" id="br_suta_base" min="0" step="1">
+    <p class="form__hint">Your state taxes only the first dollars of each worker's yearly pay, up to this base.</p>
+  </div>
+  <div class="form__group">
+    <label for="br_futa">Federal unemployment (FUTA) effective rate (%)</label>
+    <input type="number" id="br_futa" min="0" step="0.1" value="0.6">
+    <p class="form__hint">FUTA is 6.0% on the first $7,000 of pay, with a credit of up to 5.4% for state taxes paid, which leaves 0.6% in most states. Employers in FUTA credit reduction states pay more; raise this number if that is you.</p>
+  </div>
+  <div class="form__group">
+    <label for="br_comp">Workers compensation (% of pay)</label>
+    <input type="number" id="br_comp" min="0" step="0.1" value="4">
+    <p class="form__hint">From your own policy, priced per $100 of payroll. The 4% showing is an illustration only. Your policy rate is the accurate one, and it changes the answer more than any tax on this page.</p>
+  </div>
+  <div class="form__group">
+    <label for="br_other">Other employer costs (% of pay)</label>
+    <input type="number" id="br_other" min="0" step="0.1" value="0">
+    <p class="form__hint">Benefits, liability insurance, and any other cost you carry as a share of pay. Leave at 0 if you price those separately.</p>
+  </div>
+  <div class="form__group">
+    <label for="br_margin">Target margin (%)</label>
+    <input type="number" id="br_margin" min="0" max="99" step="1" value="30">
+    <p class="form__hint">Gross margin on the bill rate, before office overhead: the share of the bill rate left after the worker's full cost is paid.</p>
+  </div>
+  <div class="form__group">
+    <label for="br_offered">A bill rate to test ($ per hour, optional)</label>
+    <input type="number" id="br_offered" min="0" step="0.01" value="32">
+    <p class="form__hint">Your current rate, or a rate a client is offering you. The results show the margin that rate really leaves.</p>
+  </div>
+</form>
+</div>
+
+<div class="calc-results" aria-live="polite">
+  <h3>Your numbers</h3>
+  <p>Bill rate needed for your target margin</p>
+  <p class="big-rate" id="br_needed">--</p>
+  <table>
+    <tr><td>Annual pay per worker</td><td id="br_annual">--</td></tr>
+    <tr><td>Social Security (6.2%, capped)</td><td id="br_ss">--</td></tr>
+    <tr><td>Medicare (1.45%)</td><td id="br_med">--</td></tr>
+    <tr><td>Federal unemployment (capped)</td><td id="br_futa_out">--</td></tr>
+    <tr><td>State unemployment (capped)</td><td id="br_suta_out">--</td></tr>
+    <tr id="br_ett_row" hidden><td>California employment training tax (0.1%, capped)</td><td id="br_ett_out">--</td></tr>
+    <tr><td>Employer taxes per year</td><td id="br_taxes">--</td></tr>
+    <tr><td>True tax burden (% of pay)</td><td id="br_burden">--</td></tr>
+    <tr><td>Workers comp and other, per hour</td><td id="br_extra_hr">--</td></tr>
+    <tr class="total"><td>Loaded cost per hour</td><td id="br_loaded">--</td></tr>
+    <tr><td>At the tested rate: margin per hour</td><td id="br_m_hr">--</td></tr>
+    <tr><td>At the tested rate: margin %</td><td id="br_m_pct">--</td></tr>
+    <tr><td>Meets your target margin?</td><td id="br_meets">--</td></tr>
+  </table>
+  <p class="calc-note" id="br_note"></p>
+</div>
+</div>
+
+<div class="prose" style="margin-top:3rem;">
+<h2>How this calculator works</h2>
+<p>Most bill rate math takes the pay rate and adds a flat burden percentage. That overstates your taxes, because three of the four payroll taxes stop during the year. Social Security stops at the federal wage cap ($184,500 for 2026). Federal unemployment tax applies only to the first $7,000 a worker earns. State unemployment tax applies only up to your state's wage base, which runs from $7,000 to $78,200 depending on the state. This calculator annualizes the worker's pay first, applies each tax up to its own cap, and only then converts the result back into a cost per hour. The burden percentage it shows is the one your payroll actually produces over a full year.</p>
+<p>Worked example, at the numbers the page opens with: a Virginia worker at $18.00 an hour, 40 hours a week, earns $37,440 a year. Employer taxes come to $3,106 for the year, a true burden of 8.3% of pay, not the 15% or 20% a flat guess would load on. With workers comp at an illustrative 4%, the loaded cost is $20.21 an hour, and a 30% target margin needs a bill rate of $28.88.</p>
+<h2>Sources and limits</h2>
+<p>Federal figures: Social Security Administration, 2026 wage base and rates; Internal Revenue Service, FUTA rate and credit. State unemployment rates and wage bases: U.S. Department of Labor, Significant Provisions of State Unemployment Insurance Laws, effective January 2026, showing each state's new employer rate. Nebraska's wage base follows the Nebraska Department of Labor (the standard base is $9,000; the $24,000 base applies only to category 20 employers). California's employment training tax follows the California Employment Development Department. State figures last verified November 21, 2026.</p>
+<p>Know the limits before you quote a rate from this page. The state rates shown are new employer rates; once your state experience-rates your agency, your assigned rate is the accurate one, so replace it above. Seven states (Louisiana, Minnesota, Montana, New Mexico, Utah, Washington, Wyoming) assign new employers an industry average rate instead of a fixed one, so the rate field opens blank there and waits for your number. The Department of Labor table does not include state surtaxes or local payroll taxes; if your state or city adds one, fold it into Other employer costs. Workers compensation is priced by your insurer by class code, and no table can stand in for your policy. This tool is general information for planning, not tax or legal advice, and it is not a guaranteed figure for any specific agency.</p>
+<p>When the math says a client's offered rate leaves no margin, the fix is a system, not a squeeze on the worker. That is the work I do with agencies: pricing, policy, and the paperwork behind both, at <a href="/services.html">Boswell Consulting Agency services</a>. The other free tools, including the CMS self-audit, are on the <a href="/tools.html">free tools page</a>.</p>
+</div>
+</div></section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="Boswell Consulting Agency LLC, home">
+          <span class="brand__mark" aria-hidden="true">B</span>
+          <span>
+            <span class="brand__name">Boswell Consulting Agency LLC</span>
+            <span class="brand__tag">Strategy and Innovation</span>
+          </span>
+        </a>
+        <p>I help home care and home health agency owners get licensed, stay compliant, and fix operations problems, with systems built in filing order.</p>
+      </div>
+      <div>
+        <h2>Practice</h2>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/research.html">Research</a></li>
+          <li><a href="/reviews.html">Reviews</a></li>
+          <li><a href="/articles/">Library</a></li>
+          <li><a href="/videos.html">Videos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="/kits.html">Manual and Template Generator</a></li>
+          <li><a href="/packet-build.html">Done-for-you packet builds</a></li>
+          <li><a href="/services.html#billing">Billing services</a></li>
+          <li><a href="/tools.html">Free tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>More</h2>
+        <ul>
+          <li><a href="/government-contracting.html">Government contracting</a></li>
+          <li><a href="/capability.html">Capability statement</a></li>
+          <li><a href="/teaming.html">Teaming</a></li>
+          <li><a href="/states/">Free state previews</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Boswell Consulting Agency LLC, Petersburg, Virginia</span>
+      <span>DrBoswell@boswellconsultingagency.com | boswellconsultingagency.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+  var header = document.querySelector('.site-header');
+  var toggle = document.querySelector('.nav-toggle');
+  toggle.addEventListener('click', function () {
+    var open = header.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+</script>
+
+<script>
+(function () {
+  // State unemployment table: [new employer rate %, taxable wage base $].
+  // Source: U.S. Department of Labor, Significant Provisions of State
+  // Unemployment Insurance Laws, effective January 2026. Rate null means the
+  // state assigns new employers an industry average rate. Nebraska base per
+  // Nebraska Department of Labor (standard base; category 20 uses $24,000).
+  var SUTA = {
+    AL: [2.7, 8000], AK: [1.0, 54200], AZ: [2.0, 8000], AR: [1.8, 7000],
+    CA: [3.4, 7000], CO: [1.53, 30600], CT: [1.9, 27000], DE: [1.0, 14500],
+    DC: [2.7, 9000], FL: [2.7, 7000], GA: [2.64, 9500], HI: [2.4, 64500],
+    ID: [1.0, 58300], IL: [2.8, 14250], IN: [2.5, 9500], IA: [1.0, 20400],
+    KS: [1.75, 15100], KY: [2.7, 12000], LA: [null, 7000], ME: [2.23, 12000],
+    MD: [2.6, 8500], MA: [2.42, 15000], MI: [2.7, 9000], MN: [null, 44000],
+    MS: [1.0, 14000], MO: [2.376, 9000], MT: [null, 47300], NE: [1.25, 9000],
+    NV: [2.95, 43700], NH: [2.7, 14000], NJ: [2.8, 44800], NM: [null, 34800],
+    NY: [4.025, 17600], NC: [1.0, 34200], ND: [1.0, 46600], OH: [2.7, 9000],
+    OK: [1.5, 25000], OR: [2.4, 56700], PA: [3.822, 10000], RI: [1.0, 32300],
+    SC: [1.0, 14000], SD: [1.2, 15000], TN: [2.7, 7000], TX: [2.7, 9000],
+    UT: [null, 50700], VT: [1.0, 15400], VA: [2.5, 8000], WA: [null, 78200],
+    WV: [2.7, 9500], WI: [2.5, 14000], WY: [null, 33800]
+  };
+  var NAMES = {
+    AL: 'Alabama', AK: 'Alaska', AZ: 'Arizona', AR: 'Arkansas', CA: 'California',
+    CO: 'Colorado', CT: 'Connecticut', DE: 'Delaware', DC: 'District of Columbia',
+    FL: 'Florida', GA: 'Georgia', HI: 'Hawaii', ID: 'Idaho', IL: 'Illinois',
+    IN: 'Indiana', IA: 'Iowa', KS: 'Kansas', KY: 'Kentucky', LA: 'Louisiana',
+    ME: 'Maine', MD: 'Maryland', MA: 'Massachusetts', MI: 'Michigan',
+    MN: 'Minnesota', MS: 'Mississippi', MO: 'Missouri', MT: 'Montana',
+    NE: 'Nebraska', NV: 'Nevada', NH: 'New Hampshire', NJ: 'New Jersey',
+    NM: 'New Mexico', NY: 'New York', NC: 'North Carolina', ND: 'North Dakota',
+    OH: 'Ohio', OK: 'Oklahoma', OR: 'Oregon', PA: 'Pennsylvania',
+    RI: 'Rhode Island', SC: 'South Carolina', SD: 'South Dakota', TN: 'Tennessee',
+    TX: 'Texas', UT: 'Utah', VT: 'Vermont', VA: 'Virginia', WA: 'Washington',
+    WV: 'West Virginia', WI: 'Wisconsin', WY: 'Wyoming'
+  };
+  var SS_CAP = 184500; // SSA, 2026
+  var FUTA_BASE = 7000;
+
+  var sel = document.getElementById('br_state');
+  Object.keys(NAMES).sort(function (a, b) { return NAMES[a] < NAMES[b] ? -1 : 1; }).forEach(function (code) {
+    var o = document.createElement('option');
+    o.value = code; o.textContent = NAMES[code];
+    sel.appendChild(o);
+  });
+  sel.value = 'VA';
+
+  function num(id) {
+    var v = parseFloat(document.getElementById(id).value);
+    return isNaN(v) || v < 0 ? 0 : v;
+  }
+  function money(v) {
+    return '$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function setState() {
+    var code = sel.value;
+    var row = SUTA[code];
+    document.getElementById('br_suta_base').value = row[1];
+    var rateEl = document.getElementById('br_suta_rate');
+    var hint = document.getElementById('br_suta_hint');
+    if (row[0] === null) {
+      rateEl.value = '';
+      hint.textContent = NAMES[code] + ' assigns new employers an industry average rate instead of a fixed one. Enter the rate from your state rate notice.';
+    } else {
+      rateEl.value = row[0];
+      hint.textContent = 'New employer rate for ' + NAMES[code] + ' (U.S. Department of Labor, January 2026). Replace it with your assigned rate if your agency has one.';
+    }
+    calc();
+  }
+  function calc() {
+    var code = sel.value;
+    var pay = num('br_pay'), hrs = num('br_hours');
+    var annualHours = hrs * 52;
+    var wages = pay * annualHours;
+    var sutaRate = num('br_suta_rate'), sutaBase = num('br_suta_base');
+    var futaRate = num('br_futa'), comp = num('br_comp'), other = num('br_other');
+    var margin = num('br_margin'), offered = num('br_offered');
+    var out = function (id, txt) { document.getElementById(id).textContent = txt; };
+    if (wages <= 0 || annualHours <= 0) {
+      ['br_needed','br_annual','br_ss','br_med','br_futa_out','br_suta_out','br_taxes','br_burden','br_extra_hr','br_loaded','br_m_hr','br_m_pct','br_meets'].forEach(function (id) { out(id, '--'); });
+      out('br_note', 'Enter a pay rate and hours to see your numbers.');
+      return;
+    }
+    var ss = 0.062 * Math.min(wages, SS_CAP);
+    var med = 0.0145 * wages;
+    var futa = (futaRate / 100) * Math.min(wages, FUTA_BASE);
+    var suta = (sutaRate / 100) * Math.min(wages, sutaBase);
+    var ett = code === 'CA' ? 0.001 * Math.min(wages, FUTA_BASE) : 0;
+    document.getElementById('br_ett_row').hidden = code !== 'CA';
+    if (code === 'CA') out('br_ett_out', money(ett));
+    var taxes = ss + med + futa + suta + ett;
+    var burdenPct = taxes / wages * 100;
+    var extraHr = pay * (comp + other) / 100;
+    var loaded = pay + taxes / annualHours + extraHr;
+    var needed = margin < 100 ? loaded / (1 - margin / 100) : 0;
+    out('br_needed', money(needed));
+    out('br_annual', money(wages));
+    out('br_ss', money(ss));
+    out('br_med', money(med));
+    out('br_futa_out', money(futa));
+    out('br_suta_out', money(suta));
+    out('br_taxes', money(taxes));
+    out('br_burden', burdenPct.toFixed(1) + '%');
+    out('br_extra_hr', money(extraHr));
+    out('br_loaded', money(loaded));
+    var note = '';
+    if (SUTA[code][0] === null && sutaRate === 0) {
+      note = 'State unemployment is not counted yet: ' + NAMES[code] + ' assigns an industry average rate, so enter yours above and the numbers will include it.';
+    } else if (wages > sutaBase || wages > FUTA_BASE) {
+      note = 'Wage caps applied: at this pay level the unemployment taxes stop partway through the year, which is why the true burden is lower than the headline rates suggest.';
+    }
+    out('br_note', note);
+    var meets = document.getElementById('br_meets');
+    if (offered > 0) {
+      var mHr = offered - loaded;
+      var mPct = mHr / offered * 100;
+      out('br_m_hr', money(mHr));
+      out('br_m_pct', mPct.toFixed(1) + '%');
+      if (mPct >= margin) { meets.textContent = 'Yes'; meets.className = 'ok'; }
+      else { meets.textContent = 'No'; meets.className = 'bad'; }
+    } else {
+      out('br_m_hr', '--'); out('br_m_pct', '--'); meets.textContent = '--'; meets.className = '';
+    }
+  }
+  sel.addEventListener('change', setState);
+  ['br_pay','br_hours','br_suta_rate','br_suta_base','br_futa','br_comp','br_other','br_margin','br_offered'].forEach(function (id) {
+    document.getElementById(id).addEventListener('input', calc);
+  });
+  setState();
+})();
+</script>
+</body>
+</html>
