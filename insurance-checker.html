@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3G8066FF2X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3G8066FF2X');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Free insurance readiness checker for home care, home health, and hospice agency owners in Texas, Ohio, Georgia, Florida, and North Carolina. See the insurance and bond requirements your state license and your Medicare or Medicaid enrollment actually set, each with its rule cited, and the requirements that do not exist, whatever a seller told you.">
+<title>Insurance Readiness Checker | Boswell Consulting Agency</title>
+<link rel="canonical" href="https://boswellconsultingagency.com/insurance-checker.html">
+<meta property="og:title" content="Insurance Readiness Checker | Boswell Consulting Agency">
+<meta property="og:description" content="Free insurance readiness checker for home care, home health, and hospice agency owners in TX, OH, GA, FL, and NC. License, Medicare, and Medicaid insurance and bond requirements, each with its rule cited.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+  @media (max-width: 900px) { .calc-grid { grid-template-columns: 1fr; } }
+  .calc-results { background: var(--navy-800); color: var(--paper); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow); }
+  .calc-results h3 { color: var(--paper); margin-top: 0; }
+  .calc-results h4 { color: var(--brass-300); margin: 1.4rem 0 0.5rem; font-size: 1.02rem; }
+  .calc-results h4:first-of-type { margin-top: 1rem; }
+  .calc-results .ic-summary { font-family: var(--font-display); font-size: 1.35rem; color: var(--paper); line-height: 1.25; margin: 0.2rem 0 0.4rem; }
+  .req-list { list-style: none; margin: 0.4rem 0 0.6rem; padding: 0; }
+  .req-list li { padding: 0.55rem 0; border-bottom: 1px solid var(--line-dark); font-size: 0.95rem; }
+  .req-list li:last-child { border-bottom: none; }
+  .req-list .amt { color: var(--brass-300); font-weight: 700; }
+  .req-list .cite, .calc-results .cite { display: block; font-size: 0.8rem; color: var(--brass-300); margin-top: 0.25rem; }
+  .none-line { font-size: 0.98rem; border-left: 3px solid var(--brass-400); padding: 0.4rem 0 0.4rem 0.8rem; margin: 0.5rem 0; }
+  .hint-line { font-size: 0.92rem; color: var(--brass-300); margin: 0.5rem 0; }
+  .watch-list { list-style: none; margin: 0.4rem 0 0.6rem; padding: 0; }
+  .watch-list li { padding: 0.5rem 0 0.5rem 1rem; border-bottom: 1px solid var(--line-dark); font-size: 0.95rem; position: relative; }
+  .watch-list li:last-child { border-bottom: none; }
+  .watch-list li::before { content: "!"; position: absolute; left: 0; color: var(--brass-300); font-weight: 700; }
+  .practice-list { margin: 0.4rem 0 0.6rem; padding-left: 1.2rem; font-size: 0.95rem; }
+  .practice-list li { padding: 0.3rem 0; }
+  .form__check { display: flex; gap: 0.6rem; align-items: flex-start; font-weight: 500; }
+  .form__check input { margin-top: 0.25rem; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header" id="top">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Boswell Consulting Agency LLC, home">
+      <span class="brand__mark" aria-hidden="true">B</span>
+      <span>
+        <span class="brand__name">Boswell Consulting Agency LLC</span>
+        <span class="brand__tag">Strategy and Innovation</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle__bars" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/kits.html">Generator</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/tools.html" aria-current="page">Free Tools</a></li>
+        <li><a href="/articles/">Library</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a class="btn btn--primary" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="page-hero"><div class="container"><span class="eyebrow">Free tool</span><h1>Insurance readiness checker</h1><p>For home care, home health, and hospice agency owners in Texas, Ohio, Georgia, Florida, and North Carolina. Pick your state and agency type and see three things: what your state license actually requires, what Medicare or Medicaid enrollment adds, and what no rule requires at all, whatever a seller told you. Every line carries the rule it came from. Where a rule requires coverage but sets no dollar amount, this checker says so instead of inventing one. Everything updates as you change the inputs, and nothing you enter leaves your browser.</p></div></section>
+
+<section class="section"><div class="container">
+<div class="calc-grid">
+<div>
+<form class="form" id="icForm" onsubmit="return false;">
+  <div class="form__group">
+    <label for="ic_state">State</label>
+    <select id="ic_state">
+      <option value="TX">Texas</option>
+      <option value="OH">Ohio</option>
+      <option value="GA">Georgia</option>
+      <option value="FL">Florida</option>
+      <option value="NC">North Carolina</option>
+    </select>
+    <p class="form__hint">Five states at launch. Each state's data comes from its own licensing rules and enrollment sources, checked November 24, 2026.</p>
+  </div>
+  <div class="form__group">
+    <label for="ic_type">Agency type</label>
+    <select id="ic_type"></select>
+    <p class="form__hint">The license categories are each state's own. Pick the one you hold or are applying for.</p>
+  </div>
+  <div class="form__group">
+    <label class="form__check"><input type="checkbox" id="ic_medicare"> <span>I plan to enroll in Medicare</span></label>
+    <p class="form__hint">Adds the federal layer: the home health surety bond, and the hospice answer, which is no bond at all.</p>
+  </div>
+  <div class="form__group">
+    <label class="form__check"><input type="checkbox" id="ic_medicaid"> <span>I plan to enroll in Medicaid (state plan or waiver programs)</span></label>
+    <p class="form__hint">Adds your state's Medicaid enrollment items and, where they exist, waiver certification and managed care contract terms, flagged as contract terms rather than rules.</p>
+  </div>
+  <div class="form__group">
+    <label class="form__check"><input type="checkbox" id="ic_transport"> <span>My caregivers will transport clients</span></label>
+    <p class="form__hint">Some duties switch on only when caregivers drive clients. Turn this on if yours will.</p>
+  </div>
+  <div class="form__group">
+    <label for="ic_employees">Employees</label>
+    <select id="ic_employees">
+      <option value="0">Just me / no employees yet</option>
+      <option value="1">1-2 employees</option>
+      <option value="2">3 or more employees</option>
+    </select>
+    <p class="form__hint">Workers compensation thresholds turn on headcount, and they differ by state: Ohio bites at one employee, Georgia and North Carolina at three, Florida at four, and Texas makes coverage elective for private employers.</p>
+  </div>
+</form>
+</div>
+
+<div class="calc-results" aria-live="polite">
+  <h3>Your readiness list</h3>
+  <p class="ic-summary" id="ic_summary">--</p>
+
+  <h4>Required for your state license</h4>
+  <div id="ic_license"></div>
+
+  <h4>Required by Medicare / Medicaid enrollment</h4>
+  <div id="ic_payer"></div>
+
+  <h4>Workers compensation in your state</h4>
+  <div id="ic_wc"></div>
+
+  <h4>Not required, but have it ready</h4>
+  <p>Nothing in this section is a legal requirement. It is the document packet brokers and underwriters actually ask a brand-new agency for before they will quote, taken from real insurer application forms. An incomplete packet is the usual reason an application sits unquoted for weeks.</p>
+  <ol class="practice-list">
+    <li>Completed, signed carrier application, plus ACORD forms for each line of coverage requested.</li>
+    <li>Ownership and entity documents the applications ask for: legal entity name, ownership, years in business, and your state license, which is a listed attachment on the senior care form.</li>
+    <li>Policies and procedures evidence: incident reporting, informed consent, and your screening practices (background checks, drug tests, motor vehicle record checks on caregivers) and abuse-prevention training.</li>
+    <li>Staff roster: every provider and staff member to be insured, with roles and your service mix (skilled, non-medical, hospice).</li>
+    <li>Prior insurance declarations pages. A brand-new agency has none; state no prior coverage on the form instead.</li>
+    <li>Loss runs, 5 to 6 years, currently valued within the last 60 to 90 days. A new agency substitutes a written no-loss, no-prior-coverage statement.</li>
+    <li>Most recent financial statement, audited if available (asked on facility and senior care forms).</li>
+    <li>Advertising copy, brochure, and website address.</li>
+  </ol>
+  <p class="cite">Industry practice, not law. Sources: Kinsale Insurance Company, Allied Health - Home Health and Staffing Application; Societies Insurance, Home Health Care Supplemental Application; CRC Group, Senior Care Liability Supplemental Application. All read November 24, 2026.</p>
+
+  <h4>Watch out</h4>
+  <div id="ic_watch"></div>
+</div>
+</div>
+
+<div class="card" style="margin-top:3rem;">
+  <span class="card__label">Free newsletter</span>
+  <h2 style="margin-top:0.5rem;">Get new tools and rule changes first</h2>
+  <p>The free newsletter from Boswell Consulting Agency: home care and home health operations, policy, and compliance, from primary sources. New free tools are announced there first, and the daily article teaches the rule behind the tool. Subscribe free, unsubscribe any time.</p>
+  <iframe src="https://drboswell.substack.com/embed" title="Subscribe to the Boswell Consulting Agency newsletter on Substack" width="100%" height="320" style="border:1px solid var(--line); border-radius: var(--radius-lg); background: var(--white); max-width:480px;" frameborder="0" scrolling="no"></iframe>
+</div>
+
+<div class="prose" style="margin-top:3rem;">
+<h2>Methodology</h2>
+<p>I built this checker the way I build every tool on this site: primary sources only, read in full, on November 24, 2026. For each state, the licensing statute and the full licensing rule chapter were read or word-searched for "insurance," "bond," "surety," and "liability," and the Medicaid enrollment sources (provider manuals, enrollment policies, and the agreements a provider actually signs) were checked the same way. Federal rules were read in the Code of Federal Regulations. A negative finding is a real finding here: when this checker says your license rule sets no insurance requirement, that means the word search and section review of the official text produced none, not that I did not look.</p>
+<p>Three layers are kept separate on purpose, because mixing them is how owners get sold coverage they do not need yet, and miss coverage they do. The license layer is what your state requires to issue and keep the license. The enrollment layer is what Medicare and Medicaid add. Contract terms, like a managed care plan's insurance schedule, are shown as contract terms, never dressed up as state rules. Where a source requires coverage but sets no amount, the checker prints "No amount set in the cited source." That honesty is the product: a number with no rule behind it is worse than no number.</p>
+<h2>Sources</h2>
+<p>Federal: <a href="https://www.law.cornell.edu/cfr/text/42/489.65">42 CFR 489.65</a> and <a href="https://www.law.cornell.edu/cfr/text/42/489.67">42 CFR 489.67</a> (Medicare home health surety bond); <a href="https://www.law.cornell.edu/cfr/text/42/441.16">42 CFR 441.16</a> (Medicaid home health surety bond); <a href="https://www.govinfo.gov/content/pkg/CFR-2020-title42-vol3/pdf/CFR-2020-title42-vol3-sec424-57.pdf">42 CFR 424.57</a> (DMEPOS supplier bond, 2020 CFR edition, confirmed against CMS transmittals); <a href="http://uscode.house.gov/us/usc/t42/s1320a-7f/">42 U.S.C. 1320a-7f</a> (one bond can serve both programs).</p>
+<p>Texas: <a href="https://tcss.legis.texas.gov/docs/HS/htm/HS.142.htm">Health and Safety Code Chapter 142</a>; <a href="http://txrules.elaws.us/rule/title26_chapter558">26 TAC Chapter 558</a> (HCSSA licensing rules, including 558.252 and 558.254); <a href="https://www.law.cornell.edu/regulations/texas/1-Tex-Admin-Code-SS-352-15">1 TAC 352.15</a> (Medicaid risk-based bond authority); <a href="http://www.tmhp.com/sites/default/files/file-library/resources/provider-manuals/tmppm/pdf-chapters/2020/2020-12-december/1_01_Provider_Enrollment.pdf">Texas Medicaid Provider Procedures Manual, Vol. 1, Section 1</a> (bond filing mechanics, December 2020 edition); <a href="https://www.hhs.texas.gov/providers/long-term-care-providers/primary-home-care-phc">HHSC Primary Home Care page</a>; <a href="https://www.tdi.texas.gov/WC/employer/coverage.html">Texas Department of Insurance, workers compensation coverage</a>.</p>
+<p>Ohio: <a href="https://codes.ohio.gov/ohio-administrative-code/rule-3701-60-03">OAC 3701-60-03</a> (home health agency license, skilled and nonmedical bonds); <a href="https://codes.ohio.gov/ohio-administrative-code/chapter-3701-19">OAC Chapter 3701-19</a> (hospice license, rule 3701-19-03); <a href="https://codes.ohio.gov/assets/laws/administrative-code/authenticated/173/0/39/173-39-02_20250401.pdf">OAC 173-39-02</a> (ODA waiver certification); <a href="https://codes.ohio.gov/ohio-administrative-code/rule-5123-2-08">OAC 5123-2-08</a> (DODD certification); <a href="http://codes.ohio.gov/ohio-administrative-code/chapter-5160-12">OAC Chapter 5160-12</a> and <a href="https://codes.ohio.gov/ohio-administrative-code/rule-5160-56-04">OAC 5160-56-04</a> (Medicaid home health and hospice); <a href="https://codes.ohio.gov/ohio-revised-code/section-4509.51">ORC 4509.51</a> (vehicle financial responsibility); Ohio Bureau of Workers Compensation Form U-3.</p>
+<p>Georgia: <a href="https://rules.sos.ga.gov/gac/111-8-65">Rule 111-8-65</a> (private home care providers, current text as amended July 29, 2026); <a href="https://rules.sos.ga.gov/gac/111-8-31">Rule 111-8-31</a> (home health agencies); DCH Part II EDWP-CCSP and SOURCE General Services Manual, Section 605.1.25 (October 1, 2026 edition, published on <a href="https://www.mmis.georgia.gov">GAMMIS</a>); DCH Part II Policies and Procedures for Home Health Services, Section 601.1; <a href="https://law.justia.com/codes/georgia/title-34/chapter-9/article-1/section-34-9-2/">O.C.G.A. 34-9-2(a)</a> (workers compensation threshold, read in a reproduction of the 2025 Georgia Code).</p>
+<p>Florida: <a href="http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&amp;URL=0400-0499/0400/Sections/0400.471.html">F.S. 400.471</a> (home health licensure, malpractice and liability); <a href="http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&amp;URL=0400-0499/0408/Sections/0408.8065.html">F.S. 408.8065</a> (financial ability; nonimmigrant alien bond at subsection (2)); <a href="http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&amp;URL=0400-0499/0400/Sections/0400.506.html">F.S. 400.506</a> (nurse registries); <a href="http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&amp;URL=0400-0499/0400/Sections/0400.509.html">F.S. 400.509</a> (homemaker and companion registration); <a href="http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&amp;URL=0400-0499/0408/Sections/0408.810.html">F.S. 408.810</a> (general licensing provisions); <a href="http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&amp;URL=0400-0499/0409/Sections/0409.907.html">F.S. 409.907</a> (Medicaid provider agreements; bond cap at subsection (7)); <a href="https://FLRules.org/gateway/readRefFile.asp?refId=19712&amp;filename=Health%20Care%20Licensing%20Application%20Home%20Health%20Agencies%20AHCA%20Form%203110-1011%20April%202026%20(002).pdf">AHCA Form 3110-1011</a> (home health application, April 2026 edition); <a href="https://flrules.org/gateway/readRefFile.asp?refId=19181&amp;filename=Florida%20Medicaid%20Provider%20Enrollment%20Policy%20February%202026.pdf">Florida Medicaid Provider Enrollment Policy</a> (February 2026, incorporated in Rule 59G-1.060, F.A.C.); <a href="https://regulations.justia.com/states/florida/59/59a/chapter-59a-18/section-59a-18-004/">Rule 59A-18.004, F.A.C.</a> (nurse registry licensure, read in a reproduction of the F.A.C. text); <a href="https://www.law.cornell.edu/regulations/florida/Fla-Admin-Code-Ann-R-59A-8-025">Rule 59A-8.025, F.A.C.</a> (homemaker and companion registration); <a href="http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&amp;URL=0400-0499/0440/Sections/0440.02.html">F.S. 440.02</a> (workers compensation definitions; four-employee threshold at subsection (20)(b)2); <a href="http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&amp;URL=0400-0499/0440/Sections/0440.05.html">F.S. 440.05</a> (officer election of exemption).</p>
+<p>North Carolina: <a href="http://reports.oah.state.nc.us/ncac/title%2010a%20-%20health%20and%20human%20services/chapter%2013%20-%20nc%20medical%20care%20commission/subchapter%20j/subchapter%20j%20rules.html">10A NCAC 13J</a> (home care licensing rules); <a href="http://reports.oah.state.nc.us/ncac/title%2010a%20-%20health%20and%20human%20services/chapter%2013%20-%20nc%20medical%20care%20commission/subchapter%20k/subchapter%20k%20rules.html">10A NCAC 13K</a> (hospice licensing rules); <a href="https://info.ncdhhs.gov/DHSR/ahc/pdf/hcapp.pdf">DHSR Form 4204</a> (license application, Rev. 07/21); <a href="https://library.ncleg.gov/EnactedLegislation/SessionLaws/PDF/2023-2024/SL2023-150.pdf">G.S. 131E-138(h) and (i)</a> (home assistance services providers, enacted by Session Law 2023-150); <a href="https://www.ic.nc.gov/workers-compensation-claims/employers">NC Industrial Commission, Employers page</a> (workers compensation duty; N.C.G.S. 97-2(1) and 97-93); <a href="https://www.nctracks.nc.gov/content/public/providers/provider-enrollment/terms-and-conditions/admin-participation.html">NC DHHS Provider Administrative Participation Agreement</a> (NCTracks); <a href="https://www.alliancehealthplan.org/providers/network/qa/insurance/">Alliance Health, Provider Insurance Requirements</a> (one plan's contract terms, used as an example only).</p>
+<p>Pre-quote packet (industry practice section): <a href="https://www.bsrins.com/Forms/medmal/M025.pdf">Kinsale Insurance Company, Allied Health - Home Health and Staffing Application</a>; <a href="https://test.societiesinsurance.com/wp-content/uploads/societies/applications/Societies_Insurance_-_Home_Health_Care_Supplemental_Application_SI_CD06_APP_2026.10.08.pdf">Societies Insurance, Home Health Care Supplemental Application</a>; <a href="https://www.crcgroup.com/Portals/34/Apps/ATL/CRC_App_Senior_Care_Supplemental.pdf">CRC Group, Senior Care Liability Supplemental Application</a>.</p>
+<h2>What I could not verify, stated plainly</h2>
+<p>Texas: the wording of 1 TAC 354.1033(c), reported to require a $50,000 Texas Medicaid home health bond, could not be read on the state's official site in this pass, so the Texas Medicaid home health bond in this checker rests on the federal rule, 42 CFR 441.16, which independently sets $50,000. The provider-type list TMHP applies the 1 TAC 352.15 bond to was not read on a TMHP page; the list described in the checker comes from secondary reproductions of TMHP material. A full-text insurance scan of the Texas PHC contracting chapters (26 TAC Chapters 52 and 277) was not completed, and Texas Medicaid managed care contract insurance minimums were not read at all, so none are stated. Texas vehicle financial responsibility minimums were not verified from a primary source and are not stated.</p>
+<p>Ohio: the general Medicaid provider agreement rules (OAC 5160-1-17 and 5160-1-17.2) were reviewed in part only; no insurance or bond item was found in the portions reviewed. Whether ODA's certification application requires the certificate of insurance itself to be uploaded at application was not confirmed from the application form. Ohio managed care plan credentialing insurance demands were not read.</p>
+<p>Georgia: the home health enrollment findings were verified in the October 2022, January 2024, and July 2024 editions of the DCH home health manual; the current GAMMIS-posted edition was not opened, so a later amendment adding an insurance or bond item cannot be ruled out. Insurance conditions in the NOW/COMP, ICWP, and GAPP manuals were not reviewed; the EDWP numbers in this checker belong to EDWP (CCSP and SOURCE) only. The workers compensation threshold was read in a reproduction of the Georgia Code, not the General Assembly's own publication.</p>
+<p>Florida: the nurse registry licensure rule was amended effective August 17, 2026, and the amended text could not be read in this pass; the finding of no insurance requirement rests on the statute, read in full, and the rule text current through June 24, 2025. The homemaker and companion registration rule was read through subsection (8); its remaining subsections were not read word for word, and the governing statute was read in full.</p>
+<p>North Carolina: whether NC Medicaid actually collects the federal home health bond (42 CFR 441.16) during NCTracks enrollment was not confirmed from a North Carolina source; the checker presents the federal rule and flags the collection step. Standard Plan managed care insurance amounts were not pulled; only the Alliance Health Tailored Plan terms are shown, as one plan's example. The section text of N.C.G.S. 97-93 was not separately opened; the three-employee duty is stated by the NC Industrial Commission. Which form DHSR currently uses for home assistance services provider applicants was not verified; the statutory duties are verified.</p>
+<p>Florida workers compensation was researched separately on November 24, 2026, from F.S. 440.02 and 440.05 and the Division of Workers' Compensation coverage and exemption pages, and the four-employee threshold is stated in the workers compensation section above. One nuance in that research was not resolved: F.S. 440.02(20)(c)1 excludes domestic servants in private homes from "employment," and whether that exclusion could ever reach an agency's own caregivers was not confirmed from a primary source, so this checker does not rely on it. The DMEPOS bond figure was read in the 2020 CFR annual edition and CMS transmittals; the live eCFR page for 42 CFR 424.57 was not re-read in this pass.</p>
+<h2>Read this before you buy anything</h2>
+<p>This tool is general information for planning. It is not legal advice, it is not insurance advice, and it is not a guaranteed statement of what your agency needs: licensing rules and enrollment manuals change, managed care contracts set their own terms, and your signed agreements control over any summary, including this one. Verify your requirements with your state licensing agency and your insurer or broker before you buy coverage, and keep the certificates and bonds you file current. If the checker shows a gap between what you carry and what your layer requires, closing that gap in the right order is the work I do with agencies at <a href="/services.html">Boswell Consulting Agency services</a>. The other free tools are on the <a href="/tools.html">free tools page</a>.</p>
+</div>
+</div></section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="Boswell Consulting Agency LLC, home">
+          <span class="brand__mark" aria-hidden="true">B</span>
+          <span>
+            <span class="brand__name">Boswell Consulting Agency LLC</span>
+            <span class="brand__tag">Strategy and Innovation</span>
+          </span>
+        </a>
+        <p>I help home care and home health agency owners get licensed, stay compliant, and fix operations problems, with systems built in filing order.</p>
+      </div>
+      <div>
+        <h2>Practice</h2>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/research.html">Research</a></li>
+          <li><a href="/reviews.html">Reviews</a></li>
+          <li><a href="/articles/">Library</a></li>
+          <li><a href="/videos.html">Videos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="/kits.html">Manual and Template Generator</a></li>
+          <li><a href="/packet-build.html">Done-for-you packet builds</a></li>
+          <li><a href="/services.html#billing">Billing services</a></li>
+          <li><a href="/tools.html">Free tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>More</h2>
+        <ul>
+          <li><a href="/government-contracting.html">Government contracting</a></li>
+          <li><a href="/capability.html">Capability statement</a></li>
+          <li><a href="/teaming.html">Teaming</a></li>
+          <li><a href="/states/">Free state previews</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Boswell Consulting Agency LLC, Petersburg, Virginia</span>
+      <span>DrBoswell@boswellconsultingagency.com | boswellconsultingagency.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+  var header = document.querySelector('.site-header');
+  var toggle = document.querySelector('.nav-toggle');
+  toggle.addEventListener('click', function () {
+    var open = header.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+</script>
+
+<script>
+(function () {
+  var NAMES = { TX: "Texas", OH: "Ohio", GA: "Georgia", FL: "Florida", NC: "North Carolina" };
+  var TYPES = {
+    TX: [
+      { id: "lh", label: "Licensed home health" },
+      { id: "lch", label: "Licensed and certified home health" },
+      { id: "pas", label: "Personal assistance services (PAS)" },
+      { id: "hospice", label: "Hospice" }
+    ],
+    OH: [
+      { id: "skilled", label: "Skilled home health agency" },
+      { id: "nonmedical", label: "Nonmedical home health agency" },
+      { id: "hospice", label: "Hospice" }
+    ],
+    GA: [
+      { id: "phcp", label: "Private home care provider" },
+      { id: "hha", label: "Home health agency" }
+    ],
+    FL: [
+      { id: "hha", label: "Home health agency" },
+      { id: "registry", label: "Nurse registry" },
+      { id: "companion", label: "Homemaker and companion services" }
+    ],
+    NC: [
+      { id: "homecare", label: "Home care agency (includes home health)" },
+      { id: "hospice", label: "Hospice" },
+      { id: "hasp", label: "Home assistance services provider" },
+      { id: "pool", label: "Nursing pool" }
+    ]
+  };
+
+  var FED_MEDICARE_BOND = {
+    cov: "Medicare home health surety bond",
+    amt: "$50,000",
+    note: "Required of every Medicare participating home health agency. CMS may specify a higher amount under the overpayment exception, so $50,000 is the working figure for a new agency. The bond is submitted with the enrollment application (Form CMS-855), and the agency must obtain, timely file, and maintain it or face refusal or termination of the provider agreement. Government-operated HHAs may be waived.",
+    cite: "42 CFR 489.65(a), (f), (g); filing at 42 CFR 489.67; waiver at 42 CFR 489.62"
+  };
+  var FED_MEDICAID_BOND = {
+    cov: "Medicaid home health surety bond",
+    amt: "$50,000",
+    note: "Federal payment is not available for home health services unless the agency meets this bond rule. A copy of the bond is furnished to the Medicaid agency, and the bond must be in place before the provider agreement is entered into. One bond can satisfy both the Medicare and Medicaid rules if it guarantees return of overpayments under both programs.",
+    cite: "42 CFR 441.16(b), (c), (g)(7), (i)(3)(i); coordination at 42 U.S.C. 1320a-7f"
+  };
+  var DMEPOS_NOTE = {
+    cov: "Only if you also enroll as a DMEPOS supplier",
+    amt: "$50,000 surety bond",
+    note: "This bond is owed only if the agency enrolls in Medicare as a supplier of durable medical equipment, prosthetics, orthotics, and supplies, for example to bill for DME. It is not owed for home health or hospice enrollment itself. Flag: the figure was read in the 2020 CFR annual edition and CMS transmittals; the live eCFR page for this section was not re-read in this pass.",
+    cite: "42 CFR 424.57(c)(26), (d)(3)-(4)"
+  };
+  var HOSPICE_FED_NONE = "No federal surety bond for hospices, and no federal liability insurance minimum. The Medicare bond rule applies by its terms to home health agencies only, and the hospice Conditions of Participation set no liability insurance minimum.";
+  var HOSPICE_FED_CITE = "42 CFR Part 489, Subpart F; 42 CFR Part 418";
+  var NONHHA_FED_NONE = "No federal surety bond or liability insurance requirement was found for this provider type as a condition of Medicare or Medicaid participation. The federal bond rules located cover home health agencies, and DMEPOS suppliers only.";
+  var NONHHA_FED_CITE = "42 CFR Part 489, Subpart F; 42 CFR 441.16; 42 CFR 424.57";
+
+  var TX352 = {
+    cov: "Texas Medicaid risk-based surety bond (only if HHSC requires it of you)",
+    amt: "Not less than $50,000 per enrolled location",
+    note: "HHSC may require this bond only when a provider or provider type is flagged for a significant history of, or potential for, fraud, waste, or abuse, or when HHSC determines a specific provider's conduct warrants one. If required, the bond must be on the State of Texas Medicaid Provider Surety Bond Form (no other form is accepted), run a 12-month term, be continuous, and be in effect on the date the enrollment application is submitted.",
+    cite: "1 TAC 352.15(a), (b), (e), (f); Texas Medicaid Provider Procedures Manual, Vol. 1, Section 1.1.7"
+  };
+  var TX352FLAG = {
+    cov: "Flag: which provider types Texas applies that bond to",
+    amt: "Not verified",
+    note: "The provider-type list TMHP applies this bond to in its enrollment system was not read on a TMHP page in this research. On that list as reproduced in secondary sources (durable medical equipment suppliers, opticians, orthotics and prosthetics, certain pharmacies, wheeled mobility services, non-government ambulance, hyperalimentation), home health agencies, PAS providers, and hospices do not appear.",
+    cite: "1 TAC 352.15; TMPPM, Vol. 1, Section 1.1.7"
+  };
+  var TX_WATCH_BROKER = "Broker and consultant sites claim an HHSC licensing bond for Texas agencies, at $50,000 and at $100,000. Both claims cite no rule, and the $100,000 version points to a section that does not exist: the statute section named is Powers and Duties, and there is no section 558.91 in the licensing rules. The licensing texts contain no bond.";
+  var TX_WATCH_354 = "A Texas rule, 1 TAC 354.1033(c), is reported to require a $50,000 Medicaid home health bond in Texas wording. The official text could not be read in this research, so this checker rests the Texas Medicaid bond on the federal rule, 42 CFR 441.16, which independently sets $50,000.";
+
+  var OH_ODA = {
+    cov: "Medicaid waiver certification, Ohio Department of Aging (ODA)",
+    amt: "$1,000,000 commercial liability insurance",
+    note: "If you certify with ODA to serve waiver clients (PASSPORT and assisted living waiver; ODA certification is also the route the Ohio Department of Medicaid references for Ohio Home Care and MyCare waiver personal care providers), you must maintain at least $1,000,000 commercial liability insurance that includes coverage for individuals' losses due to theft or property damage. You must also have written instructions that any individual may use to obtain payment for a loss due to theft or property damage caused by the provider or its employee. In lieu of commercial liability insurance, a nonagency provider may carry at least $1,000,000 professional liability insurance with the same theft and property damage coverage. Participant-directed providers are exempt from this paragraph. Agency providers also attest to compliance with workers compensation laws as part of certification.",
+    cite: "OAC 173-39-02(A)(5)(a) and (b); attestation at OAC 173-39-02(C)(1)(b)(ii)"
+  };
+  var OH_DODD = {
+    cov: "Medicaid waiver certification, DODD (developmental disabilities services)",
+    amt: "At least $1,000,000 general liability insurance",
+    note: "If you certify with the Ohio Department of Developmental Disabilities as an agency provider, you must provide, at application and on the department's request, a certificate of a continuing policy of general liability insurance of at least $1,000,000 that includes coverage for individuals' losses due to theft or property damage. Adjacent financial item, not insurance: proof of a continuing line of credit of at least $10,000, or a bank account in the agency's name with a daily balance of at least $10,000 for the most recent 90 days.",
+    cite: "OAC 5123-2-08(C)(5); line of credit at OAC 5123-2-08(C)(4)"
+  };
+  var OH_TRANSPORT = [{
+    cov: "Motor vehicle liability (general Ohio law, not a home care rule)",
+    amt: "$25,000 / $50,000 / $25,000",
+    note: "Ohio's financial responsibility law sets minimum liability limits for a motor vehicle liability policy: $25,000 because of bodily injury to or death of one person in any one accident, $50,000 because of bodily injury to or death of two or more persons, and $25,000 because of injury to property of others. No home-care-specific auto or hired and non-owned auto requirement was found in the licensing or certification rules; hired and non-owned auto coverage is a broker recommendation, not a cited requirement.",
+    cite: "ORC 4509.51(B)(1) to (3)"
+  }];
+  var OH_WATCH_BONDS = "Bond amounts differ by Ohio license type: $50,000 for a skilled license, $20,000 for a nonmedical license, and both carry the September 30, 2021 condition. A quote that gives you one Ohio bond figure for every agency type is wrong.";
+  var OH_WATCH_LICENSE = "The ODH license sets no liability insurance minimum. If a seller quotes you a liability minimum as a license requirement, they are mixing the license with Medicaid waiver certification.";
+
+  var NCT = {
+    cov: "NC Medicaid Direct (NCTracks) participation agreement",
+    amt: "No insurance or bond terms",
+    note: "The agreement every NCTracks enrollee signs sets no insurance requirement and no bond requirement. It requires the provider to hold the licenses and certifications required by law and policy, and adds no insurance terms of its own. In North Carolina, the insurance amounts, where they exist, live in managed care plan contracts.",
+    cite: "NC DHHS Provider Administrative Participation Agreement (NCTracks), full-text search"
+  };
+  var NC441FLAG = {
+    cov: "Flag: the federal Medicaid home health bond in North Carolina",
+    amt: "Not verified",
+    note: "The federal rule at 42 CFR 441.16 is on the books, but whether and how NC Medicaid collects that bond inside NCTracks enrollment was not confirmed from a North Carolina primary source in this research. This checker presents the federal rule and flags the collection step rather than describing it as an observed NCTracks step.",
+    cite: "42 CFR 441.16; NC DHHS Provider Administrative Participation Agreement"
+  };
+
+  var CELLS = {
+    TX: {
+      lh: {
+        hha: true,
+        licenseNone: "Your state license rule sets no insurance or bond requirement for this agency type. The HCSSA licensing statute contains no insurance requirement at all, and the licensing rules contain no insurance or surety bond section. What the rules do require is financial solvency and sufficient funds to meet payroll, and a written policy for accurate billings and insurance claims; neither is coverage you carry.",
+        licenseCite: "Texas Health and Safety Code Chapter 142; 26 TAC Chapter 558, sections 558.252 and 558.254",
+        payerNote: [{
+          cov: "Texas Medicaid home health participation",
+          amt: "Medicare certification required",
+          note: "Texas Medicaid home health agencies must be Medicare-certified, hold an HCSSA home health license, and sign the Medicaid provider agreement. That is why the federal home health bonds appear for this category when Medicare or Medicaid is on.",
+          cite: "1 TAC 354.1033, as identified by HHSC Provider Finance Department; 42 CFR 441.16"
+        }],
+        medicaid: [TX352, TX352FLAG],
+        watch: [TX_WATCH_BROKER, TX_WATCH_354]
+      },
+      lch: {
+        hha: true,
+        licenseNone: "Your state license rule sets no insurance or bond requirement for this agency type. The HCSSA licensing statute contains no insurance requirement at all, and the licensing rules contain no insurance or surety bond section. What the rules do require is financial solvency and sufficient funds to meet payroll, and a written policy for accurate billings and insurance claims; neither is coverage you carry.",
+        licenseCite: "Texas Health and Safety Code Chapter 142; 26 TAC Chapter 558, sections 558.252 and 558.254",
+        medicaid: [TX352, TX352FLAG],
+        watch: [TX_WATCH_BROKER, TX_WATCH_354]
+      },
+      pas: {
+        hha: false,
+        licenseNone: "Your state license rule sets no insurance or bond requirement for this agency type. The HCSSA licensing statute contains no insurance requirement at all, and the licensing rules contain no insurance or surety bond section, for the PAS category as for every other category.",
+        licenseCite: "Texas Health and Safety Code Chapter 142; 26 TAC Chapter 558",
+        medicaid: [TX352, TX352FLAG, {
+          cov: "Medicaid personal care contracting (Primary Home Care / Community Attendant Services / Family Care)",
+          amt: "No insurance or bond requirement found",
+          note: "PHC providers must hold an HCSSA license in the Licensed Home Health, Licensed and Certified Home Health, or Personal Assistance Services category and hold a contract with HHSC. No insurance or surety bond requirement for PHC or PAS providers was found in the HHSC PHC contracting materials reviewed, and PAS providers are not among the provider types the Texas Medicaid enrollment bond process targets. Flag: a full-text insurance scan of the governing contracting chapters, 26 TAC Chapter 277 and Chapter 52, was not completed in this research. Insurance minimums inside STAR+PLUS or STAR Kids managed care contracts are contract terms and were not verified from a primary source.",
+          cite: "HHSC Primary Home Care page; 26 TAC Chapter 277; 26 TAC Chapter 52"
+        }],
+        watch: [TX_WATCH_BROKER]
+      },
+      hospice: {
+        hospice: true,
+        licenseNone: "Your state license rule sets no insurance or bond requirement for this agency type. The HCSSA licensing statute contains no insurance requirement at all, and the licensing rules contain no insurance or surety bond section, for the hospice category as for every other category.",
+        licenseCite: "Texas Health and Safety Code Chapter 142; 26 TAC Chapter 558",
+        medicaid: [TX352, TX352FLAG, {
+          cov: "Texas Medicaid Hospice Program",
+          amt: "No bond item",
+          note: "A hospice must be licensed as an HCSSA and Medicare-certified to participate in the Texas Medicaid Hospice Program. There is no federal hospice surety bond; see the enrollment answers above.",
+          cite: "HHSC Texas Medicaid Hospice handbook material"
+        }],
+        watch: [TX_WATCH_BROKER]
+      }
+    },
+    OH: {
+      skilled: {
+        hha: true,
+        license: [
+          { cov: "Surety bond (filed with the license application)", amt: "$50,000",
+            note: "Issued by a company licensed to do business in Ohio. Condition: the bond is required only if the applicant was not providing skilled home health services on or immediately prior to September 30, 2021. Applicants already providing services on that date are not required to file the bond.",
+            cite: "OAC 3701-60-03(A)(3)(e)(ii)" },
+          { cov: "Liability insurance", amt: "No requirement in the license rule",
+            note: "No general or professional liability insurance requirement, and no amount, appears anywhere in the license application rule. The Ohio license itself sets no insurance minimum. The $1,000,000 figures in this checker come from Medicaid waiver certification, not from the license.",
+            cite: "OAC 3701-60-03" }
+        ],
+        medicaid: [
+          { cov: "Ohio Medicaid state plan home health", amt: "No insurance or bond item of its own",
+            note: "Ohio Medicaid home health services may be provided only by a Medicare-certified home health agency. A word search of the governing chapter returned no occurrence of insurance or bond: the chapter sets no requirement of its own, and the bond exposure is the federal Medicaid home health bond above.",
+            cite: "OAC 5160-12-01(E); OAC 5160-12-03; OAC Chapter 5160-12" },
+          OH_ODA, OH_DODD
+        ],
+        transport: OH_TRANSPORT,
+        watch: [OH_WATCH_BONDS, OH_WATCH_LICENSE]
+      },
+      nonmedical: {
+        hha: false,
+        license: [
+          { cov: "Surety bond (filed with the license application)", amt: "$20,000",
+            note: "Issued by a company licensed to do business in Ohio. Condition: required only if the applicant was not providing nonmedical home health services on or immediately prior to September 30, 2021. Waivers: for applicants certified by the Ohio Department of Aging, this item is waived along with the other items in its paragraph. For accredited applicants, several application items are waived, but the bond is NOT waived.",
+            cite: "OAC 3701-60-03(B)(3)(k)(ii); waivers at OAC 3701-60-03(E) and (F)" },
+          { cov: "Liability insurance", amt: "No requirement in the license rule",
+            note: "No liability insurance item appears in the nonmedical license rule. The insurance requirement for nonmedical agencies that serve Medicaid waiver clients comes from Ohio Department of Aging certification, not from the ODH license.",
+            cite: "OAC 3701-60-03" }
+        ],
+        medicaid: [OH_ODA, OH_DODD],
+        transport: OH_TRANSPORT,
+        watch: [OH_WATCH_BONDS, OH_WATCH_LICENSE,
+          "If you are certified by the Ohio Department of Aging, the $20,000 license bond is waived. If you are only accredited, it is not. Sellers rarely mention either waiver."]
+      },
+      hospice: {
+        hospice: true,
+        licenseNone: "Your state license rule sets no insurance or bond requirement for this agency type. The hospice license application contents (name, ownership, services, geographic area, therapy-waiver documentation, attestation, inpatient facility documentation) contain no insurance or bond item.",
+        licenseCite: "OAC 3701-19-03(C)(1) through (8)",
+        medicaid: [
+          { cov: "Ohio Medicaid hospice", amt: "No insurance or bond item",
+            note: "A designated Medicaid hospice must meet the Medicare conditions of participation and be authorized under ORC Chapter 3712 by the Ohio Department of Health. No insurance or bond item appears in the Medicaid hospice rule.",
+            cite: "OAC 5160-56-04(A) and (B)" }
+        ],
+        transport: OH_TRANSPORT,
+        watch: ["No federal hospice bond exists, and the Ohio hospice license adds none. A bond sold to an Ohio hospice as a license requirement has no rule behind it in this research."]
+      }
+    },
+    GA: {
+      phcp: {
+        hha: false,
+        license: [
+          { cov: "Bonding of employees with unlimited access to client funds", amt: "No amount set in the cited source",
+            note: "An employee who is authorized unlimited access to a client's personal funds for home management purposes must be bonded through the provider. The personnel record must include documentation of the bonding; a universal coverage bond need not be evidenced in each individual personnel folder.",
+            cite: "Rule 111-8-65-.03(g); documentation at Rule 111-8-65-.09(4)(c)9" },
+          { cov: "General liability, professional liability, and surety bond", amt: "No requirement in the license rule",
+            note: "The PHCP rule sets no general liability insurance requirement, no professional liability requirement, and no surety bond requirement for the license itself, and the DCH application checklist lists no insurance certificate item and no bond item. Georgia's $1,000,000 / $3,000,000 liability figure for PHCPs sits in Medicaid EDWP enrollment, not in the license.",
+            cite: "Rule 111-8-65 (full-text search); GA DCH PHCP Application Checklist" }
+        ],
+        transport: [
+          { cov: "Motor vehicle insurance for client transport (either/or duty)", amt: "No amount set in the cited source",
+            note: "Where transport or escort is provided in a vehicle not owned by the client and operated by a provider employee, the provider must either obtain a signed client waiver of damage claims, or make reasonable efforts to ensure current motor vehicle insurance providing medical coverage for the client. A signed waiver satisfies the rule instead of the insurance route.",
+            cite: "Rule 111-8-65-.03(s)" }
+        ],
+        medicaid: [
+          { cov: "General liability insurance (EDWP: CCSP / SOURCE enrollment)", amt: "$1,000,000 per occurrence / $3,000,000 aggregate",
+            note: "The applicant must submit proof of at least this coverage with the enrollment application. This is a Medicaid waiver enrollment requirement, not a license requirement.",
+            cite: "DCH EDWP-CCSP and SOURCE General Services Manual (October 1, 2026), Section 605.1.25; corroborated at Section 607.1.5 and Appendix A" },
+          { cov: "Workers compensation proof (EDWP enrollment)", amt: "No amount set in the cited source",
+            note: "Private home care providers must also submit proof of workers compensation coverage at EDWP enrollment. See the workers compensation section below for the Georgia three-employee threshold that applies as an employer.",
+            cite: "DCH EDWP Manual, Section 605.1.25; Appendix A" },
+          { cov: "Scope flag: other Georgia waivers", amt: "Not verified",
+            note: "The two items above are EDWP (CCSP and SOURCE) findings. Insurance or bond conditions in the NOW/COMP, ICWP, and GAPP provider manuals were not reviewed in this research, so do not carry the EDWP numbers into those programs without checking their manuals.",
+            cite: "Not verified item, Georgia research pass, November 24, 2026" }
+        ],
+        watch: [
+          "The Georgia license and Georgia Medicaid enrollment are different layers. The license rule has no liability insurance requirement; the $1,000,000 / $3,000,000 figure appears only when you enroll in EDWP. A seller who quotes it as a license requirement is mixing layers.",
+          "For client transport, the rule is either/or: a signed client waiver satisfies it instead of the insurance route. A seller who tells you the transport rule forces a policy purchase has read only half of it."
+        ]
+      },
+      hha: {
+        hha: true,
+        licenseNone: "Your state license rule sets no insurance or bond requirement for this agency type. Full-text searches of the Georgia home health agency rule for insurance, bond, and liability returned zero hits.",
+        licenseCite: "Rule 111-8-31",
+        medicaid: [
+          { cov: "Georgia Medicaid home health enrollment", amt: "No insurance or bond item",
+            note: "Enrollment requires a current HFRD license and Medicare certification, with the Medicare certification notice, the license copy, the ownership disclosure form, and the Certificate of Need copy (for agencies established after June 30, 1979) submitted with the application. No insurance certificate and no bond is required by the enrollment section as read. Flag: this was verified in the October 2022, January 2024, and July 2024 editions of the manual; the current GAMMIS-posted edition was not opened in this research, so a later amendment adding an item cannot be ruled out.",
+            cite: "DCH Part II, Policies and Procedures for Home Health Services, Section 601.1" }
+        ],
+        watch: ["Georgia's home health license rule contains no insurance requirement at all. The insurance paper in a Georgia home health startup is the federal Medicare and Medicaid bond layer, not the state license."]
+      }
+    },
+    FL: {
+      hha: {
+        hha: true,
+        license: [
+          { cov: "Malpractice insurance", amt: "Not less than $250,000 per claim",
+            note: "The agency must obtain and maintain malpractice insurance as defined in Florida law. Proof of coverage is submitted with the initial application and with each renewal application, and changes in required insurance or bonds must be reported to AHCA within 21 days.",
+            cite: "F.S. 400.471(3); AHCA Form 3110-1011, Section 14; change reporting at F.S. 408.810(3)(b)" },
+          { cov: "Liability insurance", amt: "Not less than $250,000 per claim",
+            note: "Separate from the malpractice line: the agency must also obtain and maintain liability insurance. No aggregate amount set in the cited source; the statute is written per claim only. Proof is submitted with the initial application and with each renewal application.",
+            cite: "F.S. 400.471(3)" },
+          { cov: "Surety bond (conditional: nonimmigrant alien owners only)", amt: "At least $500,000",
+            note: "This bond applies only when an applicant or controlling interest is a nonimmigrant alien as described in federal law. It does not apply when all applicants and controlling interests are U.S. citizens or immigrants. When it is triggered, documentation of the bond is included with the application.",
+            cite: "F.S. 408.8065(2); AHCA Form 3110-1011, Section 7D" }
+        ],
+        payerNote: [
+          { cov: "Medicare certification evidence (enrollment document)", amt: "Document item",
+            note: "Home health agencies providing skilled services enroll with a Medicare Certification Letter; the agency must be Medicare certified or meet Medicare certification standards through accreditation with deemed status.",
+            cite: "Florida Medicaid Provider Enrollment Policy (February 2026), Appendix C, Provider Type 65" }
+        ],
+        medicaid: [
+          { cov: "Standard enrollment documents", amt: "No standard bond or insurance document",
+            note: "For Provider Type 65 (Home Health Services), the required documents are the general enrollment documents, the Non-institutional Medicaid Provider Agreement, and the facility license, plus the Medicare Certification Letter for skilled services. No surety bond and no insurance certificate is listed for this provider type, and a full-text search of the enrollment policy finds no liability insurance enrollment requirement for home health.",
+            cite: "Florida Medicaid Provider Enrollment Policy (February 2026), Appendix C, Provider Type 65" },
+          { cov: "Discretionary surety bond (high-risk category)", amt: "May be required; capped by statute",
+            note: "Prospective, newly enrolling home health agencies are designated high categorical risk, and AHCA may require a surety bond from providers in a moderate or high-risk category. It is discretionary, not automatic, and the policy does not list a bond as a standard required document for Provider Type 65. The statutory cap: the bond may not exceed $50,000 or the total amount billed by the provider to the program during the current or most recent calendar year, whichever is greater; for new providers, the amount is determined from the provider's estimate of its first year's billing. A required bond is filed on the Florida Medicaid Provider Surety Bond, AHCA Form 5000-1064.",
+            cite: "Florida Medicaid Provider Enrollment Policy, Sections 3 and 4.2.3; cap at F.S. 409.907(7)" },
+          { cov: "Liability insurance proof at AHCA's option", amt: "No amount set in the cited source",
+            note: "Each Medicaid provider agreement requires the provider, at the option of the agency, to provide proof of liability insurance and maintain it in effect while furnishing services to Medicaid recipients. The licensing requirement above already fixes $250,000 per claim for home health agencies.",
+            cite: "F.S. 409.907(3)(i)" }
+        ],
+        transportNone: "No commercial auto or hired and non-owned auto minimum for this agency type was found in the Florida sources checked. If a broker presents one as a Florida requirement, ask for the statute or rule behind it.",
+        watch: [
+          "Florida's home health amounts are per claim. The statute sets no aggregate for the liability line, whatever a quote sheet implies.",
+          "The $500,000 Florida bond is not a general home health bond. It is triggered only by nonimmigrant alien applicants or controlling interests."
+        ]
+      },
+      registry: {
+        hha: false,
+        licenseNone: "Your state license rule sets no insurance or bond requirement for this agency type. The nurse registry statute contains no insurance requirement and no bond requirement, and the licensure rule contains none either. The structural reason is in the statute: caregivers referred by a nurse registry are independent contractors by law, not employees of the registry. Flag: the licensure rule was amended effective August 17, 2026, and the amended text was not read in this research; the statute itself was read in full and contains none.",
+        licenseCite: "F.S. 400.506; F.S. 400.506(6)(d); Rule 59A-18.004, F.A.C.",
+        medicaid: [
+          { cov: "Florida Medicaid", amt: "No registry-level requirement found",
+            note: "Nurse registries as such are not a Florida Medicaid provider type in the enrollment policy's home health entry; individuals (independent nurses, personal care) enroll under Provider Type 65 specialties instead. No registry-level Medicaid insurance or bond requirement was found in the policy.",
+            cite: "Florida Medicaid Provider Enrollment Policy (February 2026)" }
+        ],
+        transportNone: "No commercial auto or hired and non-owned auto minimum for this agency type was found in the Florida sources checked. If a broker presents one as a Florida requirement, ask for the statute or rule behind it.",
+        watch: ["Florida nurse registries have NO insurance requirement in the statute or the licensure rule, despite what sellers say. AHCA's own rulemaking record for the registry chapter states that the purpose of a rule revision included removing the insurance requirement from the rule."]
+      },
+      companion: {
+        hha: false,
+        licenseNone: "Your state rule sets no insurance or bond requirement for this agency type. Homemaker and companion services are a registration, not a license (registration fee $50 per biennium), and neither the registration statute nor the registration rule imposes an insurance or bond requirement. Flag: the registration rule was read through subsection (8); its remaining subsections were not read word for word, and the governing statute was read in full and contains none.",
+        licenseCite: "F.S. 400.509; Rule 59A-8.025, F.A.C.",
+        medicaid: [
+          { cov: "Florida Medicaid", amt: "No requirement found",
+            note: "No insurance or bond requirement for homemaker and companion services was found in the registration statute, the registration rule, or the Medicaid enrollment policy sources checked.",
+            cite: "F.S. 400.509; Florida Medicaid Provider Enrollment Policy (February 2026)" }
+        ],
+        transportNone: "No commercial auto or hired and non-owned auto minimum for this agency type was found in the Florida sources checked. If a broker presents one as a Florida requirement, ask for the statute or rule behind it.",
+        watch: ["In Florida, companion services register; they are not licensed, and the registration carries no insurance or bond requirement in the sources checked, despite what sellers say."]
+      }
+    },
+    NC: {
+      homecare: {
+        hha: true,
+        licenseNone: "Your state license rule sets no insurance or bond requirement for this agency type. A full-text search of the home care licensing rules returns zero occurrences of the word insurance and zero occurrences of the word bond, and the DHSR application form's home care section asks for no insurance field or attachment. North Carolina licenses home health under this same home care license. The one category on that form with an insurance filing duty is the nursing pool; pick that agency type to see it.",
+        licenseCite: "10A NCAC 13J (full-text search); DHSR Form 4204 (Rev. 07/21), page 3",
+        medicaid: [NCT, NC441FLAG,
+          { cov: "Managed care / Tailored Plan contract terms (worked example: Alliance Health)", amt: "$1,000,000 / $3,000,000 liability lines",
+            note: "In North Carolina, the dollar amounts live in plan network contracts, not in state rule. One plan's published terms: professional liability not less than $1,000,000 per occurrence / $3,000,000 annual aggregate; comprehensive general liability not less than $1,000,000 per occurrence / $3,000,000 annual aggregate; automobile liability $500,000 each person / $500,000 each occurrence for bodily injury and property damage, only if the provider transports enrollees, covering owned, non-owned, and hired autos; workers compensation as required by NC statute, plus employer's liability $100,000 each accident / $100,000 each employee (disease) / $500,000 policy limit (disease). Mechanics the plan states: the insurer must be licensed in NC; a new certificate of insurance is due no later than 10 business days after any policy expiration; the plan must be notified in writing at least 30 calendar days before any coverage is suspended, voided, canceled, or reduced. Flag: these are one plan's contract terms, published as an example. Each plan sets its own, your signed network contract controls, and Standard Plan plan amounts were not pulled in this research.",
+            cite: "Alliance Health, Provider Insurance Requirements; Provider Manual, Insurance Requirements, section ix" }
+        ],
+        transportNone: "No auto insurance requirement for home care agencies appears in the North Carolina licensing rules. If you join a Medicaid managed care network, that plan's contract can set auto amounts for providers who transport enrollees; the Alliance Health example in the enrollment section is one.",
+        watch: [
+          "North Carolina licensing has no insurance requirement for a home care agency, but do not generalize from it: the home assistance services provider category does carry a liability insurance duty, and the nursing pool category requires a policy attached to the application.",
+          "In North Carolina, Medicaid insurance amounts are contract terms set by each managed care plan, not a statewide rule. Anyone quoting you a single statewide NC Medicaid insurance minimum is overstating it."
+        ]
+      },
+      hospice: {
+        hospice: true,
+        licenseNone: "Your state license rule sets no insurance or bond requirement for this agency type. A full-text search of the hospice licensing rules returns zero occurrences of the word insurance and zero occurrences of the word bond, and the DHSR application form's hospice section asks for no insurance field or attachment.",
+        licenseCite: "10A NCAC 13K (full-text search); DHSR Form 4204 (Rev. 07/21), page 3",
+        medicaid: [NCT],
+        transportNone: "No auto insurance requirement for hospices appears in the North Carolina licensing rules.",
+        watch: ["No federal hospice bond exists, and North Carolina's hospice licensing rules add no insurance requirement. For most NC hospices, the binding insurance layer is workers compensation as an employer; see below."]
+      },
+      hasp: {
+        hha: false,
+        license: [
+          { cov: "Liability insurance", amt: "No amount set in the cited source",
+            note: "Home assistance services providers (companion, sitter, and respite, with no hands-on care) must maintain liability insurance. The statute does not specify general versus professional liability and sets no amount. The provider must annually attest that it is in compliance with this duty.",
+            cite: "G.S. 131E-138(h)(1); attestation at G.S. 131E-138(h)(6), enacted by Session Law 2023-150" },
+          { cov: "Driver and vehicle documentation for every worker", amt: "No amount set in the cited source",
+            note: "The provider must document that each employee or contractor possesses a valid driver's license, vehicle registration, proof of insurance, and an official NC DMV driving record. Flag: which form DHSR currently uses for home assistance services provider applicants, and whether it asks for a certificate of insurance at filing, was not verified in this research; the statutory duty and the annual attestation are verified.",
+            cite: "G.S. 131E-138(h)(4), enacted by Session Law 2023-150" }
+        ],
+        medicaid: [
+          { cov: "Payer layer", amt: "Not applicable to this category",
+            note: "Home assistance services providers are barred from submitting claims to health insurers and managed care organizations for their services, so the Medicaid enrollment and contract layer does not apply to this category.",
+            cite: "G.S. 131E-138(i)(1)" }
+        ],
+        watch: ["This category is the exception in North Carolina: the home care agency license has no insurance requirement, but the home assistance services provider statute does impose a liability insurance duty, with no dollar amount set. Do not let a seller attach an invented minimum to it."]
+      },
+      pool: {
+        hha: false,
+        license: [
+          { cov: "General and professional liability insurance (policy attached to the application)", amt: "No amount set in the cited source",
+            note: "All nursing pool applicants must attach a copy of the agency's current general and professional liability insurance policy; a binder is acceptable. The document must show that the applicant is insured against loss, damage, and expense related to a death or injury claim resulting from negligence or malpractice in the provision of health care by the nursing pool and its employees. No minimum amount is set in the form.",
+            cite: "DHSR Form 4204 (Rev. 07/21), page 3, Nursing Pool Applicants Only" }
+        ],
+        medicaid: [NCT],
+        transportNone: "No auto insurance requirement for nursing pools appears in the North Carolina licensing rules or the DHSR application form.",
+        watch: ["The nursing pool is the only category on the DHSR form with an insurance filing duty, and the form sets no minimum amount. The duty is to attach the policy, not to hit a number."]
+      }
+    }
+  };
+
+  var WC = {
+    TX: {
+      cite: "Tex. Labor Code 406.002, 406.004, 406.005; Texas Department of Insurance, workers compensation coverage page",
+      bands: [
+        "No employees yet, so nothing to carry. Know the Texas posture before your first hire: Texas is the only state where private employers may elect not to carry workers compensation coverage at all.",
+        "Elective, not required, for private employers in Texas. If you elect not to carry coverage (nonsubscription), you must notify your employees and the Division of Workers Compensation that you have no coverage, using DWC Form-005.",
+        "Elective, not required, for private employers in Texas, at any headcount. If you elect not to carry coverage (nonsubscription), you must notify your employees and the Division of Workers Compensation that you have no coverage, using DWC Form-005. Governmental entities are different: they must have coverage."
+      ]
+    },
+    OH: {
+      cite: "Ohio Bureau of Workers Compensation, Form U-3 (Application for Workers Compensation Coverage)",
+      bands: [
+        "No employees yet, so no coverage to carry yet. But Ohio requires coverage from the first date of hire, and corporate officers count as employees for this purpose, with a narrow exception for an individual incorporated as a corporation with no employees. Coverage runs through the state fund: the application is BWC Form U-3, with a $120 non-refundable application fee, and coverage is effective when BWC receives the completed application and fee.",
+        "Required. In Ohio, all employers with one or more employees must carry workers compensation coverage; it is the law. Coverage is obtained through the state fund (Ohio BWC, Form U-3, $120 application fee), and Ohio law requires coverage from the first date of hire. Independent contractors and subcontractors must obtain coverage for their own employees.",
+        "Required. In Ohio, all employers with one or more employees must carry workers compensation coverage; it is the law. Coverage is obtained through the state fund (Ohio BWC, Form U-3, $120 application fee), and Ohio law requires coverage from the first date of hire. Independent contractors and subcontractors must obtain coverage for their own employees."
+      ]
+    },
+    GA: {
+      cite: "O.C.G.A. 34-9-2(a), read in a reproduction of the 2025 Georgia Code (see Sources and limits)",
+      bands: [
+        "No employees yet, so nothing to carry. Georgia's Workers Compensation Act reaches employers with three or more employees regularly in service in the same business, unless coverage is voluntarily elected below that line.",
+        "Below the threshold in the cited source: the Georgia Workers Compensation Act does not apply to an employer that has regularly in service less than three employees in the same business within this state, unless the employer and employees voluntarily elect to be bound by it. One exception in this checker: if you enroll a private home care provider in EDWP, proof of workers compensation coverage is required at enrollment whatever the headcount; see the enrollment section.",
+        "Required. At three or more employees regularly in service in the same business, a Georgia employer is inside the Workers Compensation Act and must carry workers compensation coverage. No amount set in the cited source; the duty is the coverage itself."
+      ]
+    },
+    FL: {
+      cite: "F.S. 440.02(20)(b)2 (four-employee threshold), 440.02(18)(b) and 440.02(11) (officers and LLC members counted as employees), 440.05 (election of exemption); Florida Division of Workers' Compensation, Coverage Requirements and Exemptions pages",
+      bands: [
+        "No employees yet, so nothing to carry. Know the Florida line before your first hire: home care is non-construction industry in Florida, and a non-construction employer must carry workers compensation once four or more employees are employed by the same employer. Owners count toward the four: a corporate officer, and an LLC member who owns at least 10 percent of the company, is an employee for this purpose unless that individual has filed an exemption.",
+        "Below the threshold in the cited sources. Florida's duty attaches at four or more employees employed by the same employer, so at one or two employees coverage is not yet required. Count owners, not just staff: corporate officers and LLC members are counted as employees toward the four unless the individual has filed a Notice of Election to be Exempt with the Division of Workers' Compensation. Sole proprietors and partners are not employees unless they elect to be covered (Form DWC-251).",
+        "It turns on the exact count, because Florida's line is four, not three. At three employees you are still below the threshold; the duty to carry workers compensation attaches when four or more employees are employed by the same employer. Corporate officers and LLC members count toward the four unless the individual holds a Certificate of Election to be Exempt; an exempt officer or member is not an employee and may not recover workers compensation benefits. No amount is set in the cited sources; the duty is the coverage itself."
+      ]
+    },
+    NC: {
+      cite: "NC Industrial Commission, Employers page; N.C.G.S. 97-2(1) and 97-93 (section text not separately opened in this research)",
+      bands: [
+        "No employees yet, so nothing to carry. The North Carolina duty described by the Industrial Commission bites at three or more employees, and corporate officers count toward the three.",
+        "Below the threshold in the cited sources: in general, the North Carolina workers compensation duty described by the NC Industrial Commission applies to businesses employing three or more employees on a regular basis. Corporate officers count toward the three when you reach it. There is no federal workers compensation mandate for private employers; the binding rule is state law.",
+        "Required. Businesses employing three or more employees on a regular basis must obtain workers compensation insurance or qualify as a self-insured employer. Corporate officers count toward the three. No dollar amount is set in the cited sources; coverage is statutory-benefit coverage."
+      ]
+    }
+  };
+
+  var stateSel = document.getElementById("ic_state");
+  var typeSel = document.getElementById("ic_type");
+  var medicareEl = document.getElementById("ic_medicare");
+  var medicaidEl = document.getElementById("ic_medicaid");
+  var transportEl = document.getElementById("ic_transport");
+  var empSel = document.getElementById("ic_employees");
+
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+  function itemHTML(it) {
+    var h = "<li><strong>" + esc(it.cov) + "</strong>";
+    if (it.amt) h += " - <span class=\"amt\">" + esc(it.amt) + "</span>";
+    h += "<br>" + esc(it.note);
+    if (it.cite) h += "<span class=\"cite\">" + esc(it.cite) + "</span>";
+    return h + "</li>";
+  }
+  function listHTML(items) {
+    return "<ul class=\"req-list\">" + items.map(itemHTML).join("") + "</ul>";
+  }
+  function noneHTML(text, cite) {
+    var h = "<p class=\"none-line\">" + esc(text) + "</p>";
+    if (cite) h += "<span class=\"cite\">" + esc(cite) + "</span>";
+    return h;
+  }
+
+  function buildTypes() {
+    var st = stateSel.value;
+    var current = typeSel.value;
+    typeSel.innerHTML = "";
+    TYPES[st].forEach(function (t) {
+      var o = document.createElement("option");
+      o.value = t.id;
+      o.textContent = t.label;
+      typeSel.appendChild(o);
+    });
+    var ok = TYPES[st].some(function (t) { return t.id === current; });
+    if (ok) typeSel.value = current;
+    render();
+  }
+
+  function render() {
+    var st = stateSel.value;
+    var ty = typeSel.value;
+    var cell = CELLS[st][ty];
+    var typeLabel = "";
+    TYPES[st].forEach(function (t) { if (t.id === ty) typeLabel = t.label; });
+    document.getElementById("ic_summary").textContent = NAMES[st] + " - " + typeLabel;
+
+    // 1. License layer
+    var lic = "";
+    if (cell.licenseNone) {
+      lic += noneHTML(cell.licenseNone, cell.licenseCite);
+    } else if (cell.license) {
+      lic += listHTML(cell.license);
+    }
+    if (transportEl.checked) {
+      if (cell.transport) lic += listHTML(cell.transport);
+      else if (cell.transportNone) lic += "<p class=\"hint-line\">" + esc(cell.transportNone) + "</p>";
+    } else if (st === "GA" && ty === "phcp") {
+      lic += "<p class=\"hint-line\">Transport not shown: if your caregivers will drive clients in a vehicle not owned by the client, turn on transport above. Rule 111-8-65-.03(s) sets an either/or duty there, a signed client waiver or reasonable efforts to ensure vehicle medical coverage.</p>";
+    }
+    document.getElementById("ic_license").innerHTML = lic;
+
+    // 2. Payer layer
+    var pay = "";
+    var medicare = medicareEl.checked, medicaid = medicaidEl.checked;
+    if (!medicare && !medicaid) {
+      pay = "<p class=\"hint-line\">Turn on Medicare or Medicaid above to see the enrollment layer. For some agency types the honest answer there is also none, and this checker will say so.</p>";
+    } else {
+      var items = [];
+      if (medicare) {
+        if (cell.hha) items.push(FED_MEDICARE_BOND);
+        else if (cell.hospice) items.push({ cov: "Medicare enrollment", amt: "No surety bond, no liability minimum", note: HOSPICE_FED_NONE, cite: HOSPICE_FED_CITE });
+        else items.push({ cov: "Medicare enrollment", amt: "No federal bond or insurance requirement found", note: NONHHA_FED_NONE, cite: NONHHA_FED_CITE });
+      }
+      if (medicaid) {
+        if (cell.hha) items.push(FED_MEDICAID_BOND);
+        else if (cell.hospice) items.push({ cov: "Medicaid enrollment", amt: "No federal surety bond for hospices", note: HOSPICE_FED_NONE, cite: HOSPICE_FED_CITE });
+        else if (!medicare) items.push({ cov: "Medicaid enrollment (federal layer)", amt: "No federal bond or insurance requirement found", note: NONHHA_FED_NONE, cite: NONHHA_FED_CITE });
+      }
+      if ((medicare || medicaid) && (cell.hha || cell.hospice)) items.push(DMEPOS_NOTE);
+      if (cell.payerNote) items = items.concat(cell.payerNote);
+      if (medicare && cell.medicareNote) items = items.concat(cell.medicareNote);
+      if (medicaid && cell.medicaid) items = items.concat(cell.medicaid);
+      pay = listHTML(items);
+    }
+    document.getElementById("ic_payer").innerHTML = pay;
+
+    // 3. Workers compensation
+    var band = parseInt(empSel.value, 10);
+    var wc = WC[st];
+    document.getElementById("ic_wc").innerHTML =
+      "<p class=\"none-line\">" + esc(wc.bands[band]) + "</p><span class=\"cite\">" + esc(wc.cite) + "</span>";
+
+    // 5. Watch out
+    var w = "<ul class=\"watch-list\">";
+    (cell.watch || []).forEach(function (line) { w += "<li>" + esc(line) + "</li>"; });
+    w += "</ul>";
+    document.getElementById("ic_watch").innerHTML = w;
+  }
+
+  stateSel.addEventListener("change", buildTypes);
+  typeSel.addEventListener("change", render);
+  medicareEl.addEventListener("change", render);
+  medicaidEl.addEventListener("change", render);
+  transportEl.addEventListener("change", render);
+  empSel.addEventListener("change", render);
+  buildTypes();
+})();
+</script>
+</body>
+</html>
