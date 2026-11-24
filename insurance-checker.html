@@ -293,7 +293,7 @@
   var DMEPOS_NOTE = {
     cov: "Only if you also enroll as a DMEPOS supplier",
     amt: "$50,000 surety bond",
-    note: "This bond is owed only if the agency enrolls in Medicare as a supplier of durable medical equipment, prosthetics, orthotics, and supplies, for example to bill for DME. It is not owed for home health or hospice enrollment itself. Flag: the figure was read in the 2020 CFR annual edition and CMS transmittals; the live eCFR page for this section was not re-read in this pass.",
+    note: "This bond is owed only if the agency enrolls in Medicare as a supplier of durable medical equipment, prosthetics, orthotics, and supplies, for example to bill for DME. It is not owed for home health or hospice enrollment itself. CMS can require an additional $50,000 for each adverse legal action in the prior 10 years. Flag: the figure was read in the 2020 CFR annual edition and CMS transmittals; the live eCFR page for this section was not re-read in this pass.",
     cite: "42 CFR 424.57(c)(26), (d)(3)-(4)"
   };
   var HOSPICE_FED_NONE = "No federal surety bond for hospices, and no federal liability insurance minimum. The Medicare bond rule applies by its terms to home health agencies only, and the hospice Conditions of Participation set no liability insurance minimum.";
@@ -623,7 +623,7 @@
       ]
     },
     GA: {
-      cite: "O.C.G.A. 34-9-2(a), read in a reproduction of the 2025 Georgia Code (see Sources and limits)",
+      cite: "O.C.G.A. 34-9-2(a), read in a reproduction of the 2025 Georgia Code (see Sources)",
       bands: [
         "No employees yet, so nothing to carry. Georgia's Workers Compensation Act reaches employers with three or more employees regularly in service in the same business, unless coverage is voluntarily elected below that line.",
         "Below the threshold in the cited source: the Georgia Workers Compensation Act does not apply to an employer that has regularly in service less than three employees in the same business within this state, unless the employer and employees voluntarily elect to be bound by it. One exception in this checker: if you enroll a private home care provider in EDWP, proof of workers compensation coverage is required at enrollment whatever the headcount; see the enrollment section.",
@@ -730,7 +730,7 @@
         else if (!medicare) items.push({ cov: "Medicaid enrollment (federal layer)", amt: "No federal bond or insurance requirement found", note: NONHHA_FED_NONE, cite: NONHHA_FED_CITE });
       }
       if ((medicare || medicaid) && (cell.hha || cell.hospice)) items.push(DMEPOS_NOTE);
-      if (cell.payerNote) items = items.concat(cell.payerNote);
+      if (medicaid && cell.payerNote) items = items.concat(cell.payerNote);
       if (medicare && cell.medicareNote) items = items.concat(cell.medicareNote);
       if (medicaid && cell.medicaid) items = items.concat(cell.medicaid);
       pay = listHTML(items);
