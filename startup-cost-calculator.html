@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3G8066FF2X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3G8066FF2X');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Free startup cost calculator for home care, home health, and hospice agency owners. Adds your one-time costs, per-hire onboarding, and pre-revenue runway into one itemized cash-needed figure. The state license fee is filled in only where it is verified against the state source, for Texas, Ohio, Georgia, Florida, and North Carolina.">
+<title>Startup Cost Calculator | Boswell Consulting Agency</title>
+<link rel="canonical" href="https://boswellconsultingagency.com/startup-cost-calculator.html">
+<meta property="og:title" content="Startup Cost Calculator | Boswell Consulting Agency">
+<meta property="og:description" content="Free startup cost calculator for home care, home health, and hospice owners. One-time costs, per-hire onboarding, and runway, itemized into the cash needed before first revenue. State license fee verified for TX, OH, GA, FL, and NC.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+  .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+  @media (max-width: 900px) { .calc-grid { grid-template-columns: 1fr; } }
+  .calc-results { background: var(--navy-800); color: var(--paper); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow); }
+  .calc-results h3 { color: var(--paper); margin-top: 0; }
+  .calc-results h4 { color: var(--brass-300); margin: 1.4rem 0 0.5rem; font-size: 1.02rem; }
+  .calc-results h4:first-of-type { margin-top: 1rem; }
+  .calc-results table { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+  .calc-results td { padding: 0.35rem 0; border-bottom: 1px solid var(--line-dark); vertical-align: top; }
+  .calc-results td:last-child { text-align: right; font-weight: 600; white-space: nowrap; }
+  .calc-results tr.subtotal td { border-bottom: none; border-top: 1px solid var(--brass-400); font-weight: 700; padding-top: 0.6rem; }
+  .calc-results tr.total td { border-bottom: none; border-top: 2px solid var(--brass-400); font-size: 1.08rem; padding-top: 0.6rem; }
+  .calc-results .big-rate { font-family: var(--font-display); font-size: 2.2rem; color: var(--brass-300); line-height: 1.1; }
+  .calc-note { font-size: 0.88rem; color: var(--brass-300); min-height: 1.2em; }
+  .form__check { display: flex; gap: 0.6rem; align-items: flex-start; font-weight: 500; }
+  .form__check input { margin-top: 0.25rem; }
+  .print-btn { margin-top: 1.2rem; }
+  @media print {
+    .site-header, .site-footer, .card, .no-print { display: none !important; }
+    .calc-grid { grid-template-columns: 1fr; }
+    .calc-results { background: #fff; color: #000; box-shadow: none; }
+    .calc-results h3, .calc-results h4, .calc-results .big-rate { color: #000; }
+    .calc-results td { border-bottom: 1px solid #ccc; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header" id="top">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Boswell Consulting Agency LLC, home">
+      <span class="brand__mark" aria-hidden="true">B</span>
+      <span>
+        <span class="brand__name">Boswell Consulting Agency LLC</span>
+        <span class="brand__tag">Strategy and Innovation</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle__bars" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/kits.html">Generator</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/tools.html" aria-current="page">Free Tools</a></li>
+        <li><a href="/articles/">Library</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a class="btn btn--primary" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="page-hero"><div class="container"><span class="eyebrow">Free tool</span><h1>Startup cost calculator</h1><p>For home care, home health, and hospice agency owners working out what a start actually costs before the first payment arrives. Enter your own quotes for each line, and the tool adds three blocks together: one-time startup costs, the onboarding cost of your first hires, and the monthly burn you carry while you wait for revenue. The one figure it fills in for you is your state license fee, and only in the five states where that fee is verified against the state source: Texas, Ohio, Georgia, Florida, and North Carolina. Everywhere else the fee field waits for your number. Everything calculates as you type, and nothing you enter leaves your browser.</p></div></section>
+
+<section class="section"><div class="container">
+<div class="calc-grid">
+<div>
+<form class="form" id="scForm" onsubmit="return false;">
+  <div class="form__group">
+    <label for="sc_state">State</label>
+    <select id="sc_state"></select>
+    <p class="form__hint">The license fee below is filled in only for Texas, Ohio, Georgia, Florida, and North Carolina, the states where the fee is verified in the records behind this site. In every other state, enter the fee from your state licensing source.</p>
+  </div>
+  <div class="form__group">
+    <label for="sc_type">Agency type</label>
+    <select id="sc_type"></select>
+    <p class="form__hint">The license categories are each state's own where the fee is verified. Pick the one you are applying for.</p>
+  </div>
+  <div class="form__group">
+    <label for="sc_track">Payer track</label>
+    <select id="sc_track">
+      <option value="private">Private pay</option>
+      <option value="medicaid">Medicaid enrollment</option>
+      <option value="medicare">Medicare certification (home health or hospice)</option>
+    </select>
+    <p class="form__hint">The Medicare certification track adds an accreditation deposit line below. The other tracks do not carry one.</p>
+  </div>
+  <div class="form__group">
+    <label for="sc_fee">State application and license fee ($)</label>
+    <input type="number" id="sc_fee" min="0" step="0.01" placeholder="From your state licensing source">
+    <p class="form__hint" id="sc_fee_hint"></p>
+  </div>
+
+  <h3 style="margin-top:2rem;">One-time costs</h3>
+  <div class="form__group">
+    <label for="sc_entity">Entity formation and registered agent ($)</label>
+    <input type="number" id="sc_entity" min="0" step="0.01" placeholder="Your filing and agent quotes">
+  </div>
+  <div class="form__group">
+    <label for="sc_ins_deposit">Initial insurance deposit ($)</label>
+    <input type="number" id="sc_ins_deposit" min="0" step="0.01" placeholder="The deposit on your own quote">
+    <p class="form__hint">Insurance is priced by quote, never by table. If you do not know what your license and enrollment require, the free <a href="/insurance-checker.html">insurance readiness checker</a> shows the requirements for TX, OH, GA, FL, and NC, each with its rule cited.</p>
+  </div>
+  <div class="form__group">
+    <label class="form__check"><input type="checkbox" id="sc_homeoffice"> <span>I will work from a home office (no office deposit)</span></label>
+  </div>
+  <div class="form__group">
+    <label for="sc_office">Office deposit and first month ($)</label>
+    <input type="number" id="sc_office" min="0" step="0.01" placeholder="Deposit plus first month, from your lease">
+  </div>
+  <div class="form__group">
+    <label for="sc_supplies">Initial supplies and equipment ($)</label>
+    <input type="number" id="sc_supplies" min="0" step="0.01" placeholder="Your own list, priced">
+  </div>
+  <div class="form__group">
+    <label for="sc_software_setup">Software setup: scheduling, EVV, billing ($)</label>
+    <input type="number" id="sc_software_setup" min="0" step="0.01" placeholder="Setup and onboarding fees from your vendors">
+  </div>
+  <div class="form__group" id="sc_accred_group" hidden>
+    <label for="sc_accred">Accreditation deposit ($)</label>
+    <input type="number" id="sc_accred" min="0" step="0.01" placeholder="The deposit on your accreditor quote">
+    <p class="form__hint">Shown only on the Medicare certification track. Accreditation is priced by the accrediting organization, so this field takes your quote, not a table figure.</p>
+  </div>
+
+  <h3 style="margin-top:2rem;">First hires</h3>
+  <div class="form__group">
+    <label for="sc_hires">Number of first hires</label>
+    <input type="number" id="sc_hires" min="0" step="1" placeholder="0">
+  </div>
+  <div class="form__group">
+    <label for="sc_checks">Background checks, per hire ($)</label>
+    <input type="number" id="sc_checks" min="0" step="0.01" placeholder="Your screening vendor rate">
+  </div>
+  <div class="form__group">
+    <label for="sc_training">Training, per hire ($)</label>
+    <input type="number" id="sc_training" min="0" step="0.01" placeholder="Orientation and training cost per hire">
+  </div>
+  <div class="form__group">
+    <label for="sc_uniforms">Uniforms and supplies, per hire ($)</label>
+    <input type="number" id="sc_uniforms" min="0" step="0.01" placeholder="Uniforms, badges, and kit per hire">
+  </div>
+
+  <h3 style="margin-top:2rem;">Pre-revenue runway</h3>
+  <div class="form__group">
+    <label for="sc_months">Months until first payment</label>
+    <input type="number" id="sc_months" min="0" step="0.5" placeholder="Your honest estimate">
+    <p class="form__hint">Count from the day you start spending to the day the first payment lands: application review, first clients, first visits, billing, and the payer's payment cycle all sit inside this number.</p>
+  </div>
+  <div class="form__group">
+    <label for="sc_rent">Monthly rent ($)</label>
+    <input type="number" id="sc_rent" min="0" step="0.01" placeholder="0 if you work from home">
+  </div>
+  <div class="form__group">
+    <label for="sc_software_mo">Monthly software subscriptions ($)</label>
+    <input type="number" id="sc_software_mo" min="0" step="0.01" placeholder="Scheduling, EVV, billing, per month">
+  </div>
+  <div class="form__group">
+    <label for="sc_ins_mo">Monthly insurance installment ($)</label>
+    <input type="number" id="sc_ins_mo" min="0" step="0.01" placeholder="Your monthly premium installment">
+  </div>
+  <div class="form__group">
+    <label for="sc_phone">Monthly phone and internet ($)</label>
+    <input type="number" id="sc_phone" min="0" step="0.01" placeholder="Business lines and internet">
+  </div>
+  <div class="form__group">
+    <label for="sc_marketing">Monthly marketing ($)</label>
+    <input type="number" id="sc_marketing" min="0" step="0.01" placeholder="What you will actually spend">
+  </div>
+</form>
+</div>
+
+<div class="calc-results" aria-live="polite">
+  <h3>Your numbers</h3>
+  <p>Cash needed before first revenue</p>
+  <p class="big-rate" id="sc_allin">--</p>
+
+  <h4>One-time startup costs</h4>
+  <table>
+    <tr><td>State application and license fee</td><td id="sc_r_fee">--</td></tr>
+    <tr><td>Entity formation and registered agent</td><td id="sc_r_entity">--</td></tr>
+    <tr><td>Initial insurance deposit</td><td id="sc_r_ins_deposit">--</td></tr>
+    <tr><td>Office deposit and first month</td><td id="sc_r_office">--</td></tr>
+    <tr><td>Initial supplies and equipment</td><td id="sc_r_supplies">--</td></tr>
+    <tr><td>Software setup</td><td id="sc_r_software_setup">--</td></tr>
+    <tr id="sc_r_accred_row" hidden><td>Accreditation deposit</td><td id="sc_r_accred">--</td></tr>
+    <tr class="subtotal"><td>Total one-time costs</td><td id="sc_r_onetime">--</td></tr>
+  </table>
+
+  <h4>First hires</h4>
+  <table>
+    <tr><td>Onboarding cost per hire</td><td id="sc_r_perhire">--</td></tr>
+    <tr><td id="sc_r_hires_label">First hires</td><td id="sc_r_hires">--</td></tr>
+    <tr class="subtotal"><td>Total onboarding</td><td id="sc_r_onboarding">--</td></tr>
+  </table>
+
+  <h4>Pre-revenue runway</h4>
+  <table>
+    <tr><td>Rent</td><td id="sc_r_rent">--</td></tr>
+    <tr><td>Software subscriptions</td><td id="sc_r_software_mo">--</td></tr>
+    <tr><td>Insurance installment</td><td id="sc_r_ins_mo">--</td></tr>
+    <tr><td>Phone and internet</td><td id="sc_r_phone">--</td></tr>
+    <tr><td>Marketing</td><td id="sc_r_marketing">--</td></tr>
+    <tr class="subtotal"><td>Total monthly burn</td><td id="sc_r_burn">--</td></tr>
+    <tr><td id="sc_r_months_label">Months until first payment</td><td id="sc_r_months">--</td></tr>
+    <tr class="subtotal"><td>Total runway cost</td><td id="sc_r_runway">--</td></tr>
+  </table>
+
+  <table style="margin-top:1rem;">
+    <tr class="total"><td>Cash needed before first revenue</td><td id="sc_r_allin">--</td></tr>
+  </table>
+  <p class="calc-note" id="sc_note"></p>
+  <button class="btn btn--primary print-btn no-print" type="button" onclick="window.print()">Print or save this breakdown</button>
+</div>
+</div>
+
+<div class="card no-print" style="margin-top:3rem;">
+  <span class="card__label">Free newsletter</span>
+  <h2 style="margin-top:0.5rem;">Get new tools and rule changes first</h2>
+  <p>The free newsletter from Boswell Consulting Agency: home care and home health operations, policy, and compliance, from primary sources. New free tools are announced there first, and the daily article teaches the rule behind the tool. Subscribe free, unsubscribe any time.</p>
+  <iframe src="https://drboswell.substack.com/embed" title="Subscribe to the Boswell Consulting Agency newsletter on Substack" width="100%" height="320" style="border:1px solid var(--line); border-radius: var(--radius-lg); background: var(--white); max-width:480px;" frameborder="0" scrolling="no"></iframe>
+</div>
+
+<div class="prose" style="margin-top:3rem;">
+<h2>How this calculator works</h2>
+<p>Most startup budgets list the license fee and a few purchases, then stop. The number that decides whether a start is funded is bigger: everything you pay once, plus everything your first hires cost to bring on, plus every month of operating cost that lands before the first payment does. This calculator keeps those three blocks separate and itemized, so you can see which block is doing the damage and challenge any line in it. Change a line and the totals rebuild around it.</p>
+<p>The arithmetic is plain addition and multiplication, on purpose. One-time costs are added line by line. Onboarding is the per-hire cost (background checks, training, uniforms and supplies) multiplied by the number of first hires. Runway is the monthly burn (rent, software, insurance installment, phone and internet, marketing) multiplied by the months until first payment. The all-in figure is the three block totals added together. There is no hidden margin, no contingency percentage, and no rounding up: if you want a cushion, add it as a line you can see.</p>
+<h2>Methodology and sources</h2>
+<p>Every figure in this tool except one is your own input. The tool estimates nothing: insurance, rent, software, and supplies vary by quote, market, and vendor, so each field waits for the number from your own paperwork. The one figure the tool supplies is the state application and license fee, and it supplies it only where that fee is verified in the state records behind this site, with the source named and the date it was last checked. Where a fee is not verified, the field stays blank with a note, because a guessed fee is worse than an empty field.</p>
+<p>Verified fees, re-checked November 27, 2026 against the state sources named:</p>
+<ul>
+<li>Texas: $2,625 initial HCSSA license fee for a parent agency or branch, three-year term, one fee covering one or more service categories on the same license. Source: Texas Health and Human Services Commission, <a href="https://regulations.justia.com/states/texas/title-26/part-1/chapter-558/subchapter-a/section-558-3/">26 TAC 558.3</a> and HHSC Provider Letter 2021-03, Attachment 1. An alternate delivery site pays $1,500 instead.</li>
+<li>Ohio: $250 application fee for the skilled home health services license and $250 for the nonmedical license. Source: Ohio Department of Health, <a href="https://codes.ohio.gov/ohio-revised-code/section-3740.03">ORC 3740.03</a> and OAC 3701-60-03. Hospice care program license: $600, plus a $1,625 licensure inspection fee charged by the Ohio Department of Health (OAC 3701-19-03 and 3701-19-05(C)).</li>
+<li>Georgia: $300 application processing fee plus the annual licensure fee: $250 per service category for a private home care provider (Companion Sitting, Personal Care Services, Nursing Services), $1,000 for a home health agency, $1,000 for a hospice. Source: Georgia Department of Community Health, Healthcare Facility Regulation Division, <a href="https://dch.georgia.gov/document/document/new-licensure-fee-information/download">Schedule of Licensure Activity Fees</a>.</li>
+<li>Florida: home health agency $1,705 biennial license fee plus the $300 biennial assessment; nurse registry $2,000 per biennium; homemaker and companion services registration $50.75; hospice $1,218 licensure fee plus the $300 biennial assessment. Source: Florida Agency for Health Care Administration application forms 3110-1011, 3110-7004, 3110-1003, and 3110-4001, and Rules 59A-18.004 and 59A-8.025, F.A.C.</li>
+<li>North Carolina: $510 nonrefundable annual license fee for a home care agency and for a home assistance services provider, the same form and the same fee. Source: North Carolina Division of Health Service Regulation, <a href="http://www.ncga.state.nc.us/EnactedLegislation/Statutes/PDF/BySection/Chapter_131E/GS_131E-138.pdf">G.S. 131E-138(c)</a>.</li>
+</ul>
+<p>Before you rely on a fee here, confirm it against the free state checklist for your state, which walks the application in filing order with the fee in context: <a id="sc_checklist_link" href="/states/texas.html">Texas free state preview</a>. The licensing portal's figure for your application controls if it ever differs from the schedule.</p>
+<h2>Read this before you budget from it</h2>
+<p>This tool is general information for planning. It is not financial or legal advice, and it is not a guaranteed figure for any specific agency: fees change, quotes differ, and your own timeline to first payment is an estimate, not a promise. The most common budgeting failure the agencies I work with show me is not a wrong line item; it is a runway that is two months shorter than the wait turns out to be. Run the number again with two extra months before you call the start funded. When the total says the start is not funded yet, closing that gap in the right order is the work I do with agencies at <a href="/services.html">Boswell Consulting Agency services</a>. The other free tools are on the <a href="/tools.html">free tools page</a>.</p>
+</div>
+</div></section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="Boswell Consulting Agency LLC, home">
+          <span class="brand__mark" aria-hidden="true">B</span>
+          <span>
+            <span class="brand__name">Boswell Consulting Agency LLC</span>
+            <span class="brand__tag">Strategy and Innovation</span>
+          </span>
+        </a>
+        <p>I help home care and home health agency owners get licensed, stay compliant, and fix operations problems, with systems built in filing order.</p>
+      </div>
+      <div>
+        <h2>Practice</h2>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/research.html">Research</a></li>
+          <li><a href="/reviews.html">Reviews</a></li>
+          <li><a href="/articles/">Library</a></li>
+          <li><a href="/videos.html">Videos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul>
+          <li><a href="/kits.html">Manual and Template Generator</a></li>
+          <li><a href="/packet-build.html">Done-for-you packet builds</a></li>
+          <li><a href="/services.html#billing">Billing services</a></li>
+          <li><a href="/tools.html">Free tools</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>More</h2>
+        <ul>
+          <li><a href="/government-contracting.html">Government contracting</a></li>
+          <li><a href="/capability.html">Capability statement</a></li>
+          <li><a href="/teaming.html">Teaming</a></li>
+          <li><a href="/states/">Free state previews</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Boswell Consulting Agency LLC, Petersburg, Virginia</span>
+      <span>DrBoswell@boswellconsultingagency.com | boswellconsultingagency.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+  var header = document.querySelector('.site-header');
+  var toggle = document.querySelector('.nav-toggle');
+  toggle.addEventListener('click', function () {
+    var open = header.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+</script>
+
+<script>
+(function () {
+  var NAMES = {
+    AL: 'Alabama', AK: 'Alaska', AZ: 'Arizona', AR: 'Arkansas', CA: 'California',
+    CO: 'Colorado', CT: 'Connecticut', DE: 'Delaware', DC: 'District of Columbia',
+    FL: 'Florida', GA: 'Georgia', HI: 'Hawaii', ID: 'Idaho', IL: 'Illinois',
+    IN: 'Indiana', IA: 'Iowa', KS: 'Kansas', KY: 'Kentucky', LA: 'Louisiana',
+    ME: 'Maine', MD: 'Maryland', MA: 'Massachusetts', MI: 'Michigan',
+    MN: 'Minnesota', MS: 'Mississippi', MO: 'Missouri', MT: 'Montana',
+    NE: 'Nebraska', NV: 'Nevada', NH: 'New Hampshire', NJ: 'New Jersey',
+    NM: 'New Mexico', NY: 'New York', NC: 'North Carolina', ND: 'North Dakota',
+    OH: 'Ohio', OK: 'Oklahoma', OR: 'Oregon', PA: 'Pennsylvania',
+    RI: 'Rhode Island', SC: 'South Carolina', SD: 'South Dakota', TN: 'Tennessee',
+    TX: 'Texas', UT: 'Utah', VT: 'Vermont', VA: 'Virginia', WA: 'Washington',
+    WV: 'West Virginia', WI: 'Wisconsin', WY: 'Wyoming'
+  };
+  var GENERIC_TYPES = [
+    { id: 'homecare', label: 'Home care agency (non-medical)' },
+    { id: 'homehealth', label: 'Home health agency' },
+    { id: 'hospice', label: 'Hospice' },
+    { id: 'other', label: 'Other licensed provider type' }
+  ];
+  // Verified state license fees. fee is the amount due at initial filing.
+  // Source of record: the state pack and free checklist records behind this
+  // site (checked 2026-11-11), re-confirmed against the state sources named
+  // in each note on November 27, 2026. fee null means no verified figure:
+  // the field stays manual-entry.
+  var VERIFIED = 'November 27, 2026';
+  var FEES = {
+    TX: {
+      checklist: '/states/texas.html',
+      types: [
+        { id: 'lh', label: 'Licensed home health', fee: 2625, note: 'Initial license fee for a parent agency or branch, three-year term. One fee covers one or more service categories on the same license. An alternate delivery site pays $1,500 instead. Fees are non-refundable.' },
+        { id: 'lch', label: 'Licensed and certified home health', fee: 2625, note: 'Initial license fee for a parent agency or branch, three-year term. One fee covers one or more service categories on the same license. An alternate delivery site pays $1,500 instead. Fees are non-refundable.' },
+        { id: 'pas', label: 'Personal assistance services (PAS)', fee: 2625, note: 'Initial license fee for a parent agency or branch, three-year term. One fee covers one or more service categories on the same license. An alternate delivery site pays $1,500 instead. Fees are non-refundable.' },
+        { id: 'hospice', label: 'Hospice', fee: 2625, note: 'Initial license fee for a parent agency or branch, three-year term. One fee covers one or more service categories on the same license. An alternate delivery site pays $1,500 instead. Fees are non-refundable.' }
+      ],
+      source: 'Texas HHSC, 26 TAC 558.3; HHSC Provider Letter 2021-03, Attachment 1'
+    },
+    OH: {
+      checklist: '/states/ohio.html',
+      types: [
+        { id: 'skilled', label: 'Skilled home health agency', fee: 250, note: 'Application fee, non-refundable, on a three-year license. Paid by cashier check or postal money order to Treasurer, State of Ohio.' },
+        { id: 'nonmedical', label: 'Nonmedical home health agency', fee: 250, note: 'Application fee, non-refundable, on a three-year license. Paid by cashier check or postal money order to Treasurer, State of Ohio.' },
+        { id: 'hospice', label: 'Hospice', fee: 600, note: 'License fee for the three-year term, non-refundable. The Ohio Department of Health also charges a $1,625 licensure inspection fee; add it to a line above if you want it inside this total.' }
+      ],
+      source: 'Ohio Department of Health, ORC 3740.03 and 3712.03; OAC 3701-60-03, 3701-19-03, 3701-19-05(C)'
+    },
+    GA: {
+      checklist: '/states/georgia.html',
+      types: [
+        { id: 'phcp', label: 'Private home care provider', fee: 550, note: 'Covers the $300 application processing fee plus the $250 annual licensure fee for one service category. Add $250 in this field for each additional category you select (Companion Sitting, Personal Care Services, Nursing Services), up to $750 in licensure fees for all three. Fees are not refundable.' },
+        { id: 'hha', label: 'Home health agency', fee: 1300, note: 'Covers the $300 application processing fee plus the $1,000 annual licensure fee. Fees are not refundable.' },
+        { id: 'hospice', label: 'Hospice', fee: 1300, note: 'Covers the $300 application processing fee plus the $1,000 annual licensure fee. Fees are not refundable.' }
+      ],
+      source: 'Georgia DCH, Healthcare Facility Regulation Division, Schedule of Licensure Activity Fees'
+    },
+    FL: {
+      checklist: '/states/florida.html',
+      types: [
+        { id: 'hha', label: 'Home health agency', fee: 2005, note: 'Covers the $1,705 biennial license fee plus the $300 biennial health care assessment, due with the application.' },
+        { id: 'registry', label: 'Nurse registry', fee: 2000, note: 'Biennial license fee. No separate assessment is charged on the registry application.' },
+        { id: 'companion', label: 'Homemaker and companion services', fee: 50.75, note: 'Registration fee for a term of up to two years, per the current AHCA application form.' },
+        { id: 'hospice', label: 'Hospice', fee: 1518, note: 'Covers the $1,218 licensure fee plus the $300 biennial health care assessment, due with the application.' }
+      ],
+      source: 'Florida AHCA Forms 3110-1011, 3110-7004, 3110-1003, 3110-4001; Rules 59A-18.004 and 59A-8.025, F.A.C.'
+    },
+    NC: {
+      checklist: '/states/north-carolina.html',
+      types: [
+        { id: 'homecare', label: 'Home care agency (includes home health)', fee: 510, note: 'Nonrefundable annual license fee, set in statute. Personal checks are not accepted.' },
+        { id: 'hasp', label: 'Home assistance services provider', fee: 510, note: 'Same application form and same $510 nonrefundable annual license fee as the home care agency license.' },
+        { id: 'hospice', label: 'Hospice', fee: null, note: 'No verified hospice fee figure in the records behind this tool. Enter the fee from the DHSR application for your license type.' },
+        { id: 'pool', label: 'Nursing pool', fee: null, note: 'No verified nursing pool fee figure in the records behind this tool. Enter the fee from the DHSR application for your license type.' }
+      ],
+      source: 'North Carolina DHSR, G.S. 131E-138(c)'
+    }
+  };
+
+  var stateSel = document.getElementById('sc_state');
+  var typeSel = document.getElementById('sc_type');
+  Object.keys(NAMES).sort(function (a, b) { return NAMES[a] < NAMES[b] ? -1 : 1; }).forEach(function (code) {
+    var o = document.createElement('option');
+    o.value = code; o.textContent = NAMES[code];
+    stateSel.appendChild(o);
+  });
+  stateSel.value = 'TX';
+
+  function num(id) {
+    var v = parseFloat(document.getElementById(id).value);
+    return isNaN(v) || v < 0 ? 0 : v;
+  }
+  function money(v) {
+    return '$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function typesFor(code) {
+    return FEES[code] ? FEES[code].types : GENERIC_TYPES;
+  }
+  function currentFeeRecord() {
+    var rec = FEES[stateSel.value];
+    if (!rec) return null;
+    for (var i = 0; i < rec.types.length; i++) {
+      if (rec.types[i].id === typeSel.value) return rec.types[i];
+    }
+    return null;
+  }
+  function setTypes() {
+    var types = typesFor(stateSel.value);
+    typeSel.innerHTML = '';
+    types.forEach(function (t) {
+      var o = document.createElement('option');
+      o.value = t.id; o.textContent = t.label;
+      typeSel.appendChild(o);
+    });
+    setFee();
+  }
+  function setFee() {
+    var code = stateSel.value;
+    var feeEl = document.getElementById('sc_fee');
+    var hint = document.getElementById('sc_fee_hint');
+    var link = document.getElementById('sc_checklist_link');
+    var rec = FEES[code];
+    var t = currentFeeRecord();
+    if (rec) {
+      link.href = rec.checklist;
+      link.textContent = NAMES[code] + ' free state preview';
+    } else {
+      link.href = '/states/';
+      link.textContent = 'the free state previews';
+    }
+    if (t && t.fee !== null) {
+      feeEl.value = t.fee;
+      hint.textContent = t.note + ' Source: ' + rec.source + '. Last verified ' + VERIFIED + '. The figure stays editable: the amount your licensing portal shows for your application controls.';
+    } else if (t) {
+      feeEl.value = '';
+      hint.textContent = t.note;
+    } else {
+      feeEl.value = '';
+      hint.textContent = 'No verified fee for ' + NAMES[code] + ' in the records behind this tool, so this field waits for your number. Take it from your state licensing source or the free state preview for your state, never from a guess.';
+    }
+    calc();
+  }
+  function setTrack() {
+    var medicare = document.getElementById('sc_track').value === 'medicare';
+    document.getElementById('sc_accred_group').hidden = !medicare;
+    document.getElementById('sc_r_accred_row').hidden = !medicare;
+    calc();
+  }
+  function setHomeOffice() {
+    var office = document.getElementById('sc_office');
+    if (document.getElementById('sc_homeoffice').checked) {
+      office.value = 0;
+      office.disabled = true;
+    } else {
+      office.disabled = false;
+    }
+    calc();
+  }
+  function calc() {
+    var medicare = document.getElementById('sc_track').value === 'medicare';
+    var fee = num('sc_fee'), entity = num('sc_entity'), insDep = num('sc_ins_deposit');
+    var office = num('sc_office'), supplies = num('sc_supplies'), swSetup = num('sc_software_setup');
+    var accred = medicare ? num('sc_accred') : 0;
+    var hires = Math.floor(num('sc_hires'));
+    var perHire = num('sc_checks') + num('sc_training') + num('sc_uniforms');
+    var onboarding = perHire * hires;
+    var oneTime = fee + entity + insDep + office + supplies + swSetup + accred;
+    var burn = num('sc_rent') + num('sc_software_mo') + num('sc_ins_mo') + num('sc_phone') + num('sc_marketing');
+    var months = num('sc_months');
+    var runway = burn * months;
+    var allIn = oneTime + onboarding + runway;
+    var out = function (id, txt) { document.getElementById(id).textContent = txt; };
+    out('sc_r_fee', money(fee));
+    out('sc_r_entity', money(entity));
+    out('sc_r_ins_deposit', money(insDep));
+    out('sc_r_office', money(office));
+    out('sc_r_supplies', money(supplies));
+    out('sc_r_software_setup', money(swSetup));
+    if (medicare) out('sc_r_accred', money(accred));
+    out('sc_r_onetime', money(oneTime));
+    out('sc_r_perhire', money(perHire));
+    document.getElementById('sc_r_hires_label').textContent = 'First hires (' + hires + ' at ' + money(perHire) + ' each)';
+    out('sc_r_hires', money(onboarding));
+    out('sc_r_onboarding', money(onboarding));
+    out('sc_r_rent', money(num('sc_rent')));
+    out('sc_r_software_mo', money(num('sc_software_mo')));
+    out('sc_r_ins_mo', money(num('sc_ins_mo')));
+    out('sc_r_phone', money(num('sc_phone')));
+    out('sc_r_marketing', money(num('sc_marketing')));
+    out('sc_r_burn', money(burn));
+    document.getElementById('sc_r_months_label').textContent = 'Months until first payment (' + months + ')';
+    out('sc_r_months', money(runway));
+    out('sc_r_runway', money(runway));
+    out('sc_r_allin', money(allIn));
+    out('sc_allin', money(allIn));
+    var note = '';
+    if (allIn === 0) {
+      note = 'Enter your quotes line by line and the totals build here. Blank lines count as zero, so a line you have not priced yet is a gap in the budget, not a saving.';
+    } else if (months === 0) {
+      note = 'No runway is counted yet: add the months until first payment and the monthly burn, because the wait is usually the largest block in a startup budget.';
+    } else if (fee === 0) {
+      note = 'No state license fee is counted in this total yet. Add it above so the all-in figure covers the filing itself.';
+    }
+    out('sc_note', note);
+  }
+  stateSel.addEventListener('change', setTypes);
+  typeSel.addEventListener('change', setFee);
+  document.getElementById('sc_track').addEventListener('change', setTrack);
+  document.getElementById('sc_homeoffice').addEventListener('change', setHomeOffice);
+  ['sc_fee','sc_entity','sc_ins_deposit','sc_office','sc_supplies','sc_software_setup','sc_accred','sc_hires','sc_checks','sc_training','sc_uniforms','sc_months','sc_rent','sc_software_mo','sc_ins_mo','sc_phone','sc_marketing'].forEach(function (id) {
+    document.getElementById(id).addEventListener('input', calc);
+  });
+  setTypes();
+  setTrack();
+})();
+</script>
+</body>
+</html>
